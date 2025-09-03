@@ -53,7 +53,7 @@ class Settings:
     #hf_model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
     # LM Studio (OpenAI-compatible)
     deployment_name = os.getenv("AZURE_DEPLOYMENT_NAME")
-    model_name: str = "gpt-4o"
+    model_name: str = "gpt-4.1"
     lmstudio_model_env: str = "LMSTUDIO_MODEL"  # nome del modello in LM Studio, via env var
     hf_model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
 
@@ -84,7 +84,7 @@ class Rag:
             api_version="2024-12-01-preview",
             azure_endpoint=settings.azure_llm_endpoint,
             api_key=settings.llm_key,
-            azure_deployment="gpt-4o",  # Replace with actual deployment
+            azure_deployment="gpt-4.1",  # Replace with actual deployment
             temperature=0.1,
             max_tokens=1000,  # Optional: control response length
         )

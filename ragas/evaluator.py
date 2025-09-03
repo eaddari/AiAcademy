@@ -14,7 +14,7 @@ from ragas.metrics import (
 from datasets import Dataset
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 
-from src.esercizio_esteso.tools.rag_tool import RetrievalTool
+from rag.Rag import Rag
 
 
 @dataclass
@@ -31,9 +31,9 @@ class EvaluationResult:
 class RAGAS:
     
     def __init__(self):
-        self.retrieval_tool = RetrievalTool()
-        self.llm = self._get_llm()
-        self.embeddings = self._get_embeddings()
+        self.rag = Rag
+        self.llm = self.get_llm()
+        self.embeddings = self.get_embeddings()
         
     def get_llm(self) -> AzureChatOpenAI:
         return AzureChatOpenAI(
@@ -66,8 +66,7 @@ class RAGAS:
             retrieved_contexts = self.retrieval_tool._run(question)
             contexts = [i for i in retrieved_contexts.split('\n\n') if i.strip()]
             
-            prompt = f"Contesto: {retrieved_contexts}\n\nDomanda: {question}\n\nRisposta:"
-            answer = self.llm.invoke(prompt).content
+            answer = self.rag.generate(question, contexts)
             
             evaluation_data.append({
                 "question": question,
