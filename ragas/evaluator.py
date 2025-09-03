@@ -1,6 +1,7 @@
 import os
 from typing import List, Dict, Any
 from dataclasses import dataclass
+import pandas as pd
 
 from ragas import evaluate
 from ragas.metrics import (
@@ -11,8 +12,14 @@ from ragas.metrics import (
     answer_similarity,
     answer_correctness
 )
+from ragas.llms import LangchainLLMWrapper
+from ragas.embeddings import LangchainEmbeddingsWrapper
 from datasets import Dataset
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
+
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from rag.qdrant_rag import SETTINGS, get_embeddings, get_qdrant_client, simulate_corpus, split_documents, recreate_collection_for_rag, upsert_chunks, hybrid_search 
 
@@ -34,29 +41,56 @@ class RAGAS:
         self.settings = SETTINGS
         self.embeddings = get_embeddings(self.settings)
         self.client = get_qdrant_client(self.settings)
-        self.llm = self.get_llm()
+        
+        # Initialize Azure OpenAI LLM and Embeddings according to RAGAS documentation
+        self.azure_llm = self.get_azure_llm()
+        self.azure_embeddings = self.get_azure_embeddings()
+        
+        # Wrap with RAGAS wrappers
+        self.llm = LangchainLLMWrapper(self.azure_llm)
+        self.ragas_embeddings = LangchainEmbeddingsWrapper(self.azure_embeddings)
     
-        docs = simulate_corpus()
+        docs = self.load_medical_docs()
         chunks = split_documents(docs, self.settings)
         vector_size = 1536
         recreate_collection_for_rag(self.client, self.settings, vector_size)
         upsert_chunks(self.client, self.settings, chunks, self.embeddings)
+    
+    def load_medical_docs(self):
+        from pathlib import Path
+        from langchain.schema import Document
         
-    def get_llm(self) -> AzureChatOpenAI:
+        docs = []
+        project_root = Path(__file__).parent.parent
+        input_docs_path = project_root / "rag" / "input_docs"
+        
+        for file_path in input_docs_path.glob("*.txt"):
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read().strip()
+                if content:
+                    docs.append(Document(page_content=content, metadata={"source": file_path.name}))
+        return docs
+        
+    def get_azure_llm(self) -> AzureChatOpenAI:
+        """Create Azure OpenAI LLM according to RAGAS documentation pattern"""
         return AzureChatOpenAI(
-            azure_endpoint=os.getenv("AZURE_API_BASE"),
-            api_key=os.getenv("AZURE_API_KEY"),
-            api_version=os.getenv("AZURE_API_VERSION"),
-            deployment_name=os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4"),
+            openai_api_version=os.getenv("OPENAI_API_VERSION", "2024-12-01-preview"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            azure_deployment=os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4.1"),
+            model=os.getenv("AZURE_DEPLOYMENT_NAME", "gpt-4.1"),
+            validate_base_url=False,
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
             temperature=0
         )
     
-    def get_embeddings(self) -> AzureOpenAIEmbeddings:
+    def get_azure_embeddings(self) -> AzureOpenAIEmbeddings:
+        """Create Azure OpenAI Embeddings according to RAGAS documentation pattern"""
         return AzureOpenAIEmbeddings(
-            azure_endpoint=os.getenv("AZURE_API_BASE"),
-            api_key=os.getenv("AZURE_API_KEY"),
-            api_version=os.getenv("AZURE_API_VERSION"),
-            model="text-embedding-ada-002"
+            openai_api_version=os.getenv("OPENAI_API_VERSION", "2024-12-01-preview"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            azure_deployment=os.getenv("AZURE_EMBEDDING_DEPLOYMENT", "text-embedding-ada-002"),
+            model=os.getenv("AZURE_EMBEDDING_DEPLOYMENT", "text-embedding-ada-002"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY")
         )
     
     def evaluate_rag_pipeline(
@@ -96,18 +130,47 @@ class RAGAS:
             dataset=dataset,
             metrics=metrics,
             llm=self.llm,
-            embeddings=self.embeddings
+            embeddings=self.ragas_embeddings
         )
         
         scores = result.to_pandas()
-        overall_score = scores.mean().mean()
+        
+        # Handle potential non-numeric values in the results
+        numeric_scores = {}
+        overall_scores = []
+        
+        # List of expected metric columns
+        expected_metrics = ['faithfulness', 'answer_relevancy', 'context_precision', 
+                           'context_recall', 'answer_similarity', 'answer_correctness']
+        
+        for metric in expected_metrics:
+            if metric in scores.columns:
+                # Convert to numeric, replacing non-numeric values with NaN
+                numeric_values = pd.to_numeric(scores[metric], errors='coerce')
+                # Calculate mean, ignoring NaN values
+                mean_score = numeric_values.mean()
+                numeric_scores[metric] = mean_score if not pd.isna(mean_score) else 0.0
+                
+                if not pd.isna(mean_score):
+                    overall_scores.append(mean_score)
+            else:
+                print(f"Warning: {metric} not found in results")
+                numeric_scores[metric] = 0.0
+        
+        # Calculate overall score from successfully computed metrics
+        overall_score = sum(overall_scores) / len(overall_scores) if overall_scores else 0.0
+        
+        print(f"\nEvaluation Results Summary:")
+        for metric, score in numeric_scores.items():
+            print(f"{metric}: {score:.4f}")
+        print(f"Overall Score: {overall_score:.4f}")
         
         return EvaluationResult(
-            faithfulness=scores['faithfulness'].mean(),
-            answer_relevancy=scores['answer_relevancy'].mean(),
-            context_precision=scores['context_precision'].mean(),
-            context_recall=scores['context_recall'].mean(),
-            answer_similarity=scores['answer_similarity'].mean(),
-            answer_correctness=scores['answer_correctness'].mean(),
+            faithfulness=numeric_scores.get('faithfulness', 0.0),
+            answer_relevancy=numeric_scores.get('answer_relevancy', 0.0),
+            context_precision=numeric_scores.get('context_precision', 0.0),
+            context_recall=numeric_scores.get('context_recall', 0.0),
+            answer_similarity=numeric_scores.get('answer_similarity', 0.0),
+            answer_correctness=numeric_scores.get('answer_correctness', 0.0),
             overall_score=overall_score
         )

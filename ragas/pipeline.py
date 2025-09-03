@@ -10,7 +10,8 @@ class EvaluationPipeline:
     
     def __init__(self):
         self.evaluator = RAGAS()
-        self.dataset_path = "eval_dataset.json"
+        # Use absolute path to ensure correct file location
+        self.dataset_path = Path(__file__).parent / "eval_dataset.json"
     
     def load_eval_dataset(self) -> List[Dict[str, Any]]:
         with open(self.dataset_path, 'r', encoding='utf-8') as f:

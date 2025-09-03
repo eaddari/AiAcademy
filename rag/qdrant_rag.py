@@ -478,10 +478,36 @@ def get_llm(settings: Settings):
     - Test query is minimal and doesn't expose sensitive data
     """
     try:
-        base = os.getenv(settings.lm_base_env)
-        key = os.getenv(settings.lm_key_env)
-        model_name = os.getenv(settings.lm_model_env)
+        # Check for Azure OpenAI configuration first
+        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") or os.getenv("AZURE_API_BASE")
+        azure_key = os.getenv("AZURE_OPENAI_API_KEY") or os.getenv("AZURE_API_KEY")
+        azure_version = os.getenv("AZURE_OPENAI_API_VERSION") or os.getenv("AZURE_API_VERSION")
+        model_name = os.getenv("LMSTUDIO_MODEL") or os.getenv("MODEL")
         
+        if azure_endpoint and azure_key and azure_version and model_name:
+            print("Configuring Azure OpenAI...")
+            # Use Azure OpenAI
+            llm = init_chat_model(
+                model=model_name,
+                model_provider="azure_openai",
+                azure_endpoint=azure_endpoint,
+                api_key=azure_key,
+                api_version=azure_version
+            )
+            # Simple test to verify the LLM works
+            test_response = llm.invoke("test")
+            if test_response:
+                print("Azure OpenAI configured successfully")
+                return llm
+            else:
+                print("Azure OpenAI test failed - skipping generation step")
+                return None
+        
+        # Fallback to standard OpenAI configuration
+        base = os.getenv("OPENAI_BASE_URL")
+        key = os.getenv("OPENAI_API_KEY")
+        model_name = os.getenv("LMSTUDIO_MODEL")
+
         if not (base and key and model_name):
             print("LLM not configured - skipping generation step")
             return None
@@ -504,7 +530,9 @@ def get_llm(settings: Settings):
 
 def simulate_corpus() -> List[Document]:
     docs = []
-    input_docs_path = Path("input_docs")
+    # Get the directory where this script is located
+    script_dir = Path(__file__).parent
+    input_docs_path = script_dir / "input_docs"
     
     for file_path in input_docs_path.glob("*.txt"):
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -903,7 +931,7 @@ def hybrid_search(
     client: QdrantClient,
     settings: Settings,
     query: str,
-    embeddings: HuggingFaceEmbeddings
+    embeddings: AzureOpenAIEmbeddings
 ):
     """
     Perform hybrid search combining semantic similarity and text-based matching.
@@ -1250,14 +1278,20 @@ def main():
 
     # 2) Dati -> chunk
     docs = simulate_corpus()
+    print(f"Loaded {len(docs)} documents")
     chunks = split_documents(docs, s)
+    print(f"Split into {len(chunks)} chunks")
 
     # 3) Crea (o ricrea) collection
-    vector_size = embeddings._client.get_sentence_embedding_dimension()
+    vector_size = 1536
     recreate_collection_for_rag(client, s, vector_size)
 
     # 4) Upsert chunks
-    upsert_chunks(client, s, chunks, embeddings)
+    if chunks:
+        upsert_chunks(client, s, chunks, embeddings)
+        print("Chunks upserted successfully")
+    else:
+        print("No chunks to upsert")
 
     # 5) Query ibrida
     questions = [

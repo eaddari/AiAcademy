@@ -1,4 +1,3 @@
-import argparse
 from pipeline import EvaluationPipeline
 
 
