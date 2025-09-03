@@ -14,7 +14,7 @@ from ragas.metrics import (
 from datasets import Dataset
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 
-from rag.Rag import Rag, Settings
+from rag.qdrant_rag import SETTINGS, get_embeddings, get_qdrant_client, simulate_corpus, split_documents, recreate_collection_for_rag, upsert_chunks, hybrid_search 
 
 
 @dataclass
@@ -31,11 +31,16 @@ class EvaluationResult:
 class RAGAS:
     
     def __init__(self):
-
-        settings = Settings()
-        self.rag = Rag(settings)
+        self.settings = SETTINGS
+        self.embeddings = get_embeddings(self.settings)
+        self.client = get_qdrant_client(self.settings)
         self.llm = self.get_llm()
-        self.embeddings = self.get_embeddings()
+    
+        docs = simulate_corpus()
+        chunks = split_documents(docs, self.settings)
+        vector_size = 1536
+        recreate_collection_for_rag(self.client, self.settings, vector_size)
+        upsert_chunks(self.client, self.settings, chunks, self.embeddings)
         
     def get_llm(self) -> AzureChatOpenAI:
         return AzureChatOpenAI(
@@ -65,7 +70,9 @@ class RAGAS:
             question = item["question"]
             ground_truth = item["ground_truth"]
 
-            answer, contexts = self.rag.rag_answer_with_contexts(question)
+            hits = hybrid_search(self.client, self.settings, question, self.embeddings)
+            contexts = [hit.payload.get('text', '') for hit in hits]
+            answer = f"Answer based on {len(contexts)} retrieved contexts"
             
             evaluation_data.append({
                 "question": question,

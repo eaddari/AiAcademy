@@ -100,7 +100,7 @@ from typing import List, Dict, Any, Iterable, Tuple
 
 from dotenv import load_dotenv
 from langchain.schema import Document
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import AzureOpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 # LangChain Core components for prompt/chain construction
@@ -416,42 +416,19 @@ class Settings:
     - LM Studio: LMSTUDIO_MODEL=llama-2-7b-chat
     - Ollama: LMSTUDIO_MODEL=llama2:7b
     """
-
 SETTINGS = Settings()
 
 # =========================
 # Componenti di base
 # =========================
 
-def get_embeddings(settings: Settings) -> HuggingFaceEmbeddings:
-    """
-    Initialize and return a HuggingFace embeddings model instance.
-    
-    This function creates a sentence transformer model that converts text into
-    high-dimensional vector representations for semantic similarity search.
-    
-    Args:
-        settings: Configuration object containing the model name and parameters
-        
-    Returns:
-        HuggingFaceEmbeddings: Configured embedding model instance
-        
-    Model Loading Behavior:
-    - First run: Downloads model from HuggingFace Hub (requires internet)
-    - Subsequent runs: Loads from local cache (~/.cache/huggingface/)
-    - Model size: 100MB-2GB depending on the selected model
-        
-    Performance Notes:
-    - GPU acceleration: Automatically uses CUDA if available
-    - CPU fallback: Falls back to CPU if GPU unavailable
-    - Memory usage: Model loaded into RAM/VRAM during inference
-        
-    Error Handling:
-    - Network issues: Will fail if model not cached and no internet
-    - Memory issues: Large models may cause OOM on low-memory systems
-    - Model not found: Invalid model names will cause runtime errors
-    """
-    return HuggingFaceEmbeddings(model_name=settings.hf_model_name)
+def get_embeddings(self) -> AzureOpenAIEmbeddings:
+    return AzureOpenAIEmbeddings(
+        azure_endpoint=os.getenv("AZURE_API_BASE"),
+        api_key=os.getenv("AZURE_API_KEY"),
+        api_version=os.getenv("AZURE_API_VERSION"),
+        model="text-embedding-ada-002"
+    )
 
 def get_llm(settings: Settings):
     """
@@ -526,43 +503,14 @@ def get_llm(settings: Settings):
         return None
 
 def simulate_corpus() -> List[Document]:
-    docs = [
-        Document(
-            page_content=(
-                "LangChain is a framework for building applications with Large Language Models. "
-                "It provides chains, agents, prompt templates, memory, and many integrations."
-            ),
-            metadata={"id": "doc1", "source": "intro-langchain.md", "title": "Intro LangChain", "lang": "en"}
-        ),
-        Document(
-            page_content=(
-                "FAISS is a library for efficient similarity search of dense vectors. "
-                "It supports both exact and approximate nearest neighbor search at scale."
-            ),
-            metadata={"id": "doc2", "source": "faiss-overview.md", "title": "FAISS Overview", "lang": "en"}
-        ),
-        Document(
-            page_content=(
-                "Sentence-transformers like all-MiniLM-L6-v2 produce 384-dimensional sentence embeddings "
-                "for semantic search, clustering, and retrieval-augmented generation."
-            ),
-            metadata={"id": "doc3", "source": "embeddings-minilm.md", "title": "MiniLM Embeddings", "lang": "en"}
-        ),
-        Document(
-            page_content=(
-                "A typical RAG pipeline includes indexing (load, split, embed, store), retrieval, and generation. "
-                "Retrieval selects the most relevant chunks, then the LLM answers grounded in those chunks."
-            ),
-            metadata={"id": "doc4", "source": "rag-pipeline.md", "title": "RAG Pipeline", "lang": "en"}
-        ),
-        Document(
-            page_content=(
-                "Maximal Marginal Relevance (MMR) trades off relevance and diversity to reduce redundancy "
-                "and improve coverage of distinct aspects in retrieved chunks."
-            ),
-            metadata={"id": "doc5", "source": "retrieval-mmr.md", "title": "MMR Retrieval", "lang": "en"}
-        ),
-    ]
+    docs = []
+    input_docs_path = Path("input_docs")
+    
+    for file_path in input_docs_path.glob("*.txt"):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            if content:
+                docs.append(Document(page_content=content, metadata={"source": file_path.name}))
     return docs
 
 def split_documents(docs: List[Document], settings: Settings) -> List[Document]:
@@ -688,7 +636,7 @@ def build_points(chunks: List[Document], embeds: List[List[float]]) -> List[Poin
         pts.append(PointStruct(id=i, vector=vec, payload=payload))
     return pts
 
-def upsert_chunks(client: QdrantClient, settings: Settings, chunks: List[Document], embeddings: HuggingFaceEmbeddings):
+def upsert_chunks(client: QdrantClient, settings: Settings, chunks: List[Document], embeddings: AzureOpenAIEmbeddings):
     vecs = embeddings.embed_documents([c.page_content for c in chunks])
     points = build_points(chunks, vecs)
     client.upsert(collection_name=settings.collection, points=points, wait=True)
@@ -701,7 +649,7 @@ def qdrant_semantic_search(
     client: QdrantClient,
     settings: Settings,
     query: str,
-    embeddings: HuggingFaceEmbeddings,
+    embeddings: AzureOpenAIEmbeddings,
     limit: int,
     with_vectors: bool = False
 ):
