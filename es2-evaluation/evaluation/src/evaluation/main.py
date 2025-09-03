@@ -1,53 +1,46 @@
 #!/usr/bin/env python
-from random import randint
 
 from pydantic import BaseModel
-
 from crewai.flow import Flow, listen, start
 
-from evaluation.crews.poem_crew.poem_crew import PoemCrew
+from src.evaluation.crews.rag_crew.crew import RagCrew
 
 
-class PoemState(BaseModel):
-    sentence_count: int = 1
-    poem: str = ""
+class Query(BaseModel):
+    medical_query: str = ""
+    analysis_result: str = ""
 
 
-class PoemFlow(Flow[PoemState]):
+class MedicalRAGFlow(Flow[Query]):
 
     @start()
-    def generate_sentence_count(self):
-        print("Generating sentence count")
-        self.state.sentence_count = randint(1, 5)
+    def set_medical_query(self):
+        self.state.medical_query = "What are the symptoms and treatment options for hypertension?"
 
-    @listen(generate_sentence_count)
-    def generate_poem(self):
-        print("Generating poem")
-        result = (
-            PoemCrew()
-            .crew()
-            .kickoff(inputs={"sentence_count": self.state.sentence_count})
-        )
+    @listen(set_medical_query)
+    def process_medical_query(self):
+        result = RagCrew().crew().kickoff(inputs={"medical_query": self.state.medical_query})
+        self.state.analysis_result = result.raw
 
-        print("Poem generated", result.raw)
-        self.state.poem = result.raw
-
-    @listen(generate_poem)
-    def save_poem(self):
-        print("Saving poem")
-        with open("poem.txt", "w") as f:
-            f.write(self.state.poem)
+    @listen(process_medical_query)
+    def save_results(self):
+        with open("medical_analysis.txt", "w", encoding="utf-8") as f:
+            f.write(f"Query: {self.state.medical_query}\n\n")
+            f.write("Analysis Result:\n")
+            f.write(self.state.analysis_result)
 
 
 def kickoff():
-    poem_flow = PoemFlow()
-    poem_flow.kickoff()
+    MedicalRAGFlow().kickoff()
 
 
-def plot():
-    poem_flow = PoemFlow()
-    poem_flow.plot()
+def kickoff_with_custom_query(query: str):
+    flow = MedicalRAGFlow()
+    flow.state.medical_query = query
+    flow.process_medical_query()
+    flow.save_results()
 
 
 if __name__ == "__main__":
-    kickoff()
+
+        kickoff()
