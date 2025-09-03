@@ -21,7 +21,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from rag.qdrant_rag import SETTINGS, get_embeddings, get_qdrant_client, simulate_corpus, split_documents, recreate_collection_for_rag, upsert_chunks, hybrid_search 
+from rag.qdrant_rag import SETTINGS, get_embeddings, get_qdrant_client, split_documents, recreate_collection_for_rag, upsert_chunks, hybrid_search, format_docs_for_prompt, build_rag_chain
 
 
 @dataclass
@@ -46,12 +46,10 @@ class RAGAS:
         self.client = get_qdrant_client(self.settings)
         
         print("Initializing Azure OpenAI components...")
-        # Initialize Azure OpenAI LLM and Embeddings according to RAGAS documentation
         self.azure_llm = self.get_azure_llm()
         self.azure_embeddings = self.get_azure_embeddings()
         
         print("Wrapping with RAGAS wrappers...")
-        # Wrap with RAGAS wrappers
         self.llm = LangchainLLMWrapper(self.azure_llm)
         self.ragas_embeddings = LangchainEmbeddingsWrapper(self.azure_embeddings)
     
@@ -115,8 +113,16 @@ class RAGAS:
 
             hits = hybrid_search(self.client, self.settings, question, self.embeddings)
             contexts = [hit.payload.get('text', '') for hit in hits]
-            answer = f"Answer based on {len(contexts)} retrieved contexts"
             
+            context_str = format_docs_for_prompt(hits)
+    
+            gen_chain = build_rag_chain(self.azure_llm)
+
+            if context_str.strip():
+                answer = gen_chain.invoke({"question": question, "context": context_str})
+            else:
+                answer = "Non ho trovato l'informazione nei documenti forniti."
+
             evaluation_data.append({
                 "question": question,
                 "answer": answer,

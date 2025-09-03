@@ -1135,7 +1135,7 @@ def build_rag_chain(llm):
 
     chain = (
         {
-            "context": RunnablePassthrough(),  # stringa già formattata
+            "context": RunnablePassthrough(),
             "question": RunnablePassthrough(),
         }
         | prompt
