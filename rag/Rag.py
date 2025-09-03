@@ -3,6 +3,7 @@ from langchain_openai import AzureOpenAIEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 import os 
+import glob
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -248,8 +249,14 @@ class Rag:
         return index
     
     def _create_documents(self) -> List[Document]:
-        """Crea documenti medici di esempio hardcodati"""
-        pass
+        """Recupera dei bugiardini da cartella"""
+        cartella = "rag\\input_docs"
+        docs = []
+        files = glob.glob(f"{cartella}/*.txt")
+        for file in files:
+            with open(file, "r", encoding="utf-8") as f:
+                docs.append(Document(page_content=f.read(), metadata={"source": file}))
+        return docs
 
     
     def split_docs(self):
