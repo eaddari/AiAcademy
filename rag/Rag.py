@@ -74,7 +74,7 @@ class Rag:
         self.recreate_collection_for_rag(client, settings, vector_size)
         self.upsert_chunks(client, settings, chunks,self.embedder)
         print("Qdrant Configuraziont succeced!")
-        #self.retriver = self.make_retriever(settings)
+        self.retriever = self.make_retriever(settings)
 
         self.chain = self.build_rag_chain()
 
@@ -269,15 +269,26 @@ class Rag:
     
     def make_retriever(self,settings: Settings):
         """
-        Configura il retriever. Con 'mmr' otteniamo risultati meno ridondanti e più coprenti.
+        Configura il retriever per Qdrant. 
         """
+        from langchain_qdrant import QdrantVectorStore
+        
+        client = self.get_qdrant_client(settings)
+        
+        vector_store = QdrantVectorStore(
+            client=client,
+            collection_name=settings.collection,
+            embeddings=self.embedder
+        )
+        
+        # Return retriever with specified search parameters
         if settings.search_type == "mmr":
-            return self.vec_db.as_retriever(
+            return vector_store.as_retriever(
                 search_type="mmr",
                 search_kwargs={"k": settings.k, "fetch_k": settings.fetch_k, "lambda_mult": settings.mmr_lambda},
             )
         else:
-            return self.vec_db.as_retriever(
+            return vector_store.as_retriever(
                 search_type="similarity",
                 search_kwargs={"k": settings.k},
             )
@@ -302,7 +313,7 @@ class Rag:
         # LCEL: dict -> prompt -> llm -> parser
         chain = (
             {
-                "context": RunnablePassthrough(), 
+                "context": self.retriever,
                 "question": RunnablePassthrough(),
             }
             | prompt
@@ -317,6 +328,19 @@ class Rag:
         Esegue la catena RAG per una singola domanda.
         """
         return self.chain.invoke(question)
+    
+    def rag_answer_with_contexts(self, question: str) -> tuple[str, list[str]]:
+
+        # Recupera i contesti usando il retriever
+        retrieved_docs = self.retriever.invoke(question)
+        
+        # Estrai il testo dai documenti
+        contexts = [doc.page_content for doc in retrieved_docs]
+        
+        # Genera la risposta usando la catena
+        answer = self.chain.invoke(question)
+        
+        return answer, contexts
     
     
     

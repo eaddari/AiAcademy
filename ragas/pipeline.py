@@ -8,17 +8,16 @@ from evaluator import RAGAS, EvaluationResult
 
 class EvaluationPipeline:
     
-    def __init__(self, dataset_path: str = None):
+    def __init__(self):
         self.evaluator = RAGAS()
-        self.dataset_path = dataset_path
-    
+        self.dataset_path = "eval_dataset.json"
     
     def load_eval_dataset(self) -> List[Dict[str, Any]]:
         with open(self.dataset_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     
     def run_evaluation(self) -> EvaluationResult:
-        dataset = self.load_evaluation_dataset()
+        dataset = self.load_eval_dataset()
         return self.evaluator.evaluate_rag_pipeline(dataset)
     
     def save_results(self, results: EvaluationResult, output_path: str = None):

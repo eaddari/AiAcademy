@@ -14,7 +14,7 @@ from ragas.metrics import (
 from datasets import Dataset
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 
-from rag.Rag import Rag
+from rag.Rag import Rag, Settings
 
 
 @dataclass
@@ -31,7 +31,9 @@ class EvaluationResult:
 class RAGAS:
     
     def __init__(self):
-        self.rag = Rag
+
+        settings = Settings()
+        self.rag = Rag(settings)
         self.llm = self.get_llm()
         self.embeddings = self.get_embeddings()
         
@@ -62,11 +64,8 @@ class RAGAS:
         for item in test_dataset:
             question = item["question"]
             ground_truth = item["ground_truth"]
-            
-            retrieved_contexts = self.retrieval_tool._run(question)
-            contexts = [i for i in retrieved_contexts.split('\n\n') if i.strip()]
-            
-            answer = self.rag.generate(question, contexts)
+
+            answer, contexts = self.rag.rag_answer_with_contexts(question)
             
             evaluation_data.append({
                 "question": question,
