@@ -1,6 +1,0 @@
-summarization_task:
-    description: >
-        Read the provided document and generate a concise summary that captures all key points and essential information. The summary should be clear, accurate, and suitable for a general audience.
-    expected_output: >
-        A well-structured summary of the document, highlighting the main ideas and important details, formatted as markdown (without code blocks).
-    agent: document_summarizer

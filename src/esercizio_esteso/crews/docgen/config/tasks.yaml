@@ -1,9 +1,0 @@
-document_generation_task:
-  description: >
-    Generate documentation for {topic} following the EXACT structure provided in {template_structure}.
-    Use the research content: {research_content}
-    Follow the template format precisely, replacing placeholder content with relevant information about {topic}.
-    Maintain all headings, sections, HTML tags, and formatting exactly as shown in the template.
-  expected_output: >
-    A complete documentation document that follows the exact template structure with {topic} content filled in appropriately.
-  agent: generation_agent
