@@ -21,7 +21,11 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from rag.qdrant_rag import SETTINGS, get_embeddings, get_qdrant_client, simulate_corpus, split_documents, recreate_collection_for_rag, upsert_chunks, hybrid_search 
+from rag.qdrant_rag import (
+    SETTINGS, get_embeddings, get_qdrant_client, simulate_corpus,
+    split_documents, recreate_collection_for_rag, upsert_chunks, hybrid_search,
+    format_docs_for_prompt, build_rag_chain   # <<< AGGIUNTO
+)
 
 
 @dataclass
@@ -105,8 +109,19 @@ class RAGAS:
             ground_truth = item["ground_truth"]
 
             hits = hybrid_search(self.client, self.settings, question, self.embeddings)
-            contexts = [hit.payload.get('text', '') for hit in hits]
-            answer = f"Answer based on {len(contexts)} retrieved contexts"
+            contexts = [hit.payload.get('text', '') for hit in hits]  # <- resta: serve a RAGAS
+
+            # 1) crea il testo CONTENUTO con tag [source:...]
+            context_str = format_docs_for_prompt(hits)
+
+            # 2) costruisci la chain usando l'LLM Azure già creato in __init__
+            gen_chain = build_rag_chain(self.azure_llm)
+
+            # 3) genera la risposta fedele al CONTENUTO (fallback se vuoto)
+            if context_str.strip():
+                answer = gen_chain.invoke({"question": question, "context": context_str})
+            else:
+                answer = "Non ho trovato l'informazione nei documenti forniti."
             
             evaluation_data.append({
                 "question": question,
