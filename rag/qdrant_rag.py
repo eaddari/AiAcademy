@@ -187,7 +187,7 @@ class Settings:
     # =========================
     # Document Chunking Configuration
     # =========================
-    chunk_size: int = 700
+    chunk_size: int = 500
     """
     Maximum number of characters per document chunk.
     
@@ -207,7 +207,7 @@ class Settings:
     - Larger chunks: Lower recall, higher precision, more complete context
     """
     
-    chunk_overlap: int = 120
+    chunk_overlap: int = 200
     """
     Number of characters to overlap between consecutive chunks.
     
@@ -231,7 +231,7 @@ class Settings:
     # =========================
     # Hybrid Search Configuration
     # =========================
-    top_n_semantic: int = 30
+    top_n_semantic: int = 50
     """
     Number of top semantic search candidates to retrieve initially.
     
@@ -251,7 +251,7 @@ class Settings:
     - Large collections (10000+ docs): 50-100 candidates
     """
     
-    top_n_text: int = 100
+    top_n_text: int = 130
     """
     Maximum number of text-based matches to consider for hybrid fusion.
     
@@ -266,7 +266,7 @@ class Settings:
     - Optimal value depends on collection size and query complexity
     """
     
-    final_k: int = 6
+    final_k: int = 8
     """
     Final number of results to return after all processing steps.
     
@@ -1116,21 +1116,21 @@ def format_docs_for_prompt(points: Iterable[Any]) -> str:
 
 def build_rag_chain(llm):
     system_prompt = (
-        "Sei un assistente tecnico. Rispondi in italiano, conciso e accurato. "
-        "Usa ESCLUSIVAMENTE le informazioni presenti nel CONTENUTO. "
-        "Se non è presente, dichiara: 'Non è presente nel contesto fornito.' "
-        "Cita sempre le fonti nel formato [source:FILE]."
+        "You are a technical assistant. Answer in English, concisely and accurately. "
+        "Use EXCLUSIVELY the information present in the CONTENT. "
+        "If information is not present, state: 'Information not available in the provided context.' "
+        "Always cite sources in the format [source:FILE]."
     )
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_prompt),
         ("human",
-         "Domanda:\n{question}\n\n"
-         "CONTENUTO:\n{context}\n\n"
-         "Istruzioni:\n"
-         "1) Risposta basata solo sul contenuto.\n"
-         "2) Includi citazioni [source:...].\n"
-         "3) Niente invenzioni.")
+         "Question:\n{question}\n\n"
+         "CONTENT:\n{context}\n\n"
+         "Instructions:\n"
+         "1) Answer based only on the content.\n"
+         "2) Include citations [source:...].\n"
+         "3) No fabrications.")
     ])
 
     chain = (
@@ -1294,12 +1294,7 @@ def main():
         print("No chunks to upsert")
 
     # 5) Query ibrida
-    questions = [
-        "Cos'è una pipeline RAG e quali sono le sue fasi?",
-        "A cosa serve FAISS e che caratteristiche offre?",
-        "Che cos'è MMR e perché riduce la ridondanza?",
-        "Qual è la dimensione degli embedding di all-MiniLM-L6-v2?",
-    ]
+    questions = []
 
     for q in questions:
         hits = hybrid_search(client, s, q, embeddings)

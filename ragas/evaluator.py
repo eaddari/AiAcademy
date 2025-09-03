@@ -38,23 +38,32 @@ class EvaluationResult:
 class RAGAS:
     
     def __init__(self):
+        print("Initializing RAGAS class...")
         self.settings = SETTINGS
+        print("Loading embeddings...")
         self.embeddings = get_embeddings(self.settings)
+        print("Getting Qdrant client...")
         self.client = get_qdrant_client(self.settings)
         
+        print("Initializing Azure OpenAI components...")
         # Initialize Azure OpenAI LLM and Embeddings according to RAGAS documentation
         self.azure_llm = self.get_azure_llm()
         self.azure_embeddings = self.get_azure_embeddings()
         
+        print("Wrapping with RAGAS wrappers...")
         # Wrap with RAGAS wrappers
         self.llm = LangchainLLMWrapper(self.azure_llm)
         self.ragas_embeddings = LangchainEmbeddingsWrapper(self.azure_embeddings)
     
+        print("Loading and processing documents...")
         docs = self.load_medical_docs()
         chunks = split_documents(docs, self.settings)
         vector_size = 1536
+        print("Setting up Qdrant collection...")
         recreate_collection_for_rag(self.client, self.settings, vector_size)
+        print("Upserting chunks to Qdrant...")
         upsert_chunks(self.client, self.settings, chunks, self.embeddings)
+        print("RAGAS initialization complete.")
     
     def load_medical_docs(self):
         from pathlib import Path
