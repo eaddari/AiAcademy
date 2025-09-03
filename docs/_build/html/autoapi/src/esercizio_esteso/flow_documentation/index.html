@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.esercizio_esteso.flow_documentation &mdash; Esercizio Esteso - CrewAI Multi-Agent System 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=fd855994" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="src.esercizio_esteso.main" href="../main/index.html" />
+    <link rel="prev" title="src.esercizio_esteso.crews.summarization_crew.config" href="../crews/summarization_crew/config/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Esercizio Esteso - CrewAI Multi-Agent System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../flows.html">Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../crews.html">Crews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#modules">Modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">src.esercizio_esteso</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../index.html#key-features">Key Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#modules">Modules</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Esercizio Esteso - CrewAI Multi-Agent System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">src</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">src.esercizio_esteso</a></li>
+      <li class="breadcrumb-item active">src.esercizio_esteso.flow_documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/src/esercizio_esteso/flow_documentation/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.esercizio_esteso.flow_documentation">
+<span id="src-esercizio-esteso-flow-documentation"></span><h1>src.esercizio_esteso.flow_documentation<a class="headerlink" href="#module-src.esercizio_esteso.flow_documentation" title="Link to this heading"></a></h1>
+<p>Documentation Generation Flow for CrewAI Multi-Agent System.</p>
+<p>This module implements a comprehensive documentation generation workflow that
+uses Retrieval-Augmented Generation (RAG) and specialized AI crews to create
+structured technical documentation. The flow coordinates multiple agents to
+research, analyze, and synthesize information into professional documentation.</p>
+<p>The workflow includes:
+- Automated RAG research to gather system information
+- Template-based section identification and content generation
+- Multi-agent collaboration for comprehensive documentation
+- Quality assurance and final report compilation</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>DocumentationFlowState<span class="classifier">BaseModel</span></dt><dd><p>Pydantic model for managing flow state and data persistence.</p>
+</dd>
+<dt>DocumentationFlow<span class="classifier">Flow</span></dt><dd><p>Main flow class that orchestrates the documentation generation process.</p>
+</dd>
+</dl>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>kickoff<span class="classifier">callable</span></dt><dd><p>Entry point function to start the documentation generation flow.</p>
+</dd>
+<dt>plot<span class="classifier">callable</span></dt><dd><p>Function to generate visual representation of the flow structure.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Run the documentation flow:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">flow_documentation</span><span class="w"> </span><span class="kn">import</span> <span class="n">kickoff</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">kickoff</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Generate flow visualization:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">flow_documentation</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The flow uses Azure OpenAI models and requires proper configuration of
+environment variables for API access. The RAG system depends on a
+pre-indexed knowledge base with relevant system documentation.</p>
+</section>
+<section id="id1">
+<h2>Classes<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow" title="src.esercizio_esteso.flow_documentation.DocumentationFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DocumentationFlow</span></code></a></p></td>
+<td><p>Main flow class for orchestrating documentation generation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState" title="src.esercizio_esteso.flow_documentation.DocumentationFlowState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DocumentationFlowState</span></code></a></p></td>
+<td><p>State management for the Documentation flow.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h2>Functions<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.esercizio_esteso.flow_documentation.kickoff" title="src.esercizio_esteso.flow_documentation.kickoff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kickoff</span></code></a>()</p></td>
+<td><p>Execute the Documentation flow and generate comprehensive documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.esercizio_esteso.flow_documentation.plot" title="src.esercizio_esteso.flow_documentation.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>()</p></td>
+<td><p>Generate a visualization of the documentation flow structure.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.flow_documentation.</span></span><span class="sig-name descname"><span class="pre">DocumentationFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">persistence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">crewai.flow.persistence.base.FlowPersistence</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">crewai.flow.Flow</span></code>[<a class="reference internal" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState" title="src.esercizio_esteso.flow_documentation.DocumentationFlowState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DocumentationFlowState</span></code></a>]</p>
+<p>Main flow class for orchestrating documentation generation.</p>
+<p>This class implements a CrewAI Flow that coordinates multiple AI agents
+and crews to generate comprehensive technical documentation. The flow
+follows a structured pipeline from research through synthesis to final
+report generation.</p>
+<p>The workflow includes the following stages:
+1. User input collection and topic definition
+2. RAG-based research to gather relevant information
+3. Template section identification and structure planning
+4. Content generation for each documentation section
+5. Final report compilation and formatting</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow.state">
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow.state" title="Link to this definition"></a></dt>
+<dd><p>The persistent state object that tracks progress and data
+throughout the documentation generation process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState" title="src.esercizio_esteso.flow_documentation.DocumentationFlowState">DocumentationFlowState</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow.collect_user_input">
+<span class="sig-name descname"><span class="pre">collect_user_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow.collect_user_input" title="Link to this definition"></a></dt>
+<dd><p>Entry point for the flow that sets up automatic documentation generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow.execute_rag_research">
+<span class="sig-name descname"><span class="pre">execute_rag_research</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow.execute_rag_research" title="Link to this definition"></a></dt>
+<dd><p>Performs comprehensive RAG research to gather system information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow.identify_template_sections">
+<span class="sig-name descname"><span class="pre">identify_template_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow.identify_template_sections" title="Link to this definition"></a></dt>
+<dd><p>Parses templates to identify sections requiring content generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow.generate_section_content">
+<span class="sig-name descname"><span class="pre">generate_section_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow.generate_section_content" title="Link to this definition"></a></dt>
+<dd><p>Creates content for each identified documentation section.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlow.compile_final_report">
+<span class="sig-name descname"><span class="pre">compile_final_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlow.compile_final_report" title="Link to this definition"></a></dt>
+<dd><p>Assembles all sections into a cohesive final document.</p>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flow</span> <span class="o">=</span> <span class="n">DocumentationFlow</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">kickoff</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>The flow uses the &#64;start and &#64;listen decorators to define the execution
+sequence and dependencies between different stages. Each method returns
+a string identifier that triggers the next stage in the pipeline.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlowState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.flow_documentation.</span></span><span class="sig-name descname"><span class="pre">DocumentationFlowState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>State management for the Documentation flow.</p>
+<p>This Pydantic model manages the persistent state throughout the
+documentation generation workflow, tracking research findings,
+template sections, and intermediate results.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlowState.topic">
+<span class="sig-name descname"><span class="pre">topic</span></span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState.topic" title="Link to this definition"></a></dt>
+<dd><p>The main topic or focus area for documentation generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, default=””</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlowState.rag_findings">
+<span class="sig-name descname"><span class="pre">rag_findings</span></span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState.rag_findings" title="Link to this definition"></a></dt>
+<dd><p>Raw findings and information extracted from the RAG research phase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, default=””</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlowState.template_sections">
+<span class="sig-name descname"><span class="pre">template_sections</span></span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState.template_sections" title="Link to this definition"></a></dt>
+<dd><p>List of documentation template sections to be populated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a>, default=[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlowState.section_responses">
+<span class="sig-name descname"><span class="pre">section_responses</span></span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState.section_responses" title="Link to this definition"></a></dt>
+<dd><p>Dictionary mapping section identifiers to generated content.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a>, default={}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.DocumentationFlowState.final_report">
+<span class="sig-name descname"><span class="pre">final_report</span></span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.DocumentationFlowState.final_report" title="Link to this definition"></a></dt>
+<dd><p>The complete generated documentation as a formatted string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, default=””</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">DocumentationFlowState</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;API Documentation&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">rag_findings</span> <span class="o">=</span> <span class="s2">&quot;Comprehensive API details...&quot;</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>This model ensures type safety and data validation throughout the
+flow execution process, providing a structured way to manage the
+evolving documentation content.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.kickoff">
+<span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.flow_documentation.</span></span><span class="sig-name descname"><span class="pre">kickoff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.kickoff" title="Link to this definition"></a></dt>
+<dd><p>Execute the Documentation flow and generate comprehensive documentation.</p>
+<p>Initializes and runs the complete documentation generation workflow,
+coordinating multiple AI agents to create structured technical
+documentation based on RAG research and template-driven content
+generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result object from the flow execution, containing the
+generated documentation and metadata about the process.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The function creates a new DocumentationFlow instance and executes
+the complete workflow pipeline. The final documentation is saved
+to ‘output/research_report.md’ and status information is printed
+to the console.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">kickoff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Documentation generated successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.esercizio_esteso.flow_documentation.plot">
+<span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.flow_documentation.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.flow_documentation.plot" title="Link to this definition"></a></dt>
+<dd><p>Generate a visualization of the documentation flow structure.</p>
+<p>Creates a visual representation of the DocumentationFlow showing
+the relationships between different stages, agents, and tasks in
+the documentation generation workflow.</p>
+<p class="rubric">Notes</p>
+<p>The visualization is saved as an HTML file named
+‘documentation_flow.html’ in the current directory. This helps
+in understanding the flow structure and debugging the workflow.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flow visualization created&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../crews/summarization_crew/config/index.html" class="btn btn-neutral float-left" title="src.esercizio_esteso.crews.summarization_crew.config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../main/index.html" class="btn btn-neutral float-right" title="src.esercizio_esteso.main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, AI Academy Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

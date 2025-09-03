@@ -1,0 +1,232 @@
+src.esercizio_esteso.flow_documentation
+=======================================
+
+.. py:module:: src.esercizio_esteso.flow_documentation
+
+.. autoapi-nested-parse::
+
+   Documentation Generation Flow for CrewAI Multi-Agent System.
+
+   This module implements a comprehensive documentation generation workflow that
+   uses Retrieval-Augmented Generation (RAG) and specialized AI crews to create
+   structured technical documentation. The flow coordinates multiple agents to
+   research, analyze, and synthesize information into professional documentation.
+
+   The workflow includes:
+   - Automated RAG research to gather system information
+   - Template-based section identification and content generation
+   - Multi-agent collaboration for comprehensive documentation
+   - Quality assurance and final report compilation
+
+   Classes
+   -------
+   DocumentationFlowState : BaseModel
+       Pydantic model for managing flow state and data persistence.
+   DocumentationFlow : Flow
+       Main flow class that orchestrates the documentation generation process.
+
+   Functions
+   ---------
+   kickoff : callable
+       Entry point function to start the documentation generation flow.
+   plot : callable
+       Function to generate visual representation of the flow structure.
+
+   .. rubric:: Examples
+
+   Run the documentation flow:
+       >>> from flow_documentation import kickoff
+       >>> result = kickoff()
+
+   Generate flow visualization:
+       >>> from flow_documentation import plot
+       >>> plot()
+
+   .. rubric:: Notes
+
+   The flow uses Azure OpenAI models and requires proper configuration of
+   environment variables for API access. The RAG system depends on a
+   pre-indexed knowledge base with relevant system documentation.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   src.esercizio_esteso.flow_documentation.DocumentationFlow
+   src.esercizio_esteso.flow_documentation.DocumentationFlowState
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   src.esercizio_esteso.flow_documentation.kickoff
+   src.esercizio_esteso.flow_documentation.plot
+
+
+Module Contents
+---------------
+
+.. py:class:: DocumentationFlow(persistence: Optional[crewai.flow.persistence.base.FlowPersistence] = None, tracing: Optional[bool] = False, **kwargs: Any)
+
+   Bases: :py:obj:`crewai.flow.Flow`\ [\ :py:obj:`DocumentationFlowState`\ ]
+
+
+   Main flow class for orchestrating documentation generation.
+
+   This class implements a CrewAI Flow that coordinates multiple AI agents
+   and crews to generate comprehensive technical documentation. The flow
+   follows a structured pipeline from research through synthesis to final
+   report generation.
+
+   The workflow includes the following stages:
+   1. User input collection and topic definition
+   2. RAG-based research to gather relevant information
+   3. Template section identification and structure planning
+   4. Content generation for each documentation section
+   5. Final report compilation and formatting
+
+   .. attribute:: state
+
+      The persistent state object that tracks progress and data
+      throughout the documentation generation process.
+
+      :type: DocumentationFlowState
+
+   .. method:: collect_user_input()
+
+      Entry point for the flow that sets up automatic documentation generation.
+
+   .. method:: execute_rag_research()
+
+      Performs comprehensive RAG research to gather system information.
+
+   .. method:: identify_template_sections()
+
+      Parses templates to identify sections requiring content generation.
+
+   .. method:: generate_section_content()
+
+      Creates content for each identified documentation section.
+
+   .. method:: compile_final_report()
+
+      Assembles all sections into a cohesive final document.
+
+
+   .. rubric:: Examples
+
+   >>> flow = DocumentationFlow()
+   >>> result = flow.kickoff()
+
+   .. rubric:: Notes
+
+   The flow uses the @start and @listen decorators to define the execution
+   sequence and dependencies between different stages. Each method returns
+   a string identifier that triggers the next stage in the pipeline.
+
+
+.. py:class:: DocumentationFlowState(/, **data: Any)
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   State management for the Documentation flow.
+
+   This Pydantic model manages the persistent state throughout the
+   documentation generation workflow, tracking research findings,
+   template sections, and intermediate results.
+
+   .. attribute:: topic
+
+      The main topic or focus area for documentation generation.
+
+      :type: str, default=""
+
+   .. attribute:: rag_findings
+
+      Raw findings and information extracted from the RAG research phase.
+
+      :type: str, default=""
+
+   .. attribute:: template_sections
+
+      List of documentation template sections to be populated.
+
+      :type: list, default=[]
+
+   .. attribute:: section_responses
+
+      Dictionary mapping section identifiers to generated content.
+
+      :type: dict, default={}
+
+   .. attribute:: final_report
+
+      The complete generated documentation as a formatted string.
+
+      :type: str, default=""
+
+   .. rubric:: Examples
+
+   >>> state = DocumentationFlowState()
+   >>> state.topic = "API Documentation"
+   >>> state.rag_findings = "Comprehensive API details..."
+
+   .. rubric:: Notes
+
+   This model ensures type safety and data validation throughout the
+   flow execution process, providing a structured way to manage the
+   evolving documentation content.
+
+
+.. py:function:: kickoff()
+
+   Execute the Documentation flow and generate comprehensive documentation.
+
+   Initializes and runs the complete documentation generation workflow,
+   coordinating multiple AI agents to create structured technical
+   documentation based on RAG research and template-driven content
+   generation.
+
+   :returns: The result object from the flow execution, containing the
+             generated documentation and metadata about the process.
+   :rtype: Any
+
+   .. rubric:: Notes
+
+   The function creates a new DocumentationFlow instance and executes
+   the complete workflow pipeline. The final documentation is saved
+   to 'output/research_report.md' and status information is printed
+   to the console.
+
+   .. rubric:: Examples
+
+   >>> result = kickoff()
+   >>> print("Documentation generated successfully")
+
+
+.. py:function:: plot()
+
+   Generate a visualization of the documentation flow structure.
+
+   Creates a visual representation of the DocumentationFlow showing
+   the relationships between different stages, agents, and tasks in
+   the documentation generation workflow.
+
+   .. rubric:: Notes
+
+   The visualization is saved as an HTML file named
+   'documentation_flow.html' in the current directory. This helps
+   in understanding the flow structure and debugging the workflow.
+
+   .. rubric:: Examples
+
+   >>> plot()
+   >>> print("Flow visualization created")
+
+

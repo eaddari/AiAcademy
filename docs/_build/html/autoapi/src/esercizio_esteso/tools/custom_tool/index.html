@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.esercizio_esteso.tools.custom_tool &mdash; Esercizio Esteso - CrewAI Multi-Agent System 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=fd855994" />
+
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="src.esercizio_esteso.tools.vision_tools" href="../vision_tools/index.html" />
+    <link rel="prev" title="src.esercizio_esteso.tools" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            Esercizio Esteso - CrewAI Multi-Agent System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../flows.html">Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../crews.html">Crews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#modules">Modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">src.esercizio_esteso</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#key-features">Key Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../index.html#modules">Modules</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Esercizio Esteso - CrewAI Multi-Agent System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">src</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">src.esercizio_esteso</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">src.esercizio_esteso.tools</a></li>
+      <li class="breadcrumb-item active">src.esercizio_esteso.tools.custom_tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/src/esercizio_esteso/tools/custom_tool/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.esercizio_esteso.tools.custom_tool">
+<span id="src-esercizio-esteso-tools-custom-tool"></span><h1>src.esercizio_esteso.tools.custom_tool<a class="headerlink" href="#module-src.esercizio_esteso.tools.custom_tool" title="Link to this heading"></a></h1>
+<p>Custom Tools for CrewAI Multi-Agent System.</p>
+<p>This module provides custom tools that extend the capabilities of CrewAI agents,
+including local Retrieval-Augmented Generation (RAG) functionality and
+mathematical equation solving tools.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>MyCustomToolInput<span class="classifier">BaseModel</span></dt><dd><p>Pydantic model defining the input schema for custom tools.</p>
+</dd>
+<dt>LocalRag<span class="classifier">BaseTool</span></dt><dd><p>Tool for performing local RAG operations using FAISS and Azure OpenAI.</p>
+</dd>
+<dt>MathEquationsTool<span class="classifier">BaseTool</span></dt><dd><p>Tool for solving mathematical equations and performing calculations.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The tools require proper environment configuration for Azure OpenAI access
+and depend on the FAISS vector database for RAG functionality.</p>
+</section>
+<section id="id1">
+<h2>Classes<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.esercizio_esteso.tools.custom_tool.LocalRag" title="src.esercizio_esteso.tools.custom_tool.LocalRag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalRag</span></code></a></p></td>
+<td><p>Local Retrieval-Augmented Generation (RAG) tool.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#src.esercizio_esteso.tools.custom_tool.MathEquationsTool" title="src.esercizio_esteso.tools.custom_tool.MathEquationsTool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MathEquationsTool</span></code></a></p></td>
+<td><p>Mathematical equations solver tool.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#src.esercizio_esteso.tools.custom_tool.MyCustomToolInput" title="src.esercizio_esteso.tools.custom_tool.MyCustomToolInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MyCustomToolInput</span></code></a></p></td>
+<td><p>Input schema for custom tools.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.tools.custom_tool.</span></span><span class="sig-name descname"><span class="pre">LocalRag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">crewai.tools.BaseTool</span></code></p>
+<p>Local Retrieval-Augmented Generation (RAG) tool.</p>
+<p>This tool performs local RAG operations using FAISS vector database
+and Azure OpenAI for embeddings and response generation. It enables
+agents to answer questions based on local document collections with
+semantic search and citation capabilities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag.name" title="Link to this definition"></a></dt>
+<dd><p>Tool identifier used by CrewAI agents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag.description" title="Link to this definition"></a></dt>
+<dd><p>Detailed description of tool capabilities and usage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag.args_schema">
+<span class="sig-name descname"><span class="pre">args_schema</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag.args_schema" title="Link to this definition"></a></dt>
+<dd><p>Pydantic model defining the input schema.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type[BaseModel]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag._get_python_executable">
+<span class="sig-name descname"><span class="pre">_get_python_executable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag._get_python_executable" title="Link to this definition"></a></dt>
+<dd><p>Determines the correct Python executable path for the virtual environment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag._load_rag_functions">
+<span class="sig-name descname"><span class="pre">_load_rag_functions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag._load_rag_functions" title="Link to this definition"></a></dt>
+<dd><p>Dynamically imports RAG functionality modules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.LocalRag._run">
+<span class="sig-name descname"><span class="pre">_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.LocalRag._run" title="Link to this definition"></a></dt>
+<dd><p>Executes the RAG pipeline with the provided question.</p>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rag_tool</span> <span class="o">=</span> <span class="n">LocalRag</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">rag_tool</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="s2">&quot;What is the system architecture?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>The tool requires a pre-indexed FAISS database and proper Azure OpenAI
+configuration. Error handling ensures graceful degradation when
+components are unavailable.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MathEquationsTool">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.tools.custom_tool.</span></span><span class="sig-name descname"><span class="pre">MathEquationsTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MathEquationsTool" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">crewai.tools.BaseTool</span></code></p>
+<p>Mathematical equations solver tool.</p>
+<p>This tool provides mathematical problem-solving capabilities using
+Azure OpenAI to parse, solve, and explain mathematical equations
+with step-by-step solutions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MathEquationsTool.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MathEquationsTool.name" title="Link to this definition"></a></dt>
+<dd><p>Tool identifier used by CrewAI agents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MathEquationsTool.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MathEquationsTool.description" title="Link to this definition"></a></dt>
+<dd><p>Detailed description of mathematical solving capabilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MathEquationsTool.args_schema">
+<span class="sig-name descname"><span class="pre">args_schema</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MathEquationsTool.args_schema" title="Link to this definition"></a></dt>
+<dd><p>Pydantic model defining the input schema.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type[BaseModel]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MathEquationsTool._run">
+<span class="sig-name descname"><span class="pre">_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MathEquationsTool._run" title="Link to this definition"></a></dt>
+<dd><p>Processes mathematical questions and returns solutions.</p>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">math_tool</span> <span class="o">=</span> <span class="n">MathEquationsTool</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">math_tool</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="s2">&quot;Solve: 2x + 5 = 15&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>The tool uses Azure OpenAI with specific prompting to ensure
+mathematical accuracy and provides Python-executable equations
+when appropriate.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MyCustomToolInput">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.esercizio_esteso.tools.custom_tool.</span></span><span class="sig-name descname"><span class="pre">MyCustomToolInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MyCustomToolInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<p>Input schema for custom tools.</p>
+<p>Defines the standard input format for all custom tools in the system,
+ensuring consistent parameter validation and type checking.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.esercizio_esteso.tools.custom_tool.MyCustomToolInput.question">
+<span class="sig-name descname"><span class="pre">question</span></span><a class="headerlink" href="#src.esercizio_esteso.tools.custom_tool.MyCustomToolInput.question" title="Link to this definition"></a></dt>
+<dd><p>The question or input text to be processed by the tool.
+This field is required and must contain meaningful content
+for the tool to process effectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_data</span> <span class="o">=</span> <span class="n">MyCustomToolInput</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s2">&quot;What is machine learning?&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">input_data</span><span class="o">.</span><span class="n">question</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="src.esercizio_esteso.tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../vision_tools/index.html" class="btn btn-neutral float-right" title="src.esercizio_esteso.tools.vision_tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, AI Academy Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

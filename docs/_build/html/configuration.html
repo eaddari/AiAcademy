@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration &mdash; Esercizio Esteso - CrewAI Multi-Agent System 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fd855994" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src" href="autoapi/src/index.html" />
+    <link rel="prev" title="Tools" href="tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Esercizio Esteso - CrewAI Multi-Agent System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="flows.html">Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crews.html">Crews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#agent-configuration">Agent Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-agent-properties">Common Agent Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#task-configuration">Task Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#task-properties">Task Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crew-specific-configurations">Crew-Specific Configurations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docgen-crew">DocGen Crew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#math-crew">Math Crew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ocr-crew">OCR Crew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summarization-crew">Summarization Crew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webrag-crew">WebRAG Crew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-crew">Summary Crew</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-best-practices">Configuration Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-configuration">Dynamic Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/src/index.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Esercizio Esteso - CrewAI Multi-Agent System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configuration.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h1>
+<p>The project uses YAML-based configuration for defining agents and tasks across all crews.</p>
+<section id="agent-configuration">
+<h2>Agent Configuration<a class="headerlink" href="#agent-configuration" title="Link to this heading"></a></h2>
+<p>Agents are configured in <code class="docutils literal notranslate"><span class="pre">agents.yaml</span></code> files within each crew’s config directory:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">agent_name</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Agent&#39;s primary role description</span>
+<span class="w">  </span><span class="nt">goal</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">What the agent aims to achieve</span>
+<span class="w">  </span><span class="nt">backstory</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Agent&#39;s background and expertise</span>
+<span class="w">  </span><span class="nt">llm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Azure/gpt-4.1</span>
+</pre></div>
+</div>
+<section id="common-agent-properties">
+<h3>Common Agent Properties<a class="headerlink" href="#common-agent-properties" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Role</strong>: Defines the agent’s primary function and responsibility</p></li>
+<li><p><strong>Goal</strong>: Specifies what the agent is trying to accomplish</p></li>
+<li><p><strong>Backstory</strong>: Provides context about the agent’s expertise and personality</p></li>
+<li><p><strong>LLM</strong>: Specifies which language model to use (typically Azure GPT models)</p></li>
+</ul>
+</section>
+</section>
+<section id="task-configuration">
+<h2>Task Configuration<a class="headerlink" href="#task-configuration" title="Link to this heading"></a></h2>
+<p>Tasks are defined in <code class="docutils literal notranslate"><span class="pre">tasks.yaml</span></code> files:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">task_name</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Detailed description of what the task should accomplish</span>
+<span class="w">  </span><span class="nt">expected_output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Description of the expected output format and content</span>
+<span class="w">  </span><span class="nt">agent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent_name</span>
+</pre></div>
+</div>
+<section id="task-properties">
+<h3>Task Properties<a class="headerlink" href="#task-properties" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Description</strong>: Clear instructions for task execution</p></li>
+<li><p><strong>Expected Output</strong>: Specification of desired results</p></li>
+<li><p><strong>Agent</strong>: Which agent should execute the task</p></li>
+<li><p><strong>Context</strong>: Optional context from other tasks</p></li>
+<li><p><strong>Output File</strong>: Optional file output specification</p></li>
+</ul>
+</section>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<p>The project uses environment variables for API configuration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">AZURE_OPENAI_ENDPOINT</span><span class="o">=</span>your_endpoint
+<span class="nv">AZURE_OPENAI_API_KEY</span><span class="o">=</span>your_api_key
+<span class="nv">AZURE_OPENAI_API_VERSION</span><span class="o">=</span><span class="m">2024</span>-02-01
+<span class="nv">MODEL</span><span class="o">=</span>gpt-4
+</pre></div>
+</div>
+</section>
+<section id="crew-specific-configurations">
+<h2>Crew-Specific Configurations<a class="headerlink" href="#crew-specific-configurations" title="Link to this heading"></a></h2>
+<section id="docgen-crew">
+<h3>DocGen Crew<a class="headerlink" href="#docgen-crew" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Focuses on document generation agents</p></li>
+<li><p>Configured for structured output creation</p></li>
+</ul>
+</section>
+<section id="math-crew">
+<h3>Math Crew<a class="headerlink" href="#math-crew" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Specialized for mathematical problem solving</p></li>
+<li><p>Includes tool configurations for math operations</p></li>
+</ul>
+</section>
+<section id="ocr-crew">
+<h3>OCR Crew<a class="headerlink" href="#ocr-crew" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Configured for image processing and generation</p></li>
+<li><p>Includes DALL-E tool integration</p></li>
+</ul>
+</section>
+<section id="summarization-crew">
+<h3>Summarization Crew<a class="headerlink" href="#summarization-crew" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Optimized for document summarization</p></li>
+<li><p>Configured for content analysis and condensation</p></li>
+</ul>
+</section>
+<section id="webrag-crew">
+<h3>WebRAG Crew<a class="headerlink" href="#webrag-crew" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Combines web research with RAG capabilities</p></li>
+<li><p>Includes local document search configurations</p></li>
+</ul>
+</section>
+<section id="summary-crew">
+<h3>Summary Crew<a class="headerlink" href="#summary-crew" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Multi-agent explanation system</p></li>
+<li><p>Hierarchical task structure for comprehensive explanations</p></li>
+</ul>
+</section>
+</section>
+<section id="configuration-best-practices">
+<h2>Configuration Best Practices<a class="headerlink" href="#configuration-best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Clear Descriptions</strong>: Use descriptive and specific language</p></li>
+<li><p><strong>Consistent Naming</strong>: Follow naming conventions across crews</p></li>
+<li><p><strong>Model Selection</strong>: Choose appropriate models for task complexity</p></li>
+<li><p><strong>Tool Integration</strong>: Properly configure tools for agent capabilities</p></li>
+<li><p><strong>Output Specifications</strong>: Define clear output formats and expectations</p></li>
+</ol>
+</section>
+<section id="dynamic-configuration">
+<h2>Dynamic Configuration<a class="headerlink" href="#dynamic-configuration" title="Link to this heading"></a></h2>
+<p>The system supports dynamic configuration through:</p>
+<ul class="simple">
+<li><p>Runtime parameter passing</p></li>
+<li><p>Context-aware task execution</p></li>
+<li><p>Flexible crew assembly</p></li>
+<li><p>Environment-based model selection</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autoapi/src/index.html" class="btn btn-neutral float-right" title="src" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, AI Academy Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

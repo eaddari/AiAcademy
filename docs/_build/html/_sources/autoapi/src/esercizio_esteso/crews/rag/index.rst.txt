@@ -1,0 +1,37 @@
+src.esercizio_esteso.crews.rag
+==============================
+
+.. py:module:: src.esercizio_esteso.crews.rag
+
+.. autoapi-nested-parse::
+
+   RAG (Retrieval-Augmented Generation) utilities package.
+
+   This package provides tools and utilities for implementing local RAG
+   functionality using FAISS vector database and Azure OpenAI embeddings.
+
+   Modules
+   -------
+   faiss_rag : module
+       Core FAISS-based RAG implementation with vector search and retrieval.
+
+   .. rubric:: Notes
+
+   The RAG system enables semantic search over local document collections,
+   providing context-aware responses by combining retrieved information
+   with language model generation capabilities.
+
+   The docs/ subdirectory contains example documents that can be indexed
+   and searched using the RAG system.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/src/esercizio_esteso/crews/rag/docs/index
+
+

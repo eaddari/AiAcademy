@@ -1,0 +1,33 @@
+src.esercizio_esteso.crews.summarization_crew
+=============================================
+
+.. py:module:: src.esercizio_esteso.crews.summarization_crew
+
+.. autoapi-nested-parse::
+
+   Summarization Crew package.
+
+   This package contains the SummarizationCrew implementation for document
+   summarization and content condensation tasks.
+
+   Classes
+   -------
+   SummarizationCrew : class
+       Main crew class for document summarization operations.
+
+   .. rubric:: Notes
+
+   The summarization crew specializes in analyzing documents and creating
+   concise, meaningful summaries while preserving key information and context.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/src/esercizio_esteso/crews/summarization_crew/config/index
+
+
