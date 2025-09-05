@@ -1,0 +1,24 @@
+fill_final_plan:
+  description: >
+    Fill in the structure and key points of a plan about how to most efficiently study in order to become a better {job_role}.
+    The plan should be built around the needs of someone with {current_knowledge_level} knowledge of the {job_role}, taking into account the user's previous experience: {past_experience}.
+    Ensure the plan's structure is layered and complete.
+  expected_output: >
+    A structured outline of the plan, including key points and sections to be covered.
+  agent: final_plan_filler  
+
+write_ascii:
+  description: >
+    Create an ASCII flowchart that visually represents the most important steps of the study plan.
+    The flowchart should be clear, engaging, and easy to understand, highlighting the key stages and transitions in the plan.
+  expected_output: >
+    beautifully crafted ASCII flowchart representing the most important steps of the study plan.
+  agent: ascii_writer
+
+review_plan:
+  description: >
+    Review the plan written by the final_plan_filler agent.
+    Provide constructive feedback and suggest improvements if necessary.
+  expected_output: >
+    A list of actionable feedback points for the plan, with a focus on clarity, engagement, and completeness.
+  agent: final_plan_reviewer

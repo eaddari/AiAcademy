@@ -1868,12 +1868,14 @@ source = { editable = "." }
 dependencies = [
     { name = "arxiv" },
     { name = "crewai", extra = ["tools"] },
+    { name = "langchain-openai" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "arxiv", specifier = ">=2.2.0" },
-    { name = "crewai", extras = ["tools"], specifier = ">=0.175.0,<1.0.0" },
+  { name = "arxiv", specifier = ">2.2.0" },
+  { name = "crewai", extras = ["tools"], specifier = ">=0.175.0,<1.0.0" },
+  { name = "langchain-openai", specifier = ">=0.2.14" },
 ]
 
 [[package]]
