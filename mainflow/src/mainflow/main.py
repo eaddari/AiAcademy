@@ -19,17 +19,17 @@ def is_valid_input(user_input: str) -> bool:
             return False
         
     return True
-
+    
 class PoemState(BaseModel):
     question : str = ""
-    poem: str = ""
+    output: str = ""
 
 class PoemFlow(Flow[PoemState]):
 
     @start()
     def insert_topic(self):
         print("="*20, " Welcome to the EY Junior Accelerator! ", "="*20)
-        question = input("Inserting a topic:  ")
+        question = input("Describe your role, past experience, current knowledge level: ")
         if not is_valid_input(question):
             print("Invalid input detected. Please avoid using escape sequences or empty inputs.")
             return self.insert_topic()
@@ -44,8 +44,8 @@ class PoemFlow(Flow[PoemState]):
         )
 
         print("Output:", crew_output.raw)
-        self.state.poem = crew_output.raw
-
+        print(type(crew_output.raw))
+        self.state.output = crew_output.raw
 
 
 def kickoff():

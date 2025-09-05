@@ -37,12 +37,31 @@ class InputValidationCrew:
         )
 
     @agent
+    def role_identifier(self) -> Agent:
+        return Agent(
+            config=self.agents_config["role_identifier"],
+            llm=self.model,
+        )
+    @agent
+    def knowledge_identifier(self) -> Agent:
+        return Agent(
+            config=self.agents_config["knowledge_identifier"],
+            llm=self.model,
+        )
+    
+    @agent
     def security_validator(self) -> Agent:
         return Agent(
             config=self.agents_config["security_validator"],
             llm=self.model,
         )
-
+    @agent
+    def final_validator(self) -> Agent:
+        return Agent(
+            config=self.agents_config["final_validator"],
+            llm=self.model,
+        )
+    
     @task
     def sanitize_input(self) -> Task:
         return Task(
@@ -60,7 +79,16 @@ class InputValidationCrew:
         return Task(
             config=self.tasks_config["validate_security"],
         )
-
+    @task
+    def individuate_role(self) -> Task:
+        return Task(
+            config=self.tasks_config["individuate_role"],
+        )
+    @task
+    def individuate_knowledge(self) -> Task:
+        return Task(
+            config=self.tasks_config["individuate_knowledge"],
+        )
     @task
     def final_validation(self) -> Task:
         return Task(
