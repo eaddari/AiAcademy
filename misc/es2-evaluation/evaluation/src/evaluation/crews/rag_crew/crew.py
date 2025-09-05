@@ -1,8 +1,16 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from crewai import LLM
+
+# Import DeepEval Agent instead of standard CrewAI Agent
+from deepeval.integrations.crewai import Agent
+from deepeval.metrics import (
+    AnswerRelevancyMetric,
+    FaithfulnessMetric,
+    HallucinationMetric
+)
 
 from src.evaluation.tools.rag_tool import QdrantRAGTool
 
@@ -26,14 +34,34 @@ class RagCrew:
             api_version="2024-12-01-preview"
         )
         
-        # Create agents
+        # Create evaluation metrics for medical domain
+        self.evaluation_metrics = [
+            AnswerRelevancyMetric(
+                threshold=0.7,
+                model="gpt-4o-mini",
+                include_reason=True
+            ),
+            FaithfulnessMetric(
+                threshold=0.7,
+                model="gpt-4o-mini",
+                include_reason=True
+            ),
+            HallucinationMetric(
+                threshold=0.3,  # Lower threshold for medical accuracy
+                model="gpt-4o-mini",
+                include_reason=True
+            )
+        ]
+        
+        # Create agents with DeepEval integration
         self._medical_researcher = Agent(
             role="Medical Information Researcher",
             goal="Search and retrieve relevant medical information from the knowledge base to answer specific medical queries and provide accurate, evidence-based responses",
             backstory="You're a skilled medical researcher with expertise in accessing and analyzing medical literature and documentation. You specialize in finding relevant medical information quickly and accurately, using advanced search techniques to retrieve the most pertinent information for any medical query.",
             tools=[self.qdrant_rag_tool],
             llm=self.llm,
-            verbose=True
+            verbose=True,
+            metrics=self.evaluation_metrics  # Add DeepEval metrics
         )
         
         self._medical_analyst = Agent(
@@ -42,7 +70,8 @@ class RagCrew:
             backstory="You're an experienced medical analyst with deep knowledge of medical terminology, procedures, and healthcare practices. You excel at interpreting medical information, identifying key insights, and presenting complex medical concepts in a clear, understandable manner while maintaining clinical accuracy.",
             tools=[self.qdrant_rag_tool],
             llm=self.llm,
-            verbose=True
+            verbose=True,
+            metrics=self.evaluation_metrics  # Add DeepEval metrics
         )
 
     @agent

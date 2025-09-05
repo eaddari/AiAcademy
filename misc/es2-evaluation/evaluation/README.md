@@ -1,6 +1,14 @@
-# {{crew_name}} Crew
+# Medical RAG Evaluation Crew
 
-Welcome to the {{crew_name}} Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Welcome to the Medical RAG Evaluation project, powered by [crewAI](https://crewai.com). This project is designed to evaluate medical knowledge using Retrieval-Augmented Generation (RAG) with Azure OpenAI and vector search capabilities. The system uses AI agents to research and analyze medical information with proper source citations.
+
+## Features
+
+- **Medical RAG System**: Utilizes Qdrant vector database for medical document retrieval
+- **Azure OpenAI Integration**: Powered by Azure OpenAI for intelligent analysis
+- **CrewAI Multi-Agent System**: Specialized agents for research and analysis
+- **DeepEval Integration**: Evaluation and monitoring of AI agent performance
+- **Source Citations**: Proper attribution of medical information sources
 
 ## Installation
 
