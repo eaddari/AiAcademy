@@ -1,0 +1,47 @@
+scientific_topic_extraction_task:
+  description: >
+    The context in input: "{context}"".
+    The context contains a learning guide, onboarding material, educational content aimed at a new employee or learner.
+    Analyze the text and identify the most 3 technical and scientifically relevant topics.
+    Your goal is to extract topics that can require deeper understanding through academic or scientific papers.
+    Prioritize areas that are complex, research-driven, or rapidly evolving, and that are frequently discussed in scientific papers or conferences.
+    The text in input is: "{context}"
+  expected_output: >
+    A bullet-point list of the most 3 technical, complex, and research-oriented topics of the context that would benefit from deeper study using scientific literature.
+    Each topic should be phrased concisely and refer to a concept that is typically studied at an advanced level or within scientific research.
+  agent: scientific_topic_identifier
+
+keyword_extraction_task:
+  description: >
+    For each topic in the list, generate ONE short query that a user would realistically type into Arxiv to find relevant scientific papers on the topic.
+    The query should be concise, clear, and focused on the most important and specific aspects of the topic.
+    The query must be effective in making Arxiv return important and, if possible, recent papers on the topic.
+  expected_output: >
+    A Python List of strings, where each string is a search query related to a single topic suitable for Arxiv.
+  agent: keyword_extractor
+  context:
+  - scientific_topic_extraction_task
+
+validate_query_task:
+  description: >
+    Receive the list of search queries.
+    For each search query, check for ethical issues and proper formatting.
+    Return 'valid' if each query in the list is appropriate and correctly formatted.
+    Else, return 'invalid' with a brief explanation of the issue found.
+  expected_output: >
+    Validation status and message.
+  agent: query_validator
+  context:
+  - keyword_extraction_task
+
+perform_search_task:
+  description: >
+    Receive a list of validated search query strings.
+    Use arxiv_searcher_tool to perform the search, passing the output of keyword_extraction_task task as input (the list of search queries).
+    Return the main details of the relevant papers found by the tool.
+  expected_output: >
+    A Python Dictionary returned by the arxiv_searcher_tool containing details of the relevant papers found for each topic.
+  agent: arxiv_searcher
+  context:
+  - keyword_extraction_task
+  - validate_query_task
