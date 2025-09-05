@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 from crewai.flow import Flow, listen, start
 
-from mainflow.crews.poem_crew.poem_crew import PoemCrew
+from mainflow.crews.input_crew.poem_crew import PoemCrew
 
 
 class PoemState(BaseModel):
