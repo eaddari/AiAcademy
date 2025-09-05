@@ -1,0 +1,40 @@
+.. EY Junior Accelerator documentation master file, created by
+   sphinx-quickstart on Fri Sep  5 17:18:37 2025.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+EY Junior Accelerator documentation
+===================================
+
+Add your content using ``reStructuredText`` syntax. See the
+`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
+documentation for details.
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+API Documentation
+=================
+
+.. automodule:: mainflow
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Planning Crew
+-------------
+
+.. autoclass:: mainflow.crews.planner_crew.crew.PlanningCrew
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Study Plan Crew
+---------------
+
+.. autoclass:: mainflow.crews.study_plan_crew.crew.FinalStudyPlanCrew
+   :members:
+   :undoc-members:
+   :show-inheritance:
