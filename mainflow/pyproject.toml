@@ -8,6 +8,8 @@ dependencies = [
     "arxiv>=2.2.0",
     "crewai[tools]>=0.175.0,<1.0.0",
     "langchain-openai>=0.2.14",
+    "sphinx-autodoc-typehints>=3.0.1",
+    "sphinx-rtd-theme>=3.0.2",
 ]
 
 [project.scripts]

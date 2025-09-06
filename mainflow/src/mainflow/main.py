@@ -2,13 +2,13 @@ from pydantic import BaseModel
 
 from crewai.flow import Flow, listen, start, and_
 
-from src.mainflow.utils.input_validation import is_valid_input
+from mainflow.utils.input_validation import is_valid_input
 
-from src.mainflow.crews.input_crew.input_validation_crew import InputValidationCrew
-from src.mainflow.crews.planner_crew.crew import PlanningCrew
-from src.mainflow.crews.web_crew.crew_new import WebCrew
-from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
-from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
+from mainflow.crews.input_crew.input_validation_crew import InputValidationCrew
+from mainflow.crews.planner_crew.crew import PlanningCrew
+from mainflow.crews.web_crew.crew_new import WebCrew
+from mainflow.crews.paper_crew.paper_crew import PaperCrew
+from mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 
 class State(BaseModel):
     question : str = ""
