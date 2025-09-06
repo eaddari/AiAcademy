@@ -5,7 +5,8 @@ from typing import List, Dict, Any
 from langchain_openai import AzureChatOpenAI
 import os
 from dotenv import load_dotenv
-load_dotenv("C:\\Users\\ZR184CB\\OneDrive - EY\\Documents\\GitHub\\AiAcademy\\mainflow\\src\\mainflow\\crews\\input_crew\\.env")
+#load_dotenv("C:\\Users\\ZR184CB\\OneDrive - EY\\Documents\\GitHub\\AiAcademy\\mainflow\\src\\mainflow\\crews\\input_crew\\.env")
+load_dotenv("C:\\desktopnoonedrive\\gruppo-finale\\AiAcademy\\mainflow\\.env")
 
 @CrewBase
 class InputValidationCrew:

@@ -1,61 +1,112 @@
-#!/usr/bin/env python
-from random import randint
-
 from pydantic import BaseModel
 
-from crewai.flow import Flow, listen, start
+from crewai.flow import Flow, listen, start, and_
+
+from src.mainflow.utils.input_validation import is_valid_input
 
 from src.mainflow.crews.input_crew.input_validation_crew import InputValidationCrew
+from src.mainflow.crews.planner_crew.crew import PlanningCrew
+from src.mainflow.crews.web_crew.crew_new import WebCrew
+from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
+from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 
-# a function that check if the input is not an escape sequence or a null input
-def is_valid_input(user_input: str) -> bool:
-    # Check for empty input
-    if not user_input.strip():
-        return False
-
-    escape_sequences = ["\x1b", "\x00", "\n", "\r", "\t", "\x03"]
-    for seq in escape_sequences:
-        if seq in user_input:
-            return False
-        
-    return True
-    
-class PoemState(BaseModel):
+class State(BaseModel):
     question : str = ""
-    output: str = ""
+    user_info : str = ""
+    plan : str = ""
+    resources : str = ""
+    papers : str = ""
+    study_plan : str = ""
 
-class PoemFlow(Flow[PoemState]):
+class Flow(Flow[State]):
 
     @start()
     def insert_topic(self):
         print("="*20, " Welcome to the EY Junior Accelerator! ", "="*20)
-        question = input("Describe your role, past experience, current knowledge level: ")
+        
+        question = input("Describe your role, past experience, learning goals: ")
+        
         if not is_valid_input(question):
             print("Invalid input detected. Please avoid using escape sequences or empty inputs.")
             return self.insert_topic()
         self.state.question = question
 
     @listen(insert_topic)
-    def generate_poem(self):
-        print("Generating poem")
-        crew = InputValidationCrew()
-        crew_output = crew.crew().kickoff(
+    def sanitize_input(self):
+        print("Sanitizing input")
+        validation_crew = InputValidationCrew()
+        crew_output = validation_crew.crew().kickoff(
             inputs={"question": self.state.question}
         )
 
+        print(crew_output.raw)
+        
+        self.state.user_info = crew_output.raw
+
+        # Output ipotetico
+        # {"role": "AI Engineer", "past_experience": "bachelor's degree in economy and finance", "learning_goals": "become proficient in AI and machine learning"}
+
+    @listen(sanitize_input)
+    def generate_plan(self):
+        print("Generating plan")
+        planning_crew = PlanningCrew()
+        crew_output = planning_crew.crew().kickoff(
+
+            inputs={"user_info": self.state.user_info}
+        )
+
         print("Output:", crew_output.raw)
-        print(type(crew_output.raw))
-        self.state.output = crew_output.raw
+        self.state.plan = crew_output.raw
+
+    @listen(generate_plan)
+    def web_search(self):
+        print("Searching the web for resources")
+        web_crew = WebCrew()
+        crew_output = web_crew.crew().kickoff(
+
+            inputs={"plan": self.state.plan}
+        )
+
+        print("Web crew output:", crew_output.raw)
+        self.state.resources = crew_output.raw
+
+    @listen(web_search)
+    def paper_research(self):
+        print("Searching for academic papers")
+        paper_crew = PaperCrew()
+        crew_output = paper_crew.crew().kickoff(
+
+            inputs={"plan": self.state.plan}
+        )
+
+        print("Papers crew output:", crew_output.raw)
+        self.state.papers = crew_output.raw
+
+    @listen(and_(web_search, paper_research))
+    def create_study_plan(self):
+        print("Creating study plan")
+        study_plan_crew = FinalStudyPlanCrew()
+        crew_output = study_plan_crew.crew().kickoff(
+
+            inputs={
+                "resources": self.state.resources,
+                "papers": self.state.papers,
+                "plan": self.state.plan
+            }
+        )
+
+        print(crew_output.raw)
+        self.state.study_plan = crew_output.raw
 
 
 def kickoff():
-    poem_flow = PoemFlow()
-    poem_flow.kickoff()
+    flow = Flow()
+    flow.kickoff()
 
 
 def plot():
-    poem_flow = PoemFlow()
-    poem_flow.plot()
+    flow = Flow()
+    flow.plot()
 
 
 if __name__ == "__main__":

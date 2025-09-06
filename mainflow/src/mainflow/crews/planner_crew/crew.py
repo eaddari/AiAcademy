@@ -2,6 +2,10 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv("C:\\desktopnoonedrive\\gruppo-finale\\AiAcademy\\mainflow\\.env")
 
 @CrewBase
 class PlanningCrew:
@@ -30,6 +34,14 @@ class PlanningCrew:
     agents_config = "config/agents.yaml"
     tasks_config = "config/tasks.yaml"
 
+    def __init__(self): 
+        os.environ["AZURE_API_KEY"] = os.getenv("AZURE_OPENAI_API_KEY", "")
+        os.environ["AZURE_API_BASE"] = os.getenv("AZURE_OPENAI_ENDPOINT", "")
+        os.environ["AZURE_API_VERSION"] = "2024-12-01-preview"
+        
+        # Create model string
+        self.model = f"azure/{os.getenv('AZURE_DEPLOYMENT_NAME')}"
+
     @agent
     def plan_definer(self) -> Agent:
         """
@@ -42,6 +54,7 @@ class PlanningCrew:
         """
         return Agent(
             config=self.agents_config["plan_definer"],
+            llm=self.model,
         )
     @agent
     def plan_writer(self) -> Agent:
@@ -55,6 +68,7 @@ class PlanningCrew:
         """
         return Agent(
             config=self.agents_config["plan_writer"],
+            llm=self.model,
         )
     @agent
     def plan_reviewer(self) -> Agent:
@@ -68,6 +82,7 @@ class PlanningCrew:
         """
         return Agent(
             config=self.agents_config["plan_reviewer"],
+            llm=self.model,
         )
     
     @task
@@ -108,6 +123,20 @@ class PlanningCrew:
         """
         return Task(
             config=self.tasks_config["review_plan"],
+        )
+    @task
+    def correct_plan(self) -> Task:
+        """
+        Create the correct plan task.
+
+        Returns
+        -------
+        Task
+            The correct plan task instance.
+        """
+        return Task(
+            config=self.tasks_config["correct_plan"],
+            output_file="output/final_study_plan.md",
         )
 
     @crew

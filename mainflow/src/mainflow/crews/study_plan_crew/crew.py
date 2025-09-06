@@ -41,7 +41,7 @@ class FinalStudyPlanCrew:
             The plan filler agent instance.
         """
         return Agent(
-            config=self.agents_config["plan_filler"],
+            config=self.agents_config["final_plan_filler"],
         )
     @agent
     def ascii_writer(self) -> Agent:
@@ -67,7 +67,7 @@ class FinalStudyPlanCrew:
             The plan reviewer agent instance.
         """
         return Agent(
-            config=self.agents_config["plan_reviewer"],
+            config=self.agents_config["final_plan_reviewer"],
         )
     
     @task
@@ -81,7 +81,7 @@ class FinalStudyPlanCrew:
             The fill plan task instance.
         """
         return Task(
-            config=self.tasks_config["fill_plan"],
+            config=self.tasks_config["fill_final_plan"],
         )
     @task
     def write_ascii(self) -> Task:
@@ -107,7 +107,8 @@ class FinalStudyPlanCrew:
             The review plan task instance.
         """
         return Task(
-            config=self.tasks_config["review_plan"],
+            config=self.tasks_config["review_final_plan"],
+            output_file="output/final_study_plan.md",
         )
 
     @crew

@@ -1,13 +1,12 @@
 scientific_topic_extraction_task:
   description: >
-    The context in input: "{context}"".
-    The context contains a learning guide, onboarding material, educational content aimed at a new employee or learner.
-    Analyze the text and identify the most 3 technical and scientifically relevant topics.
+    The plan in input: {plan}.
+    The plan contains a learning guide, onboarding material, educational content aimed at a new employee or learner.
+    Analyze the text and identify the most 5 technical and scientifically relevant topics.
     Your goal is to extract topics that can require deeper understanding through academic or scientific papers.
     Prioritize areas that are complex, research-driven, or rapidly evolving, and that are frequently discussed in scientific papers or conferences.
-    The text in input is: "{context}"
   expected_output: >
-    A bullet-point list of the most 3 technical, complex, and research-oriented topics of the context that would benefit from deeper study using scientific literature.
+    A bullet-point list of the most 5 technical, complex, and research-oriented topics of the context that would benefit from deeper study using scientific literature.
     Each topic should be phrased concisely and refer to a concept that is typically studied at an advanced level or within scientific research.
   agent: scientific_topic_identifier
 
