@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+import mlflow
 from crewai.flow import Flow, listen, start, and_
 
 from src.mainflow.utils.input_validation import is_valid_input
@@ -9,6 +9,9 @@ from src.mainflow.crews.planner_crew.crew import PlanningCrew
 from src.mainflow.crews.web_crew.crew_new import WebCrew
 from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
 from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
+
+
+mlflow.set_experiment("EY Junior Accelerator")
 
 class State(BaseModel):
     question : str = ""

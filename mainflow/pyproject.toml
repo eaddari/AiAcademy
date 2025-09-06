@@ -8,6 +8,7 @@ dependencies = [
     "arxiv>=2.2.0",
     "crewai[tools]>=0.175.0,<1.0.0",
     "langchain-openai>=0.2.14",
+    "mlflow>=2.16.0",
 ]
 
 [project.scripts]
