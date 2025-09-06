@@ -10,12 +10,17 @@ dependencies = [
     "langchain-openai>=0.2.14",
     "sphinx-autodoc-typehints>=3.0.1",
     "sphinx-rtd-theme>=3.0.2",
+    "streamlit>=1.28.0",
+    "plotly>=5.15.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
 ]
 
 [project.scripts]
 kickoff = "mainflow.main:kickoff"
 run_crew = "mainflow.main:kickoff"
 plot = "mainflow.main:plot"
+streamlit_app = "streamlit run streamlit_app.py"
 
 [build-system]
 requires = ["hatchling"]

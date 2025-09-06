@@ -5,7 +5,11 @@ import os
 from crewai import Agent, Task, Crew, Process
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
-from crewai_tools import SerperDevTool
+try:
+    from crewai_tools import SerperDevTool
+except ImportError:
+    # Fallback if SerperDevTool is not available
+    SerperDevTool = None
 from typing import List
 from dotenv import load_dotenv
 
