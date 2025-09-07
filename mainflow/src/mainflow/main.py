@@ -10,8 +10,12 @@ from mainflow.crews.web_crew.crew_new import WebCrew
 from mainflow.crews.paper_crew.paper_crew import PaperCrew
 from mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 
+# Enable CrewAI autolog for automatic tracing
+mlflow.crewai.autolog()
 
-mlflow.set_experiment("EY Junior Accelerator")
+mlflow.set_experiment("ey-junior-accelerator")
+
+print("🚀 CrewAI autolog enabled for main flow - automatic tracing active")
 
 class State(BaseModel):
     question : str = ""
@@ -46,8 +50,6 @@ class Flow(Flow[State]):
         
         self.state.user_info = crew_output.raw
 
-        # Output ipotetico
-        # {"role": "AI Engineer", "past_experience": "bachelor's degree in economy and finance", "learning_goals": "become proficient in AI and machine learning"}
 
     @listen(sanitize_input)
     def generate_plan(self):
