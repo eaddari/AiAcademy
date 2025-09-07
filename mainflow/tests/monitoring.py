@@ -1,3 +1,17 @@
+# da mainflow python -m tests.monitoring
+# mlflow ui --backend-store-uri "file:///$((Resolve-Path .\mlruns).Path.Replace('\','/'))"
+# --- make project root AND src/ importable ---
+import sys, os
+HERE = os.path.dirname(__file__)                         # .../mainflow/tests
+PROJECT_ROOT = os.path.abspath(os.path.join(HERE, "..")) # .../mainflow
+SRC_DIR = os.path.join(PROJECT_ROOT, "src")              # .../mainflow/src
+
+for p in (PROJECT_ROOT, SRC_DIR):
+    if p not in sys.path:
+        sys.path.insert(0, p)
+# ------------------------------------------------------
+
+
 from pydantic import BaseModel
 import mlflow
 from mlflow.genai.scorers import RetrievalGroundedness,scorer
@@ -13,8 +27,15 @@ from src.mainflow.crews.web_crew.crew_new import WebCrew
 from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
 from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 
+# usa sempre lo store del root del progetto
+TRACKING_DIR = os.path.join(PROJECT_ROOT, "mlruns")
+mlflow.set_tracking_uri("file:///" + TRACKING_DIR.replace("\\", "/"))
 
-mlflow.set_experiment("EY Junior Accelerator")
+
+mlflow.set_experiment("EY Junior Accelerator") #imposta l'esperimento
+
+print("Tracking URI ->", mlflow.get_tracking_uri())
+
 
 class State(BaseModel):
     question : str = ""
@@ -26,11 +47,12 @@ class State(BaseModel):
 
 class MonitoringConfig():
 
+    #salva l'ora di inizio per calcolare il tempo di esecuzione
     def __init__(self):
         self.start_time = time.time()
 
     def monitoring_crew(self,state: State, crew_output, crew: InputValidationCrew, crew_name, create: bool = False):
-        with mlflow.start_run(run_name=f"{crew_name} Monitoring") as run:              
+        with mlflow.start_run(run_name=f"{crew_name} Monitoring", nested=True) as run:              
                 mlflow.log_param("crew", crew_name)
                 mlflow.log_param("input_question", state.question)
                 mlflow.log_param("sanitized_input", crew_output.raw)
@@ -81,7 +103,10 @@ class Flow(Flow[State]):
                                                 "outputs": self.state.user_info, 
                                                 "expectations": {"expected_response": "The output should be relevant to the input question and formatted as a dictionary containing the role and the current_knowledge_level."}
                                                 }])
-        mlflow.genai.evaluate(data=evaluation_ethics_data,scorers=[RelevanceToQuery(model = "azure:/gpt-4.1")])
+        #valutazione dentro sottorun dedicato
+        with mlflow.start_run(run_name="InputValidationCrew Evaluation", nested=True) as run:
+            # metrica di rilevanza, quanto la risposta è rilevante rispetto alla domanda
+            mlflow.genai.evaluate(data=evaluation_ethics_data,scorers=[RelevanceToQuery(model = "azure:/gpt-4.1")])
 
         print(self.state.user_info)
         
@@ -147,8 +172,9 @@ class Flow(Flow[State]):
 
 
 def kickoff():
-    flow = Flow()
-    flow.kickoff()
+    with mlflow.start_run(run_name="EYFlow") as run:
+        flow = Flow()
+        flow.kickoff()
     
 def plot():
     flow = Flow()

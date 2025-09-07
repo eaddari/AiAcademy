@@ -6,6 +6,8 @@ import mlflow
 from crewai.tools import BaseTool
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv  
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 load_dotenv("mainflow\\.env") 
 
 
@@ -29,7 +31,7 @@ class SerperSearchTool(BaseTool):
             'Content-Type': 'application/json'
         }
         try:
-            response = requests.post(url, headers=headers, data=payload)
+            response = requests.post(url, headers=headers, data=payload, verify=False)
             response.raise_for_status()
             print(f"Serper response: {response}")
         except Exception as e:
