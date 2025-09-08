@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 import mlflow
-from crewai.flow import Flow, listen, start, and_
+from crewai.flow import Flow, listen, start, and_,router
 
 from mainflow.utils.input_validation import is_valid_input
 
@@ -38,7 +38,14 @@ class Flow(Flow[State]):
             return self.insert_topic()
         self.state.question = question
 
-    @listen(insert_topic)
+    @router
+    def routing(self):
+        if "error" in self.state.user_info.lower():
+           return "insert_topic"
+        else:
+            return "generate_plan"
+        
+    @listen("insert_topic")
     def sanitize_input(self):
         print("Sanitizing input")
         validation_crew = InputValidationCrew()
@@ -51,7 +58,7 @@ class Flow(Flow[State]):
         self.state.user_info = crew_output.raw
 
 
-    @listen(sanitize_input)
+    @listen("generate_plan")
     def generate_plan(self):
         print("Generating plan")
         planning_crew = PlanningCrew()
