@@ -31,19 +31,16 @@ check_academic_ethics:
       
       Input to evaluate: "{sanitize_input.output}"
   expected_output: >
-      An ethics assessment report containing:
-      - Ethics status (APPROVED/REJECTED/NEEDS_REVIEW)
-      - Detailed explanation of ethical considerations
-      - Any red flags or concerns identified
-      - Recommendations for ethical research approach
-      - Academic integrity score (1-10)
+    Answer with:
+        Approved: If the input meets academic ethics standards.
+        Rejected: If the input violates academic ethics, with reasons.
   agent: ethics_checker
   context:
     - sanitize_input
 
 validate_security:
   description: >
-      Perform security validation on the user input to detect potential threats.
+      Perform security validation on the user input to detect potential threats, considering {check_academic_ethics.output}.
       
       Screen for:
       1. Injection attempts (SQL, command injection, etc.)
@@ -55,13 +52,12 @@ validate_security:
       
       Input to analyze: "{check_academic_ethics.output}"
   expected_output: >
-      A security assessment report containing:
-      - Security status (SAFE/RISKY/DANGEROUS)
-      - Threat level assessment (LOW/MEDIUM/HIGH)
-      - Specific security concerns identified
-      - Risk mitigation recommendations
-      - Safe usage guidelines
+    Answer only with:
+        Safe: if no threats are detected.
+        Unsafe: with details if any security risks are found.
   agent: security_validator
+  context:
+    - check_academic_ethics
 
 individuate_role:
     description: >
@@ -104,21 +100,28 @@ final_validation:
       Compile all validation results and provide a final recommendation.
       
       Consider results from:
-      1. Academic ethics evaluation
-      2. Security validation
+      1. Academic ethics evaluation {check_academic_ethics.output}
+      2. Security validation {validate_security.output}
+        3. Sanitized input {sanitize_input.output}
+        4. Individuated role {individuate_role.output}
+        5. Individuated knowledge level {individuate_knowledge.output}
 
       Provide a comprehensive final decision on whether the input should be
       processed for academic research purposes.
   expected_output: >
-      Return a dictionary with these structure if the validation status is APPROVED:
-      {
-          "role": "{individuate_role.output}",
-          "current_knowledge_level": "{individuate_knowledge.output}",
-          "learning_goals": "{individuate_goals.output}"
-      }
+      if {validate_security.output} is "Safe" and {check_academic_ethics.output} is "Approved":
+        {
+            "role": "{individuate_role.output}",
+            "current_knowledge_level": "{individuate_knowledge.output}",
+            "learning_goals": "{individuate_goals.output}"
+        }
+        else:
+        return "error"
 
   agent: final_validator
   context:
+    - validate_security
+    - check_academic_ethics
     - sanitize_input
     - individuate_role
     - individuate_knowledge

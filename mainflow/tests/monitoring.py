@@ -1,18 +1,7 @@
-# da mainflow python -m tests.monitoring
-# mlflow ui --backend-store-uri "file:///$((Resolve-Path .\mlruns).Path.Replace('\','/'))"
-# --- make project root AND src/ importable ---
 import sys, os
-# HERE = os.path.dirname(__file__)                         # .../mainflow/tests
-# PROJECT_ROOT = os.path.abspath(os.path.join(HERE, "..")) # .../mainflow
-# SRC_DIR = os.path.join(PROJECT_ROOT, "src")              # .../mainflow/src
-
-# for p in (PROJECT_ROOT, SRC_DIR):
-#     if p not in sys.path:
-#         sys.path.insert(0, p)
-# # ------------------------------------------------------
 from pydantic import BaseModel
 import mlflow
-from crewai.flow import Flow, listen, start, and_
+from crewai.flow import Flow, listen, start, and_, router
 import time
 from src.mainflow.utils.input_validation import is_valid_input
 from mlflow.genai.scorers import RetrievalRelevance, RelevanceToQuery
@@ -27,13 +16,7 @@ from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
 from src.mainflow.crews.calendar_crew.crew import CalendarCrew
 from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 
-# usa sempre lo store del root del progetto
-# TRACKING_DIR = os.path.join(PROJECT_ROOT, "mlruns")
-# mlflow.set_tracking_uri("file:///" + TRACKING_DIR.replace("\\", "/"))
 mlflow.set_experiment("EY Junior Accelerator") #imposta l'esperimento
-# print("Tracking URI ->", mlflow.get_tracking_uri())
-# per accedere a ui mlflow runnare in secondo terminale
-# server --host localhost --port 5001 --backend-store-uri file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns
 
 
 class State(BaseModel):
@@ -197,8 +180,14 @@ class Flow(Flow[State]):
         self.state.user_info = crew_output.raw
         print(self.state.user_info)
         
+    @router
+    def routing(self):
+        if "error" in self.state.user_info.lower():
+           return "insert_topic"
+        else:
+            return "generate_plan"
 
-    @listen(sanitize_input)
+    @listen("generate_plan")
     def generate_plan(self):
         print("Generating plan")
         planning_crew = PlanningCrew()
