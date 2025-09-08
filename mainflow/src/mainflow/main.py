@@ -9,6 +9,7 @@ from mainflow.crews.planner_crew.crew import PlanningCrew
 from mainflow.crews.web_crew.crew_new import WebCrew
 from mainflow.crews.paper_crew.paper_crew import PaperCrew
 from mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
+from mainflow.crews.calendar_crew.crew import CalendarCrew
 
 # Enable CrewAI autolog for automatic tracing
 mlflow.crewai.autolog()
@@ -24,6 +25,7 @@ class State(BaseModel):
     resources : str = ""
     papers : str = ""
     study_plan : str = ""
+    calendar : str = ""
 
 class Flow(Flow[State]):
 
@@ -87,7 +89,23 @@ class Flow(Flow[State]):
         print("Papers crew output:", crew_output.raw)
         self.state.papers = crew_output.raw
 
-    @listen(and_(web_search, paper_research))
+    @listen(paper_research)
+    def define_calendar(self):
+        print("Defining calendar")
+        calendar_crew = CalendarCrew()
+        crew_output = calendar_crew.crew().kickoff(
+
+            inputs={
+                "web_resources": self.state.resources,
+                "papers": self.state.papers,
+                "plan": self.state.plan
+            }
+        )
+
+        print("Calendar defined based on the plan, resources, and papers.")
+        self.state.calendar = crew_output.raw
+
+    @listen(define_calendar)
     def create_study_plan(self):
         print("Creating study plan")
         study_plan_crew = FinalStudyPlanCrew()
@@ -96,7 +114,8 @@ class Flow(Flow[State]):
             inputs={
                 "resources": self.state.resources,
                 "papers": self.state.papers,
-                "plan": self.state.plan
+                "plan": self.state.plan,
+                "calendar": self.state.calendar
             }
         )
 

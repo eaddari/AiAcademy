@@ -1,0 +1,10 @@
+execution_duration_ms: 41403
+request_preview: '{}'
+request_time: '2025-09-07T21:06:35.034Z'
+response_preview: ''
+state: ERROR
+trace_id: tr-45959660ce70ad9448f2351e812c59ee
+trace_location:
+  mlflow_experiment:
+    experiment_id: '509180351258045446'
+  type: MLFLOW_EXPERIMENT

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns/509180351258045446/a3dc089701574e07b4d8d718b555d99b/artifacts
+end_time: 1757279900861
+entry_point_name: ''
+experiment_id: '509180351258045446'
+lifecycle_stage: active
+run_id: a3dc089701574e07b4d8d718b555d99b
+run_name: PlanningCrew Monitoring
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757279900570
+status: 3
+tags: []
+user_id: FJ138WZ

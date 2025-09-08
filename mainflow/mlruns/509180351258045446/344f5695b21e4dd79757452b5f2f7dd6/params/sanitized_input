@@ -1,0 +1,110 @@
+{
+  "sections": {
+    "II. Core Foundations": [
+      {
+        "title": "Khan Academy: Linear Algebra, Probability and Statistics, Calculus",
+        "url": "https://www.khanacademy.org/math",
+        "publisher_or_domain": "Khan Academy",
+        "summary": "Khan Academy offers comprehensive, beginner-friendly courses in Linear Algebra, Probability & Statistics, and Calculus. Each course features interactive lectures, quizzes, and practice problems directly applicable to AI and machine learning.",
+        "why": "It is a trusted educational platform with high-quality, free resources tailored to foundational math skills needed for AI, with interactive tools supporting active engagement.",
+        "level": "beginner",
+        "citation": {
+          "title": "Math Courses",
+          "publisher_or_domain": "Khan Academy", 
+          "url": "https://www.khanacademy.org/math",
+          "accessed": "2024-06-06"
+        }
+      },
+      {
+        "title": "Python for Beginners (Official Python.org Documentation)",
+        "url": "https://docs.python.org/3/tutorial/",
+        "publisher_or_domain": "Python Software Foundation",
+        "summary": "The official Python tutorial provides a gentle introduction to Python programming including syntax, functions, error handling, and working with files, making it ideal for those new to programming.",
+        "why": "Official documentation ensures accuracy and up-to-date information on Python fundamentals, essential for every entry-level AI engineer.",
+        "level": "beginner",
+        "citation": {
+          "title": "The Python Tutorial",
+          "publisher_or_domain": "Python Software Foundation",
+          "url": "https://docs.python.org/3/tutorial/",
+          "accessed": "2024-06-06"
+        }
+      },
+      {
+        "title": "GitHub Learning Lab: Introduction to GitHub",
+        "url": "https://lab.github.com/",
+        "publisher_or_domain": "GitHub",
+        "summary": "GitHub Learning Lab provides interactive tutorials for version control fundamentals, teaching you how to create repositories, commit changes, and collaborate using GitHub.",
+        "why": "Direct, hands-on experience with Git/GitHub practices is crucial for coding collaboration and portfolio building in AI engineering.",
+        "level": "beginner",
+        "citation": {
+          "title": "GitHub Learning Lab",
+          "publisher_or_domain": "GitHub",
+          "url": "https://lab.github.com/",
+          "accessed": "2024-06-06"
+        }
+      }
+    ],
+    "IV. Practical Programming & Tools": [
+      {
+        "title": "NumPy User Guide (Official Documentation)",
+        "url": "https://numpy.org/doc/stable/user/index.html",
+        "publisher_or_domain": "NumPy Developers",
+        "summary": "The official NumPy User Guide covers array operations, data manipulation, indexing, and mathematical functions, with targeted tutorials and examples.",
+        "why": "NumPy is foundational for numerical computing and an essential library for any Python-based AI engineer.",
+        "level": "beginner",
+        "citation": {
+          "title": "NumPy User Guide",
+          "publisher_or_domain": "NumPy Developers",
+          "url": "https://numpy.org/doc/stable/user/index.html",
+          "accessed": "2024-06-06"
+        }
+      },
+      {
+        "title": "Pandas Getting Started",
+        "url": "https://pandas.pydata.org/docs/getting_started/index.html",
+        "publisher_or_domain": "Pandas Community",
+        "summary": "Official guide to Pandas, including quickstart tutorials for Series and DataFrames, data cleaning, importing data from CSV, and essential data operations for analysis.",
+        "why": "Learning Pandas is vital for practical data wrangling and analysis in real AI and machine learning workflows.",
+        "level": "beginner",
+        "citation": {
+          "title": "Getting Started",
+          "publisher_or_domain": "Pandas Community",
+          "url": "https://pandas.pydata.org/docs/getting_started/index.html",
+          "accessed": "2024-06-06"
+        }
+      },
+      {
+        "title": "Matplotlib Getting Started",
+        "url": "https://matplotlib.org/stable/users/getting_started/",
+        "publisher_or_domain": "Matplotlib Developers",
+        "summary": "Matplotlib's official documentation introduces you to basic plotting and data visualization in Python, covering how to create histograms, scatter plots, and line graphs.",
+        "why": "Effective visualization is key to understanding your data before, during, and after building AI models.",
+        "level": "beginner",
+        "citation": {
+          "title": "Getting Started",
+          "publisher_or_domain": "Matplotlib Developers",
+          "url": "https://matplotlib.org/stable/users/getting_started/",
+          "accessed": "2024-06-06"
+        }
+      },
+      {
+        "title": "Jupyter Notebook Documentation",
+        "url": "https://jupyter-notebook.readthedocs.io/en/stable/notebook.html",
+        "publisher_or_domain": "Project Jupyter",
+        "summary": "The official Jupyter documentation teaches you how to install, launch, and use notebooks for interactive Python development and data science projects.",
+        "why": "Jupyter Notebooks are the standard tool for experimentation and reproducibility in AI and ML workflows.",
+        "level": "beginner",
+        "citation": {
+          "title": "Jupyter Notebook Documentation",
+          "publisher_or_domain": "Project Jupyter",
+          "url": "https://jupyter-notebook.readthedocs.io/en/stable/notebook.html",
+          "accessed": "2024-06-06"
+        }
+      }
+    ],
+    "V. Machine Learning Basics": [
+      {
+        "title": "scikit-learn: Machine Learning in Python (Official Documentation)",
+        "url": "https://scikit-learn.org/stable/user_guide.html",
+        "publisher_or_domain": "scikit-learn",
+        "summary": "scikit-learn's User Guide provides clear, well-structured tutorials and examples for key ML algorithms like

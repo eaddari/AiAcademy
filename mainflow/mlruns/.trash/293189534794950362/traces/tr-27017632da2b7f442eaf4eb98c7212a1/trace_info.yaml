@@ -1,0 +1,22 @@
+execution_duration_ms: 2043
+request_preview: '{"query": "best online resources math for AI beginners official
+  documentation site:edu"}'
+request_time: '2025-09-07T18:21:19.012Z'
+response_preview: '{"searchParameters": {"q": "best online resources math for AI beginners
+  official documentation site:edu", "type": "search", "num": 10, "engine": "google"},
+  "organic": [{"title": "40 Free Resources to Help You Learn Machine Learning on Your
+  Own", "link": "https://customcareer.miami.edu/blog/2019/06/05/40-free-resources-to-help-you-learn-machine-learning-on-your-own/",
+  "snippet": "Math is an intrinsic component of every machine learning job, so you
+  need to get acquainted with complex topics like pre-calculus and matrices.", "date":
+  "Jun 5, 2019", "position": 1}, {"title": "11 Online AI Courses That Can Help You
+  Stay Ahead", "link": "https://careerhub.sunyempire.edu/blog/2025/03/18/11-online-ai-courses-that-can-help-you-stay-ahead/",
+  "snippet": "Here''s a breakdown of some of the best AI courses available online,
+  catering to various levels and interests: Free AI courses for beginners ...", "date":
+  "Mar 18, 2025", "position": 2}, {"title": "Explore the world of artificial intelligence
+  wi...'
+state: OK
+trace_id: tr-27017632da2b7f442eaf4eb98c7212a1
+trace_location:
+  mlflow_experiment:
+    experiment_id: '293189534794950362'
+  type: MLFLOW_EXPERIMENT

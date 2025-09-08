@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns/509180351258045446/15661a0808fd40628c08b4428ba0ca16/artifacts
+end_time: 1757275986088
+entry_point_name: ''
+experiment_id: '509180351258045446'
+lifecycle_stage: active
+run_id: 15661a0808fd40628c08b4428ba0ca16
+run_name: InputValidationCrew Evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757275979724
+status: 3
+tags: []
+user_id: FJ138WZ

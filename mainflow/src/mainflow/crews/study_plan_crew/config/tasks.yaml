@@ -1,10 +1,11 @@
 fill_final_plan:
   description: >
-    Fill in the final study plan with the resources and papers found by the previous agents.
+    Fill in the final study plan with the resources, papers and calendar created by the previous agents.
     Ensure the plan's structure is layered and complete.
     Plan is a structured outline with key points and sections to be covered: {plan}
     Resources is a JSON with web resources grouped by section names from the input plan: {resources}
     Papers is a dictionary containing details of relevant scientific papers found for each topic: {papers}
+    Calendar is a calendar tailored to the user's needs: {calendar}
   expected_output: >
     The final structured plan in markdown format.
   agent: final_plan_filler
@@ -12,19 +13,26 @@ fill_final_plan:
 write_ascii:
   description: >
     Create an ASCII flowchart that visually represents the most important steps of the study plan.
+    You must be careful to create a structure that will be correctly rendered in markdown.
+    Use characters like `|`, `-`, `+`, and others to create boxes and arrows.
+    Ensure that the flowchart captures the logical flow and relationships between different sections of the plan.
     The flowchart should be clear, engaging, and easy to understand, highlighting the key stages and transitions in the plan.
   expected_output: >
     Beautifully crafted ASCII flowcharts representing the most important steps of the study plan.
+    The ASCII flowcharts must be in a format that can be easily included in markdown documents.
+
   agent: ascii_writer
   context: 
   - fill_final_plan
 
 review_final_plan:
   description: >
-    Review the plan written by the final_plan_filler agent.
+    Review the plan written by the final_plan_filler agent, fixing any error left in the text.
     Insert the ascii flowcharts at the beginning of the plan.
+    The plan is in markdown format, so be careful to keep the markdown structure correct.
   expected_output: >
     Final study plan in markdown format with ASCII flowcharts included.
+    Don't include "```markdown```" tags in the output.
   agent: final_plan_reviewer
   context: 
   - fill_final_plan
