@@ -40,7 +40,7 @@ class StreamlitFlow(CrewAIFlow[State]):
     @listen(insert_topic)
     def sanitize_input(self):
         if self.status_callback:
-            self.status_callback("🔍 Sanitizing input...")
+            self.status_callback("Sanitizing input...")
         if self.progress_callback:
             self.progress_callback(0.2)
             
@@ -55,7 +55,7 @@ class StreamlitFlow(CrewAIFlow[State]):
     @listen(sanitize_input)
     def generate_plan(self):
         if self.status_callback:
-            self.status_callback("📋 Generating study plan outline...")
+            self.status_callback("Generating study plan outline...")
         if self.progress_callback:
             self.progress_callback(0.35)
             
@@ -70,7 +70,7 @@ class StreamlitFlow(CrewAIFlow[State]):
     @listen(generate_plan)
     def web_search(self):
         if self.status_callback:
-            self.status_callback("🌐 Searching for web resources...")
+            self.status_callback("Searching for web resources...")
         if self.progress_callback:
             self.progress_callback(0.5)
             
@@ -85,7 +85,7 @@ class StreamlitFlow(CrewAIFlow[State]):
     @listen(web_search)
     def paper_research(self):
         if self.status_callback:
-            self.status_callback("📚 Researching academic papers...")
+            self.status_callback("Researching academic papers...")
         if self.progress_callback:
             self.progress_callback(0.65)
             
@@ -100,7 +100,7 @@ class StreamlitFlow(CrewAIFlow[State]):
     @listen(paper_research)
     def define_calendar(self):
         if self.status_callback:
-            self.status_callback("📅 Creating study calendar...")
+            self.status_callback("Creating study calendar...")
         if self.progress_callback:
             self.progress_callback(0.8)
             
@@ -153,9 +153,9 @@ def main():
     
     # Show AI Disclaimer Modal
     if not st.session_state.disclaimer_accepted:
-        @st.dialog("🤖 AI-Powered System Notice")
+        @st.dialog("AI-Powered System Notice")
         def show_disclaimer():
-            st.warning("⚠️ **Important Notice**")
+            st.warning("**Important Notice**")
             st.markdown("""
             **This system uses artificial intelligence to generate personalized study guides based on your input.**
             
@@ -170,11 +170,11 @@ def main():
             
             col1, col2 = st.columns(2)
             with col1:
-                if st.button("✅ I Understand & Continue", use_container_width=True, type="primary"):
+                if st.button("I Understand & Continue", use_container_width=True, type="primary"):
                     st.session_state.disclaimer_accepted = True
                     st.rerun()
             with col2:
-                if st.button("❌ Cancel", use_container_width=True):
+                if st.button("Cancel", use_container_width=True):
                     st.stop()
         
         show_disclaimer()
@@ -183,14 +183,22 @@ def main():
     # Apply custom styles from external CSS file
     apply_custom_styles()
     
-    st.title("EY Junior Accelerator")
+    # Header with title on left and logo in center
+    col1, col2, col3 = st.columns([2, 1, 2])
+    with col1:
+        st.title("EY Junior Accelerator")
+        st.markdown("### Your AI-Powered Learning Plan Generator")
+    with col2:
+        st.image("./frontend/pics/jpeg-removebg-preview.png", width=120)
+    with col3:
+        st.write("")  # Empty column for balance
+    
     st.markdown("---")
-    st.markdown("## Your AI-Powered learning plan generator")
     
     # User input form
     with st.form("user_input_form", clear_on_submit=False):
         user_input = st.text_area(
-            "Describe your role, past experience, and learning goals:",
+            "Please describe your background and learning goals:",
             placeholder="Example: I'm a finance professional with a bachelor's degree in economics. I want to become proficient in AI and machine learning to transition into an AI Engineer role.",
             height=100,
             help="Be specific about your background, current role, and what you want to learn",
@@ -203,20 +211,13 @@ def main():
         
     # Process the request
     if submit_button and user_input:
-        # Create containers for real-time updates
-        progress_container = st.container()
-        output_container = st.container()
-        
         # Start the study plan generation process
         with st.spinner("Initializing AI agents..."):
             try:
                 # Show progress steps
-                with progress_container:
-                    st.markdown('<div class="progress-container">', unsafe_allow_html=True)
-                    st.markdown("###  Generation Progress")
-                    progress_bar = st.progress(0)
-                    status_text = st.empty()
-                    st.markdown('</div>', unsafe_allow_html=True)
+                st.markdown("###  Generation Progress")
+                progress_bar = st.progress(0)
+                status_text = st.empty()
                 
                 # Define callback functions for progress updates
                 def update_progress(progress_value):
@@ -233,7 +234,7 @@ def main():
                 )
                 
                 # Start with initial status
-                update_status("🚀 Starting AI agents...")
+                update_status("Starting AI agents...")
                 update_progress(0.1)
                 
                 # Run the complete flow
@@ -241,7 +242,7 @@ def main():
                 
                 # Final progress update
                 update_progress(1.0)
-                update_status("✅ Study plan generated successfully!")
+                update_status("Study plan generated successfully!")
                 
                 # Extract results from flow state
                 result = {
@@ -258,7 +259,7 @@ def main():
                     st.success(" Your personalized study plan is ready!")
                     
                     # Display the final study plan
-                    st.markdown("### 📋 Your Complete Study Plan")
+                    st.markdown("###Your Complete Study Plan")
                     st.markdown(result["study_plan"])
                         
                     # Display additional sections in tabs
