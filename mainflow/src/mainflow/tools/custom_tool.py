@@ -25,7 +25,7 @@ class SerperSearchTool(BaseTool):
     @mlflow.trace(span_type="RETRIEVER")
     def _run(self, query: str) -> str:
         url = "https://google.serper.dev/search"
-        payload = json.dumps({"q": query, "num": 10})
+        payload = json.dumps({"q": query, "num": 5})
         headers = {
             'X-API-KEY': self.api_key,
             'Content-Type': 'application/json'

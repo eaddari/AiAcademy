@@ -49,6 +49,12 @@ class InputValidationCrew:
             config=self.agents_config["knowledge_identifier"],
             llm=self.model,
         )
+    @agent
+    def goals_identifier(self) -> Agent:
+        return Agent(
+            config=self.agents_config["goals_identifier"],
+            llm=self.model,
+        )
     
     @agent
     def security_validator(self) -> Agent:
