@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "VIII. Web Resources (Prioritized by Section)": [
+      {
+        "title": "Python Official Documentation",
+        "url": "https://docs.python.org/3/",
+        "publisher_or_domain": "Python Software Foundation",
+        "summary": "The official Python documentation provides comprehensive guides to the language syntax, standard library modules, and coding best practices. Beginners can use the extensive tutorials and reference entries to understand how Python works and to solve coding issues as they learn.",
+        "why": "Essential for foundational knowledge of Python, which underpins nearly all AI/ML workflows. Learners reference this often as they build scripts and tackle Python-based exercises.",
+        "level": "beginner",
+        "citation": {
+          "title": "Python 3 Documentation",
+          "publisher_or_domain": "Python Software Foundation",
+          "url": "https://docs.python.org/3/",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "NumPy: The Fundamental Package for Scientific Computing",
+        "url": "https://numpy.org/",
+        "publisher_or_domain": "NumPy.org",
+        "summary": "NumPy’s official site offers documentation and user guides for scientific computing with Python. It covers arrays, matrix operations, random sampling, and is the foundation for many AI/ML data manipulations.",
+        "why": "Provides vital tools for working with numerical data, matrices, and vectors—core prerequisites for AI and machine learning tasks.",
+        "level": "beginner",
+        "citation": {
+          "title": "NumPy Documentation",
+          "publisher_or_domain": "NumPy.org",
+          "url": "https://numpy.org/",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "Pandas: Python Data Analysis Library",
+        "url": "https://pandas.pydata.org/",
+        "publisher_or_domain": "pandas.pydata.org",
+        "summary": "Pandas provides user guides, API references, and tutorials supporting powerful data analysis and manipulation with Python. Ideal for handling tabular data, CSV, JSON, and prepping datasets.",
+        "why": "Practically indispensable for data handling, wrangling, and preprocessing in AI/ML projects—matches hands-on steps in the study plan.",
+        "level": "beginner",
+        "citation": {
+          "title": "pandas Documentation",
+          "publisher_or_domain": "pandas.pydata.org",
+          "url": "https://pandas.pydata.org/",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "scikit-learn Tutorials",
+        "url": "https://scikit-learn.org/stable/tutorial/index.html",
+        "publisher_or_domain": "scikit-learn.org",
+        "summary": "These interactive tutorials cover core machine learning models and practical implementation, from linear regression to classifiers, with plenty of beginner-focused examples and datasets.",
+        "why": "Matching the curriculum’s project and evaluation skills, these resources make fundamental ML tangible with code and real datasets.",
+        "level": "beginner",
+        "citation": {
+          "title": "scikit-learn Tutorials",
+          "publisher_or_domain": "scikit-learn.org",
+          "url": "https://scikit-learn.org/stable/tutorial/index.html",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "publisher_or_domain": "Kaggle",
+        "summary": "Kaggle Learn hosts micro-courses and hands-on tutorials on Python, ML, data handling, and deep learning, all within interactive Jupyter notebooks. Includes real-world datasets and practice problems.",
+        "why": "Highly practical and project-centered; supports both guided learning and iterative project development referenced throughout the study plan.",
+        "level": "beginner",
+        "citation": {
+          "title": "Kaggle Learn",
+          "publisher_or_domain": "Kaggle",
+          "url": "https://www.kaggle.com/learn",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "TensorFlow Tutorials",
+        "url": "https://www.tensorflow.org/tutorials",
+        "publisher_or_domain": "Google",
+        "summary": "The official TensorFlow site provides practical step-by-step guides for building and training neural networks, including notebooks for MNIST and other classic beginner projects.",
+        "why": "Perfect fit for hands-on deep learning basics, model training, and experimentation as required by the neural network and project sections.",
+        "level": "beginner",
+        "citation": {
+          "title": "TensorFlow Tutorials",
+          "publisher_or_domain": "Google",
+          "url": "https://www.tensorflow.org/tutorials",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "PyTorch Tutorials",
+        "url": "https://pytorch.org/tutorials/",
+        "publisher_or_domain": "PyTorch (Meta AI)",
+        "summary": "PyTorch provides beginner tutorials and learning paths from basic tensor operations up to training and evaluating neural nets, all with clear code samples and explanations.",
+        "why": "A core tool for the “Neural Networks & Deep Learning” section, empowering students to implement and iterate on modern AI models.",
+        "level": "beginner",
+        "citation": {
+          "title": "PyTorch Tutorials",
+          "publisher_or_domain": "PyTorch (Meta AI)",
+          "url": "https://pytorch.org/tutorials/",
+          "accessed": "2024-06-13"
+        }
+      },
+      {
+        "title": "GitHub Docs: Hello World",
+        "url": "https://docs.github.com/en/get-started/quickstart/hello-world",
+        "publisher_or_domain": "GitHub",
+        "summary": "GitHub’s official quickstart teaches you how to create repositories, make commits, start branches, and push changes, supporting reproducible and collaborative AI projects.",
+        "why": "Builds the critical version control an

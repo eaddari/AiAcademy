@@ -1,0 +1,22 @@
+execution_duration_ms: 2037
+request_preview: '{"query": "probability and statistics fundamentals online course
+  site:edu"}'
+request_time: '2025-09-07T18:21:28.871Z'
+response_preview: '{"searchParameters": {"q": "probability and statistics fundamentals
+  online course site:edu", "type": "search", "num": 10, "engine": "google"}, "organic":
+  [{"title": "Introduction to Probability and Statistics - MIT OpenCourseWare", "link":
+  "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/",
+  "snippet": "This course provides an elementary introduction to probability and statistics
+  with applications. Topics include basic combinatorics, random variables, ...", "position":
+  1}, {"title": "Probability & Statistics — Open & Free - OLI", "link": "https://oli.cmu.edu/courses/probability-statistics-open-free/",
+  "snippet": "Probability & Statistics — Open & Free. Introductory-level course teaches
+  students the basic concepts of statistics and the logic of statistical reasoning.",
+  "position": 2}, {"title": "Introduction to Probability (on edX) | Harvard University",
+  "link": "https://pll.harvard.edu/course/introduction-probability-edx", "snippet":
+  "What you...'
+state: OK
+trace_id: tr-96de35764f2e009e8a6718d891fea445
+trace_location:
+  mlflow_experiment:
+    experiment_id: '293189534794950362'
+  type: MLFLOW_EXPERIMENT

@@ -1,0 +1,23 @@
+execution_duration_ms: 1147
+request_preview: '{"query": "best beginner web resources for learning python programming
+  official documentation"}'
+request_time: '2025-09-07T16:53:38.076Z'
+response_preview: '{"searchParameters": {"q": "best beginner web resources for learning
+  python programming official documentation", "type": "search", "num": 10, "engine":
+  "google"}, "organic": [{"title": "9 Best Free Resources to Learn Python in 2025
+  - Rivery", "link": "https://rivery.io/blog/free-resources-learn-python/", "snippet":
+  "For new learners, Python.org is an ideal starting point, as it provides comprehensive
+  documentation and beginner tutorials directly from Python''s official site. Codecademy''s
+  interactive courses allow beginners to practice coding directly in their browsers,
+  providing immediate feedback to reinforce learning.", "position": 1}, {"title":
+  "Python For Beginners | Python.org", "link": "https://www.python.org/about/gettingstarted/",
+  "snippet": "There is a list of tutorials suitable for experienced programmers on
+  the BeginnersGuide/Tutorials page. There is also a list of resources in other languages
+  ...", "position": 2}, {"title": "Best resources to study Python : r/learnpython
+  ...'
+state: OK
+trace_id: tr-e0fa7c8761783382980c2efd5b19fbbc
+trace_location:
+  mlflow_experiment:
+    experiment_id: '509180351258045446'
+  type: MLFLOW_EXPERIMENT

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns/509180351258045446/344c7d3336a04211a76230dbcc2a8dac/artifacts
+end_time: 1757279921127
+entry_point_name: ''
+experiment_id: '509180351258045446'
+lifecycle_stage: active
+run_id: 344c7d3336a04211a76230dbcc2a8dac
+run_name: PlanningCrew GenAI Evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757279900879
+status: 3
+tags: []
+user_id: FJ138WZ

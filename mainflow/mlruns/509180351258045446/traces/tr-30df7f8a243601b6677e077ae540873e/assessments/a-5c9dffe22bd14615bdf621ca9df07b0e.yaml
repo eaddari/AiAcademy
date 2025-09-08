@@ -1,0 +1,18 @@
+assessment_id: a-5c9dffe22bd14615bdf621ca9df07b0e
+assessment_name: relevance_to_query
+create_time: '2025-09-07T18:42:42.354Z'
+feedback:
+  value: 'yes'
+last_update_time: '2025-09-07T18:42:42.354Z'
+metadata:
+  mlflow.assessment.sourceRunId: 2bc4c73c05c44e3682fd609d94f6ebd4
+rationale: The question concerns an AI engineer with no experience and LLM from scratch,
+  likely referring to building large language models. The answer provides information
+  about the role (Entry-Level AI Engineer) and the current knowledge level (Beginner),
+  which is partially relevant as it addresses the starting position and skill level
+  tied to the query context.
+source:
+  source_id: azure:/gpt-4.1
+  source_type: LLM_JUDGE
+trace_id: tr-30df7f8a243601b6677e077ae540873e
+valid: true

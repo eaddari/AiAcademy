@@ -1,0 +1,21 @@
+execution_duration_ms: 1637
+request_preview: '{"query": "best official resources for learning Python for beginners"}'
+request_time: '2025-09-07T20:14:15.587Z'
+response_preview: '{"searchParameters": {"q": "best official resources for learning
+  Python for beginners", "type": "search", "num": 10, "engine": "google"}, "organic":
+  [{"title": "9 Best Free Resources to Learn Python in 2025 - Rivery", "link": "https://rivery.io/blog/free-resources-learn-python/",
+  "snippet": "Python.org, Codecademy, Coursera, and YouTube each offer beginner-to-advanced
+  content at no cost, covering all the fundamental areas of Python. Coursera offers
+  free courses from universities and tech companies like Google, which can help you
+  explore more specialized areas of Python once you''ve mastered the basics.", "position":
+  1}, {"title": "Best resources to study Python : r/learnpython - Reddit", "link":
+  "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/",
+  "snippet": "I really like the book Think Python, which is also available online
+  in a free, interactive version at runestone.academy.", "date": "Jan 24, 2023", "sitelinks":
+  [{"title": "What is the best res...'
+state: OK
+trace_id: tr-e5ec04194be74cd14e030c1f9f326c0a
+trace_location:
+  mlflow_experiment:
+    experiment_id: '509180351258045446'
+  type: MLFLOW_EXPERIMENT

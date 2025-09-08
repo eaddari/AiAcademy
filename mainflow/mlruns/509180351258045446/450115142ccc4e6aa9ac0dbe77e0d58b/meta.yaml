@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns/509180351258045446/450115142ccc4e6aa9ac0dbe77e0d58b/artifacts
+deleted_time: 1757280144167
+end_time: 1757279236484
+entry_point_name: ''
+experiment_id: '509180351258045446'
+lifecycle_stage: deleted
+run_id: 450115142ccc4e6aa9ac0dbe77e0d58b
+run_name: EYFlow_with_Autolog
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757279194378
+status: 4
+tags: []
+user_id: FJ138WZ

@@ -1,0 +1,14 @@
+assessment_id: a-eebbb358ffa1499d92e8e49b809781d6
+assessment_name: expected_response
+create_time: '2025-09-07T21:17:18.880Z'
+expectation:
+  value: The output should be relevant to the input question and formatted as a dictionary
+    containing the role and the current_knowledge_level.
+last_update_time: '2025-09-07T21:17:18.880Z'
+metadata:
+  mlflow.assessment.sourceRunId: 79889d34b77b4b35b15467e860c3f934
+source:
+  source_id: FJ138WZ
+  source_type: HUMAN
+trace_id: tr-dade4e8a983a840dba1793eb6279d636
+valid: true

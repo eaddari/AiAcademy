@@ -1,0 +1,18 @@
+assessment_id: a-04414fe9499347fd8732325b6643c3df
+assessment_name: relevance_to_query
+create_time: '2025-09-07T21:17:18.875Z'
+feedback:
+  value: 'yes'
+last_update_time: '2025-09-07T21:17:18.875Z'
+metadata:
+  mlflow.assessment.sourceRunId: 79889d34b77b4b35b15467e860c3f934
+rationale: The question refers to becoming an AI engineer with no experience and building
+  an LLM from scratch. The answer provides the role as 'Entry-Level AI Engineer' and
+  describes the current knowledge level as 'Beginner.' This information is partially
+  relevant as it addresses the background context (role and knowledge level) relevant
+  to the question asked.
+source:
+  source_id: azure:/gpt-4.1
+  source_type: LLM_JUDGE
+trace_id: tr-dade4e8a983a840dba1793eb6279d636
+valid: true

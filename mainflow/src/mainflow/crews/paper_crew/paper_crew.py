@@ -75,7 +75,6 @@ class PaperCrew():
     def perform_search_task(self) -> Task:
         return Task(
             config=self.tasks_config['perform_search_task'], # type: ignore[index]
-            output_file='paper_crew_result.md'
         )
 
     @crew
