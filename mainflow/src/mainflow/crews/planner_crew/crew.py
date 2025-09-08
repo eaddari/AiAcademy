@@ -111,33 +111,7 @@ class PlanningCrew:
         return Task(
             config=self.tasks_config["write_plan"],
         )
-    @task
-    def review_plan(self) -> Task:
-        """
-        Create the review plan task.
 
-        Returns
-        -------
-        Task
-            The review plan task instance.
-        """
-        return Task(
-            config=self.tasks_config["review_plan"],
-        )
-    @task
-    def correct_plan(self) -> Task:
-        """
-        Create the correct plan task.
-
-        Returns
-        -------
-        Task
-            The correct plan task instance.
-        """
-        return Task(
-            config=self.tasks_config["correct_plan"],
-            output_file="output/final_study_plan.md",
-        )
 
     @crew
     def crew(self) -> Crew:

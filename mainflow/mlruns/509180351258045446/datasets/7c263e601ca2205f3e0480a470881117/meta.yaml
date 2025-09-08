@@ -1,0 +1,9 @@
+digest: 377034b8
+name: dataset
+profile: '{"num_rows": 1, "num_elements": 3}'
+schema: '{"mlflow_colspec": [{"type": "string", "name": "inputs", "required": true},
+  {"type": "string", "name": "outputs", "required": true}, {"type": "string", "name":
+  "context", "required": true}]}'
+source: '{"tags": {"mlflow.user": "FJ138WZ", "mlflow.source.name": "c:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/tests/monitoring.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "c4c9492f8ef985622b42aff113c69aa150a77b97"}}'
+source_type: code

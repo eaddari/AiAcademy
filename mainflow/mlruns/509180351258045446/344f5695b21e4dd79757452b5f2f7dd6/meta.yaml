@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns/509180351258045446/344f5695b21e4dd79757452b5f2f7dd6/artifacts
+end_time: 1757279953312
+entry_point_name: ''
+experiment_id: '509180351258045446'
+lifecycle_stage: active
+run_id: 344f5695b21e4dd79757452b5f2f7dd6
+run_name: WebCrew Monitoring
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757279952950
+status: 3
+tags: []
+user_id: FJ138WZ

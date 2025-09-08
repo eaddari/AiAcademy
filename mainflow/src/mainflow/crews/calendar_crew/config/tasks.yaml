@@ -1,0 +1,35 @@
+define_calendar:
+  description: >
+    According to the user info in the plan, define a calendar about how to most efficiently study in order to become a better role.
+    The calendar should focus on key concepts and be structured in a layered way.
+    The calendar is to be built around the needs of someone with current_knowledge_level knowledge of the role.
+    Ensure the calendar's structure is layered and complete.
+    Give critical importance to the resources retrived and build the calendar around them:
+    Web resources: {web_resources}
+    Papers: {papers}
+    Plan: {plan}
+  expected_output: >
+    A structured outline of the weekly calendar, including key points and sections to be covered.
+    Expected output:
+    {
+      "calendar_outline": "A structured outline of the study calendar with key points and sections."
+    }
+  agent: calendar_definer
+
+write_calendar:
+  description: >
+    Fill in the define_calendar.output according to the resources provided:
+    Web resources: {web_resources}
+    Papers: {papers}
+    Write a detailed and weekly layered calendar about how to most efficiently study according to the structure defined by the calendar_definer agent.
+    Base the dates and times around the difficulty and importance of each topic.
+    Ensure the calendar is clear, engaging, and complete.
+  expected_output: >
+    A beautifully crafted and layered study calendar to fill in with information.
+    Expected output:
+    {
+      "detailed_calendar": "A detailed and layered study calendar."
+    }
+  agent: calendar_writer
+  context:
+  - define_calendar

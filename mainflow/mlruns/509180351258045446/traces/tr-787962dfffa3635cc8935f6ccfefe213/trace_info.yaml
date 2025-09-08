@@ -1,0 +1,22 @@
+execution_duration_ms: 1531
+request_preview: '{"query": "best beginner web resources for learning python programming
+  official documentation"}'
+request_time: '2025-09-07T16:53:36.520Z'
+response_preview: '{"searchParameters": {"q": "best beginner web resources for learning
+  python programming official documentation", "type": "search", "num": 10, "engine":
+  "google"}, "organic": [{"title": "Python For Beginners", "link": "https://www.python.org/about/gettingstarted/",
+  "snippet": "There is a list of tutorials suitable for experienced programmers on
+  the BeginnersGuide/Tutorials page. There is also a list of resources in other languages
+  ...", "position": 1}, {"title": "Best resources to study Python : r/learnpython",
+  "link": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/",
+  "snippet": "Codespace is a way to start coding instantly through your web browser
+  (it''s a virtual machine running on github), and check50 is a program ...", "date":
+  "2 years ago", "position": 2}, {"title": "9 Best Free Resources to Learn Python
+  in 2025", "link": "https://rivery.io/blog/free-resources-learn-python/", "snippet":
+  "1. Python.Org · You get direct access to the official ...'
+state: OK
+trace_id: tr-787962dfffa3635cc8935f6ccfefe213
+trace_location:
+  mlflow_experiment:
+    experiment_id: '509180351258045446'
+  type: MLFLOW_EXPERIMENT

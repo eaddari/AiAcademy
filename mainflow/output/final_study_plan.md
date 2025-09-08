@@ -1,363 +1,577 @@
-```markdown
-              ┌────────────────────────────────────────────────┐
-              │      STUDY PLAN: BEGINNER ASPIRING CHEF        │
-              └────────────────────────────────────────────────┘
-                               │
-                               ▼
-       ┌───────────────────────────────────────────────┐
-       │ I. Introduction & Goal Setting (1 week)      │
-       ├───────────────────────────────────────────────┤
-       │ • Reflect on Motivation & Mission            │
-       │ • Explore Chef's Role                        │
-       │ • Define Short- and Long-term Goals          │
-       │ • Set Up Progress Tracking Tools             │
-       └───────────────────────────────────────────────┘
-                               │
-                               ▼
-       ┌───────────────────────────────────────────────┐
-       │ II. Foundation of Culinary Knowledge         │
-       │        (2–3 weeks)                           │
-       ├───────────────────────────────────────────────┤
-       │ • Kitchen Safety & Hygiene                   │
-       ├───────────────────────────────────────────────┤
-       │ • Knife Skills                               │
-       ├───────────────────────────────────────────────┤
-       │ • Basic Cooking Techniques                   │
-       ├───────────────────────────────────────────────┤
-       │ • Ingredient Knowledge (ongoing)             │
-       └───────────────────────────────────────────────┘
-                               │
-                               ▼
-       ┌───────────────────────────────────────────────┐
-       │ III. Foundational Recipes & Practice         │
-       │        (4 weeks)                             │
-       ├───────────────────────────────────────────────┤
-       │ • Select & Master Core Recipes               │
-       │ • Journal & Photo Log                        │
-       │ • Peer/Friend Review                         │
-       │ • Practice Mise en Place + Organization      │
-       │ • Self-Assessment / Tasting Night Milestone  │
-       └───────────────────────────────────────────────┘
-                               │
-              ◄────────────┬───────┬───────────►
-            (Ongoing steps │parallel│with core  )
-             for all below │pract.)│
-                           │       │
-             ┌─────────────▼───────▼──────────────────────────────┐
-             │ IV. Expanding Culinary Knowledge                   │
-             │     (6–8 weeks; parallel)                          │
-             ├─────────────────────────────────────────────────────┤
-             │ • World Cuisine Exploration (1 theme/month)        │
-             │ • Group Cooking Party                              │
-             │ • Baking & Pastry Basics                           │
-             └─────────────────────────────────────────────────────┘
-                           │
-             ┌─────────────▼───────────────────────────────────┐
-             │ V. Skill Development, Assessment &              │
-             │    Troubleshooting (ongoing)                    │
-             ├─────────────────────────────────────────────────┤
-             │ • Biweekly Cooking Challenges                   │
-             │ • Journal & Self-Assessment                     │
-             │ • Seek Online/Peer Feedback                     │
-             │ • Troubleshooting Guide & Focus Area Reflection │
-             │ • Connect with Mentors/Chefs (monthly)          │
-             └─────────────────────────────────────────────────┘
-                           │
-             ┌─────────────▼────────────────────────────┐
-             │ VI. Supplementary Learning & Inspiration │
-             │         (ongoing)                        │
-             ├──────────────────────────────────────────┤
-             │ • Culinary Media Journal                 │
-             │ • Market, Demo & Workshop Visits         │
-             │ • Develop Network of Contacts            │
-             └──────────────────────────────────────────┘
-                           │
-             ┌─────────────▼────────────────────────────┐
-             │ VII. Next Steps & Continuous Improvement │
-             │      (after 3–6 months)                  │
-             ├──────────────────────────────────────────┤
-             │ • Explore Specialization                 │
-             │ • Research Formal Training               │
-             │ • Biannual Review & Celebration          │
-             └──────────────────────────────────────────┘
-                           │
-             ┌─────────────▼─────────────────────┐
-             │ VIII–X. Appendix, Resources &     │
-             │        Templates                  │
-             ├───────────────────────────────────┤
-             │ • Glossary & Troubleshooting      │
-             │ • Adapting for Limitations        │
-             │ • Skill-specific Resource Links   │
-             │ • Trackers, Journals, Prompts     │
-             └───────────────────────────────────┘
-
-─────────────────────────────────────────────────────────────────────────────
-        Milestones ───► Reflection & Celebration Points after each section:
-                        - Journal: One thing you're proud of
-                        - Host a meal or treat yourself after major goals
-                        - Mentor others at completion
-─────────────────────────────────────────────────────────────────────────────
-
-      Engagement & Motivation Strategies (applies throughout):
-          - Mix solo, peer, and group activities
-          - Alternate 60% practice / 40% theory
-          - Use digital tools for tracking and reminders
-
-─────────────────────────────────────────────────────────────────────────────
- ASCII Key:
-  |/▼ : step progression
-  ├── : sequential steps within stage
-  ◄── : parallel/ongoing stages (IV–VI)
-─────────────────────────────────────────────────────────────────────────────
-
-# Study Plan for Aspiring Chef (Beginner Level)
-
-> This structured, layered plan guides you from kitchen novice to confident home cook and aspiring chef, balancing theory, practice, and reflection. **Suggested pacing** is included, with milestones, reflection points, and engagement strategies.
+# Study Plan for Becoming a Better Entry-Level AI Engineer (Beginner Level)
 
 ---
 
-## I. Introduction & Goal Setting (1 week)
-
-### A. Personal Motivation & Mission
-- Reflect (journal prompt): Why do I want to become a chef?  
-- Write a brief personal culinary mission statement.
-
-### B. Chef's Role Exploration
-- Research chef responsibilities, kitchen environments, and common career paths.
-- **Group Activity:** Join a beginner culinary forum; post a question about chef life.
-
-### C. Goal Definition
-- Set **short-term goals (6 weeks)** (e.g., knife skills, recipe mastery).
-- Set **long-term goals (6 months)** (e.g., hosting a three-course dinner).
-
-### D. Progress Tracking Tools
-- **Template:** Create a digital checklist or spreadsheet to map goals.
-- **Milestone:** Celebrate goal completion with a mini-reward (e.g., specialty ingredient).
-
----
-
-## II. Foundation of Culinary Knowledge (2–3 weeks)
-
-### A. Kitchen Safety & Hygiene (Week 1)
-- **Study:** Food safety rules—watch video, complete quick online quiz.
-  - _Paper Resource:_  
-    - [Enhancing Food Safety in Supply Chains: The Potential Role of Large Language Models in Preventing Campylobacter Contamination](http://arxiv.org/abs/2406.06049v1) (Asaf Tzachor, 2024)  
-      - *Abstract:* Foodborne diseases, primarily driven by bacterial infections (e.g., Campylobacter spp.), remain a global public health challenge. The Hazard Analysis and Critical Control Points (HACCP) system is an effective food safety framework, but is often underutilized due to lack of awareness and complex guidelines. Large Language Models have potential to support food safety by providing accessible, up-to-date guidance for contamination prevention at all points in the food chain.
-- **Practice:** Set up and maintain a clean station.
-- **COMMON MISTAKES:** Cross-contamination, improper heating/cooling.
-- **Safety Note:** Always keep a first-aid kit accessible.
-- **Tool:** Download a hygiene checklist app.
-
-### B. Knife Skills (Weeks 1–2)
-- **Learn & Practice:** Knife types, safety, sharpening, and basic cuts (julienne, dice, chiffonade).
-- **Video Assignment:** Watch and mimic professional knife skills (record yourself for review).
-- **Peer Challenge:** Virtual "cut challenge" with friends/online group.
-- **COMMON MISTAKES:** Wrong grip, fingers in path of blade.
-- **Resources:**  
-  - _Web:_ [Basics with Babish](https://www.youtube.com/c/babishculinaryuniverse), [Knife Skills Illustrated articles](https://www.seriouseats.com/knife-skills)
-  - _Book:_ "Knife Skills Illustrated" by Peter Hertzmann
-
-### C. Basic Cooking Techniques (Weeks 2–3)
-- **Theory vs. Practice:** Aim for **60% kitchen practice, 40% study/observation**.
-- **Techniques:** Boiling, roasting, sautéing, steaming, baking, grilling.
-- **Tasting Exercise:** Experiment with seasoning, document adjustments.
-- **Reflection:** What technique felt most challenging? Why?
-- **Resources:**  
-  - _Web:_ [Serious Eats Techniques](https://www.seriouseats.com/technique), [Rouxbe Cooking Courses](https://rouxbe.com/)  
-  - _Book:_ "The Professional Chef" by CIA
-  - _Paper Resource:_  
-    - [A UV-cured nanofibrous membrane of vinylbenzylated gelatin-poly(ε-caprolactone) dimethacrylate co-network by scalable free surface electrospinning](http://arxiv.org/abs/1806.06667v2) (Mohamed Basel Bazbouz et al., 2018)  
-      - *Relates to science of gelatinization and heat transfer, foundational in understanding texture and structure changes during cooking.*
-
-### D. Ingredient Knowledge (Ongoing; start Week 3)
-- **Flashcards/Apps:** Identify produce, meats, grains, spices.
-- **Visits:** Weekly market trip—record observations/photos.
-- **Adaptation Note:** Tips for limited equipment or dietary needs.
-- **Progress Milestone:** Successfully identify 25 ingredients blindfolded.
-- **Paper Resource:**  
-  - [Hierarchical Plant Protein Microcapsules for Hydrophilic and Hydrophobic Cargo Molecules](http://arxiv.org/abs/2501.01962v1) (Ngoc-Duy Dinh et al., 2024)  
-    - *Explains the structure and digestibility of plant protein ingredients, relevant for understanding ingredient roles in food structure and adaptability in recipes.*
-
----
-
-## III. Foundational Recipes & Practice (4 weeks)
-
-### A. Core Recipe Repertoire (Weeks 1–4)
-- **Select/Master:** Soups (chicken, vegetable), sauces (béchamel, tomato), salads, omelets, pastas, grain dishes.
-- **Tracking:** Use a photo log or a digital journal (e.g., OneNote).
-- **Peer Review:** Present a dish to friends/family for feedback.
-
-### B. Cooking Habits & Organization (Daily/Each Session)
-- **Mise en Place:** Checklist before every session.
-- **Clean-as-you-go:** Timed activity.
-- **Day Reflection:** How did organization affect your process?
-
-### C. Progress Assessment
-- **Rubric:** Self-assessment after each dish—taste, texture, appearance.
-- **Milestone:** Complete six core recipes with confidence—host a tasting night.
-
----
-
-## IV. Expanding Culinary Knowledge (6–8 weeks; parallel with core practice)
-
-### A. World Cuisine Exploration (1 theme/mo)
-- **Monthly Focus:** Deep dive into one cuisine (Italian, French, Asian, etc.).  
-  - Recipes  
-  - Ingredient list  
-  - **Research:** Short essay/report on cultural dish significance.
-- **Group Activity:** Online cooking party for chosen cuisine.
-- **Adaptation Tip:** Cultural modifications for dietary restrictions/equipment.
-- **Resources:**  
-  - _Web:_ [French Cooking Academy YouTube](https://www.youtube.com/channel/UCc6SRKdl1b0C5A1yJYlKkJw), [Food Wishes](https://www.youtube.com/user/foodwishes)
-  - _Book:_ Regional cookbooks from your local library
-
-### B. Baking & Pastry Basics (Weeks 2–4)
-- **Begin:** No-knead breads, muffins, cookies, basic cakes.
-- **Plating Challenge:** Photograph desserts for visual improvement log.
-- **Resources:**  
-  - _Web:_ [The Kitchn Baking](https://www.thekitchn.com/collection/baking), [America’s Test Kitchen Baking School](https://www.americastestkitchen.com/bakingschool)
-  - _Book:_ "Baking Basics and Beyond" by Pat Sinclair
-
----
-
-## V. Skill Development, Assessment & Troubleshooting (Ongoing; biweekly formal check-ins)
-
-### A. Cooking Challenges (Biweekly)
-- **Timed Task:** Fifteen-minute omelet challenge.
-- **Compare:** Results vs. professional standard (photos/notes).
-
-### B. Self-Assessment & Feedback
-- **Cooking Journal:** Recipes, lessons, mistakes, tweaks. Use template.
-- **Online Feedback:** Post in forums; seek constructive critique.
-- **Celebrate:** After every 5 successful new recipes—share with someone.
-
-### C. Troubleshooting Common Issues
-- **Guide:** Appendix—How to fix common mistakes (over-salting, undercooking, etc.).
-- **Reflection:** Identify one regular challenge to focus on next session.
-- **Paper Resource:**  
-  - [The impact of sensory characteristics on the willingness to pay for honey](http://arxiv.org/abs/2311.18269v1) (Julia Zaripova et al., 2023)  
-    - *Discusses how sensory analysis (taste, aroma, texture) affects perceived quality—useful for improving self-assessment and understanding feedback.*
-
-### D. Mentorship & Feedback (Monthly)
-- **Outreach:** Connect with local chefs (Q&A/interview), or join mentorship platform.
-- **Virtual Meetups:** Attend online culinary Q&A sessions.
-
----
-
-## VI. Supplementary Learning & Inspiration (Ongoing)
-
-### A. Culinary Media
-- **Curated List:** Assign specific videos/readings weekly by skill level (see Resource Appendix).
-- **Media Journal:** Note 3 techniques or ideas to try from each reading/video.
-- **Resources:**  
-  - _Web:_ [ChefSteps](https://www.chefsteps.com/), [The Kitchn](https://www.thekitchn.com/)
-  - _Book:_ "Salt, Fat, Acid, Heat" by Samin Nosrat, "The Joy of Cooking" by Irma S. Rombauer
-
-### B. Visits & Networking (Monthly)
-- **Activity:** Market/store visits, chef demos, workshops.
-- **Reflection Report:** Write 1–2 paragraphs per visit—what’s inspiring, what could you use?
-- **Networking:** Keep log of contacts, questions asked.
-
----
-
-## VII. Next Steps & Continuous Improvement (After 3–6 months)
-
-### A. Specialization Exploration
-- Reflect: Which cuisines or skills excite you most?
-- Research further resources/courses in that specialty.
-
-### B. Formal Training/Employment Prep
-- **Info Sheet:** Culinary schools, apprenticeships, entry-level job checklist.
-
-### C. Biannual Review
-- Adjust goals; celebrate significant progress (e.g., host a dinner party).
-- **Tracker:** Update digital checklist and journal.
-
----
-
-## VIII. Quick Reference Appendix
-
-### A. Key Culinary Terms & Definitions
-- Glossary of basic terms (mise en place, julienne, roux, reduction, etc.).
-
-### B. Troubleshooting Guide
-- Common mistakes & quick fixes for recipes and techniques.
-
-### C. Adapting for Limitations
-- Guide for dietary adaptations (vegetarian, gluten-free) and working with basic equipment/minimal tools.
-- **Paper Resource:**  
-  - [Introducing the Swiss Food Knowledge Graph: AI for Context-Aware Nutrition Recommendation](http://arxiv.org/abs/2507.10156v1) (Lubnaa Abdur Rahman et al., 2025)  
-    - *Describes a system for ingredient substitutions and dietary/allergen awareness—serves as a knowledge base for adapting recipes to specific health needs and restrictions.*
-
----
-
-## IX. Web & Print Resources (Organized by Focus Area & Skill Level)
-
-**Knife Skills:**
-- _Web:_ [Basics with Babish](https://www.youtube.com/c/babishculinaryuniverse), [Knife Skills Illustrated articles](https://www.seriouseats.com/knife-skills)
-- _Book:_ "Knife Skills Illustrated" by Peter Hertzmann
-
-**Foundational Techniques:**
-- _Web:_ [Serious Eats Techniques](https://www.seriouseats.com/technique), [Rouxbe Cooking Courses](https://rouxbe.com/)
-- _Book:_ "The Professional Chef" by CIA
-
-**Baking & Pastry:**
-- _Web:_ [The Kitchn Baking](https://www.thekitchn.com/collection/baking), [America’s Test Kitchen Baking School](https://www.americastestkitchen.com/bakingschool)
-- _Book:_ "Baking Basics and Beyond" by Pat Sinclair
-
-**World Cuisines:**
-- _Web:_ [French Cooking Academy YouTube](https://www.youtube.com/channel/UCc6SRKdl1b0C5A1yJYlKkJw), [Food Wishes](https://www.youtube.com/user/foodwishes)
-- _Book:_ Regional cookbooks from your local library
-
-**General/Inspirational:**
-- _Web:_ [ChefSteps](https://www.chefsteps.com/), [The Kitchn](https://www.thekitchn.com/)
-- _Book:_ "Salt, Fat, Acid, Heat" by Samin Nosrat, "The Joy of Cooking" by Irma S. Rombauer
-
----
-
-## X. Templates & Tools
-
-- **Progress Tracker (Spreadsheet),** customizable checklist for techniques and recipes.
-- **Cooking Journal (Printable or Digital),** for notes, photos, reflections, and feedback.
-- **Reflection Prompts,** for after each milestone, visit, or major kitchen challenge.
-- **Peer Challenge Grid,** for tracking joint activities.
-
----
-
-### **Reflection & Celebration Points**
-
-- End of each section: Reflect in your journal—What’s one thing you’re proud of?  
-- After major milestones: Host a meal, invite feedback, or treat yourself to a new kitchen tool.
-- On completing plan: Consider mentoring another beginner—pay it forward!
-
----
-
-### **Engagement & Motivation Reminders**
-
-- Alternate study and hands-on work (keep to 60:40 ratio).
-- Mix solo and group/pair learning for variety and accountability.
-- Use digital tools for reminders, checklists, and capturing progress with photos/videos.
-
----
-
-This plan can be adapted as skills and interests evolve. Fill in each section with specific timelines, favorite resources, and personal notes for a lively, personalized journey toward kitchen mastery!
-
----
-
-### **Relevant Scientific Papers Integrated by Section:**
-
-#### Kitchen Safety & Hygiene (II.A)
-- Tzachor, A. (2024). [Enhancing Food Safety in Supply Chains: The Potential Role of Large Language Models in Preventing Campylobacter Contamination](http://arxiv.org/abs/2406.06049v1)
-
-#### Cooking Science & Techniques (II.C)
-- Bazbouz, M. B., Liang, H., & Tronci, G. (2018). [A UV-cured nanofibrous membrane of vinylbenzylated gelatin-poly(ε-caprolactone) dimethacrylate co-network by scalable free surface electrospinning](http://arxiv.org/abs/1806.06667v2)
-
-#### Ingredient Knowledge (II.D)
-- Dinh, N.-D., Rodriguez-Garcia, M., Toprakcioglu, Z., Shen, Y., & Knowles, T. (2024). [Hierarchical Plant Protein Microcapsules for Hydrophilic and Hydrophobic Cargo Molecules](http://arxiv.org/abs/2501.01962v1)
-
-#### Sensory Analysis (V.C)
-- Zaripova, J., Chuprianova, K., Polyakova, I., Semenova, D., Kulikova, S. (2023). [The impact of sensory characteristics on the willingness to pay for honey](http://arxiv.org/abs/2311.18269v1)
-
-#### Dietary Adaptations (VIII.C)
-- Rahman, L. A., Papathanail, I., Mougiakakou, S. (2025). [Introducing the Swiss Food Knowledge Graph: AI for Context-Aware Nutrition Recommendation](http://arxiv.org/abs/2507.10156v1)
 ```
++-------------------+
+|  START:           |
+|  AI Engineer      |
+|  Study Plan       |
++--------+----------+
+         |
+         v
++---------------------------+
+| I. Foundations of AI &    |
+|    Programming            |
++---------------------------+
+| - What is AI?             |
+| - ML, DL, NLP, CV intro   |
+| - Python basics           |
+| - Git & CLI basics        |
+| - First mini-project      |
++---------------------------+
+         |
+         v
++---------------------------+
+| II. Mathematics for AI    |
++---------------------------+
+| - Linear Algebra          |
+| - Probability/Statistics  |
+| - Calculus basics         |
+| - NumPy for math          |
+| - Small code exercises    |
++---------------------------+
+         |
+         v
++---------------------------+
+| III. Intro to Machine     |
+|      Learning (ML)        |
++---------------------------+
+| - Supervised vs           |
+|   Unsupervised            |
+| - Core algorithms (LR,    |
+|   k-NN, etc.)             |
+| - Model evaluation        |
+| - scikit-learn basics     |
+| - ML pipeline & mini-ex   |
++---------------------------+
+         |
+         v
++-----------------------------+
+| IV. Data Handling &         |
+|     Preprocessing           |
++-----------------------------+
+| - Pandas for data           |
+|   manipulation              |
+| - EDA: describe(), info(),  |
+|   missing data              |
+| - Matplotlib/Seaborn        |
+| - Feature engineering       |
++-----------------------------+
+         |
+         v
++------------------------------+
+| V. Deep Learning Overview    |
++------------------------------+
+| - Neural network concepts    |
+| - Activation functions       |
+| - TensorFlow or PyTorch      |
+| - "Hello World" model        |
+| - Transfer learning basics   |
++------------------------------+
+         |
+         v
++------------------------------+
+| VI. Mini-Projects           |
++------------------------------+
+| - Join Kaggle (beginner)     |
+| - End-to-end ML project      |
+|   (data > preprocess > model |
+|   > evaluate > report)       |
++------------------------------+
+         |
+         v
++------------------------------+
+| VII. Soft Skills & Best Prac.|
++------------------------------+
+| - README/project summary     |
+| - GitHub portfolio           |
+| - Community participation    |
+| - Set learning & career goals|
++------------------------------+
+         |
+         v
++-------------------------------+
+| VIII. Review & Improve        |
++-------------------------------+
+| - Learning diary & self-assess|
+| - Seek feedback/peer review   |
+| - Identify focus areas        |
+| - Plan next learning steps    |
++-------------------------------+
+         |
+         v
++--------------------------+
+| IX-XI. Resources & Papers|
++--------------------------+
+| - Use provided web       |
+|   resources & textbooks  |
+| - Reference key papers   |
++--------------------------+
+         |
+         v
++------------------------------+
+| XII. 8-Week Calendar        |
++------------------------------+
+| - Weekly thematic focus      |
+| - Actions & projects mapped  |
+| - Enrichment readings        |
++------------------------------+
+         |
+         v
++-------------------------------+
+|     CONTINUOUS LEARNING!      |
+|  (Iterate: Practice, Review,  |
+|   Build, Share, Reflect!)     |
++-------------------------------+
+```
+
+**Legend for the flowchart path:**  
+- Each box represents a major stage of learning as outlined in the plan.  
+- "v" arrows indicate sequential progression; always try to practice & project at each stage before advancing.
+- Boxes summarize what to focus on; consult your full plan/calendar and resource list at each step.
+- Near the end, the plan opens up into a cycle of continuous learning, improvement, and specialization.
+
+**Tips:**
+- Reference this ASCII roadmap alongside your detailed plan and 8-week calendar.
+- Use each stage to guide your focus and weekly planning.
+- Revisit previous steps when reviewing, reflecting, or identifying weaknesses.
+
+---
+
+## I. Foundations of AI and Programming Basics
+
+### A. Understand What AI Is
+1. **Define AI and explore its major applications** (e.g., image recognition, NLP, robotics, game playing)
+2. **Study a brief history of AI and its main subfields:**  
+   - Machine Learning (ML)
+   - Deep Learning (DL)
+   - Natural Language Processing (NLP)
+   - Computer Vision
+
+### B. Core Programming Skills
+1. **Learn Python fundamentals:**  
+   - Variables, data types, operators  
+   - Control structures  
+   - Data structures (lists, dictionaries, tuples)  
+   - Functions  
+   - Object-Oriented Programming (OOP) principles
+2. **Get comfortable with command line basics** for navigation and file manipulation
+3. **Learn version control fundamentals using Git:**  
+   - Initializing repositories  
+   - Staging/committing changes  
+   - Branching  
+   - Making pull requests
+4. **First Python mini-project** (e.g., automate a simple daily task)
+
+---
+
+## II. Mathematics for AI
+
+### A. Essential Math Topics
+1. **Linear Algebra:**  
+   - Vectors  
+   - Matrices  
+   - Matrix multiplication  
+   - Transposition  
+   - Dot product
+2. **Probability & Statistics:**  
+   - Mean  
+   - Median  
+   - Standard deviation  
+   - Probability concepts  
+   - Distributions (normal/gaussian, uniform)  
+   - Conditional probabilities
+3. **Calculus Basics:**  
+   - Intuition of derivatives and gradients  
+   - Applications in AI (training ML models)
+
+### B. Practical Application
+1. **Use NumPy** to create and manipulate vectors/matrices; implement simple linear algebra operations
+2. **Apply statistics to small sample datasets** (compute mean, variance, plot histograms)
+3. **Short exercises to reinforce concepts** (via code)
+
+---
+
+## III. Introduction to Machine Learning (ML)
+
+### A. Key Concepts
+1. **Differentiate between supervised and unsupervised learning** (with simple examples)
+2. **Study core algorithms:**  
+   - Linear Regression  
+   - Logistic Regression  
+   - k-Nearest Neighbors (k-NN)
+3. **Understand model evaluation basics:**  
+   - Overfitting/underfitting  
+   - Cross-validation  
+   - Train/test split
+
+### B. Tools and Libraries
+1. **Install scikit-learn; learn basic API:**  
+   - `.fit()`, `.predict()`, `.score()`
+2. **Walk through a basic ML pipeline:**  
+   - Data loading  
+   - Model training  
+   - Evaluation
+3. **Complete mini-exercise:**  
+   - Apply linear regression to a small dataset
+
+---
+
+## IV. Data Handling and Preprocessing
+
+### A. Working with Data
+1. **Learn pandas for data manipulation:**  
+   - Loading  
+   - Cleaning  
+   - Inspecting dataframes
+2. **Perform exploratory data analysis:**  
+   - `.describe()`, `.info()`, `.value_counts()`, handling missing data
+3. **Use Matplotlib/Seaborn for basic visualization:**  
+   - Histograms  
+   - Scatter plots  
+   - Bar charts
+4. **Understand simple feature engineering:**  
+   - Normalization  
+   - Encoding categorical variables
+
+---
+
+## V. Deep Learning Overview (Fundamentals)
+
+### A. Introduction to Neural Networks
+1. **Study basic neural network structure:**  
+   - Perceptron  
+   - Activation functions (ReLU, sigmoid)
+2. **Awareness and installation of major libraries:**  
+   - TensorFlow or PyTorch (choose one)
+3. **Run a "hello world" neural network model** (e.g., classify MNIST digits)
+
+### B. Practical Projects
+1. **Use transfer learning** to solve a simple image or text classification problem (with available pre-trained models)
+2. **Learn how to interpret basic results:**  
+   - Accuracy  
+   - Confusion matrix
+
+---
+
+## VI. Building Mini-Projects
+
+### A. Apply Learning in Practice
+1. **Join Kaggle and try beginner competitions or toy datasets** (Titanic survival, Iris dataset)
+2. **Build a small end-to-end ML project:**  
+   - Select a dataset  
+   - Formulate a problem statement  
+   - Perform data preprocessing  
+   - Train a basic model  
+   - Evaluate results  
+   - Compile findings in a short report or Jupyter Notebook
+
+---
+
+## VII. Essential Soft Skills and Best Practices
+
+### A. Documentation and Communication
+1. **Practice writing clear README files and short project summaries**
+2. **Create and maintain a GitHub repository for all projects**
+3. **Join and participate in AI beginner communities:**  
+   - Forums (Reddit r/learnmachinelearning)  
+   - Discord servers  
+   - GitHub discussions
+
+### B. Learning Resources and Career Planning
+1. **Complete at least one foundational MOOC:**  
+   - Coursera – Andrew Ng’s Machine Learning, OR  
+   - fast.ai’s Practical Deep Learning
+2. **Set short/medium-term learning goals** (e.g., master one ML algorithm or Kaggle problem per month)
+3. **Start tracking career interests:**  
+   - Figure out preferred subfields (NLP, computer vision, etc.)
+
+---
+
+## VIII. Review and Continuous Improvement
+
+### A. Assess Progress
+1. **Maintain a learning diary**, tracking projects, concepts learned, and next steps
+2. **Regularly seek feedback:**  
+   - Submit code for peer review  
+   - Participate in online code reviews or ask for input in communities
+
+### B. Plan Next Steps
+1. **Reflect on strengths and weaknesses** to identify deeper interest areas (e.g., NLP, Computer Vision, deployment)
+2. **Build an actionable plan to follow up with intermediate or specialized courses** depending on chosen focus
+
+---
+
+## IX. Web Resources
+
+- **General Python Programming:**
+  - [The Python Tutorial (docs.python.org)](https://docs.python.org/3/tutorial/index.html)  
+    *Canonical official resource on Python basics and intermediate topics.*
+  - [Python For Beginners](https://www.python.org/about/gettingstarted/)  
+    *Official curated page for absolute beginners and those new to coding.*
+  - [Beginner's Guide to Python](https://wiki.python.org/moin/BeginnersGuide)  
+    *Community recommendations and best starting points.*
+  - [Python Tutorial - W3Schools](https://www.w3schools.com/python/)  
+    *Interactive live coding for basic syntax practice.*
+  - [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)  
+    *Practical, project-oriented learning for real-life automation.*
+
+- **Mathematics for ML:**
+  - [Khan Academy: Linear Algebra](https://www.khanacademy.org/math/linear-algebra)  
+  - [Khan Academy: Probability and Statistics](https://www.khanacademy.org/math/statistics-probability)  
+  - [Essence of Linear Algebra (3Blue1Brown)](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)  
+    *Highly visual math intuition for foundational concepts.*
+
+- **Data Handling:**
+  - [pandas: Getting Started](https://pandas.pydata.org/docs/getting_started/index.html)  
+    *Official intro guide to Python’s data analysis toolkit.*
+  - [Kaggle: Learn Pandas](https://www.kaggle.com/learn/pandas)  
+    *Interactive, feedback-driven data wrangling practice.*
+
+- **Machine Learning:**
+  - [scikit-learn: User Guide](https://scikit-learn.org/stable/user_guide.html)  
+    *In-depth, API-driven practical documentation.*
+  - [Coursera: Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)  
+    *Global gold-standard ML online course.*
+  - [fast.ai Practical Deep Learning for Coders](https://course.fast.ai/)  
+    *Modern, hands-on machine/deep learning course.*
+
+- **Deep Learning:**
+  - [TensorFlow Tutorials](https://www.tensorflow.org/tutorials)  
+    *Official step-by-step walkthroughs for deep learning tasks.*
+  - [PyTorch Tutorials](https://pytorch.org/tutorials/)  
+    *Authoritative guides for the primary research-oriented deep learning library.*
+
+- **Visualization:**
+  - [Matplotlib Documentation](https://matplotlib.org/stable/users/index.html)
+  - [Seaborn Documentation](https://seaborn.pydata.org/tutorial.html)
+
+- **Communities:**
+  - [Kaggle Discussion Forums](https://www.kaggle.com/discussion)
+  - [r/learnmachinelearning (Reddit)](https://www.reddit.com/r/learnmachinelearning/)
+  - [AI Stack Exchange](https://ai.stackexchange.com/)
+
+---
+
+## X. Paper References
+
+1. **Mitchell, T. "Machine Learning," McGraw-Hill, 1997**  
+   - Classic introduction to machine learning fundamentals.
+2. **Géron, A., "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow," O’Reilly, 2019**  
+   - Modern, project-driven ML & DL reference.
+3. **Goodfellow, I., Bengio, Y., Courville, A. "Deep Learning," MIT Press, 2016**  
+   - The deep learning textbook; use as foundational reference.
+4. **Chollet, F., "Deep Learning with Python," Manning, 2017**  
+   - Applied deep learning via Keras, focused on intuition and practical code.
+
+---
+
+## XI. Selected Relevant Scientific Papers (by Topic)
+
+- **Mathematics for Machine Learning, Linear Algebra, Probability, Calculus:**  
+  - [Geometric Formulation for Discrete Points and its Applications](http://arxiv.org/abs/2002.03767v1) — Explores modern math frameworks with ML applications.
+
+- **Statistical Learning Theory, Model Evaluation, Overfitting, Cross-Validation:**  
+  - [Cross-validation: what does it estimate and how well does it do it?](http://arxiv.org/abs/2104.00673v4) — Explains nuances of cross-validation and error estimation.
+
+- **Feature Engineering, Data Preprocessing, Exploratory Data Analysis:**  
+  - [The Landscape of R Packages for Automated Exploratory Data Analysis](http://arxiv.org/abs/1904.02101v3) — Survey of EDA automation and best practices.
+
+- **Deep Learning Architectures (Neural Networks, Activation Functions, Optimization):**  
+  - [Rational Neural Networks](http://arxiv.org/abs/2004.01902v2) — Explores new neural activation alternatives to ReLU/sigmoid.
+
+- **Transfer Learning, Pretrained Models, Deep Learning Applications:**  
+  - [Deep Transfer-Learning for patient specific model re-calibration: Application to sEMG-Classification](http://arxiv.org/abs/2112.15019v1) — Case study on transfer learning benefits in practice.
+
+---
+
+## XII. Layered 8-Week Calendar
+
+### WEEK 1: FOUNDATIONS OF AI AND PYTHON PROGRAMMING
+
+**Core Ideas:**
+- Define AI and identify real-world AI applications.
+- Explore AI subfields: ML, DL, NLP, Computer Vision.
+- Understand Python basics: syntax, variables, data types, operators, control flow, basic data structures.
+- Learn command line basics for navigation and running scripts.
+
+**Key Resources:**
+- [The Python Tutorial (docs.python.org)](https://docs.python.org/3/tutorial/index.html)
+- [Python For Beginners (python.org)](https://www.python.org/about/gettingstarted/)
+- [Beginner's Guide to Python (wiki.python.org)](https://wiki.python.org/moin/BeginnersGuide)
+- [Python Tutorial - W3Schools](https://www.w3schools.com/python/)
+- [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
+
+**Actions/Projects:**
+- Complete at least 10 interactive Python coding exercises.
+- Automate a basic daily task (e.g., auto-rename files, email reminders).
+
+**Community:**
+- Create a GitHub account and upload your code/solutions.
+- Join [r/learnmachinelearning](https://www.reddit.com/r/learnmachinelearning/) and [AI Stack Exchange](https://ai.stackexchange.com/).
+
+---
+
+### WEEK 2: MATHEMATICS FOR MACHINE LEARNING
+
+**Core Ideas:**
+- Linear Algebra concepts (vectors, matrices, operations).
+- Probability & Statistics (mean, median, variance, probability rules).
+- Recognize their ML connections (data as vectors, assumptions).
+
+**Key Resources:**
+- [Khan Academy: Linear Algebra](https://www.khanacademy.org/math/linear-algebra)
+- [Khan Academy: Probability and Statistics](https://www.khanacademy.org/math/statistics-probability)
+- [Essence of Linear Algebra (3Blue1Brown)](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)
+
+**Actions/Projects:**
+- Watch introductory 3Blue1Brown videos and take notes.
+- Complete at least 10 exercises for each math topic on Khan Academy.
+- In Python, do simple vector and matrix operations using NumPy.
+
+**Paper (Enrichment):**
+- [Geometric Formulation for Discrete Points and its Applications](http://arxiv.org/abs/2002.03767v1)
+
+---
+
+### WEEK 3: VERSION CONTROL, DATA HANDLING & PREPROCESSING
+
+**Core Ideas:**
+- Git basics: init, add, commit, branch, pull, push.
+- Load and inspect tabular data using pandas.
+- Data cleaning and handling missing data.
+- EDA and visualizations (matplotlib, seaborn).
+
+**Key Resources:**
+- [pandas: Getting Started](https://pandas.pydata.org/docs/getting_started/index.html)
+- [Kaggle: Learn Pandas](https://www.kaggle.com/learn/pandas)
+- [Matplotlib Documentation](https://matplotlib.org/stable/users/index.html)
+- [Seaborn Documentation](https://seaborn.pydata.org/tutorial.html)
+
+**Actions/Projects:**
+- Download a dataset (e.g., [Titanic on Kaggle](https://www.kaggle.com/c/titanic/data)), load and inspect with pandas.
+- Visualize data distributions using matplotlib and seaborn.
+- Document your EDA in a Jupyter notebook and push to GitHub.
+
+**Paper (Enrichment):**
+- [The Landscape of R Packages for Automated Exploratory Data Analysis](http://arxiv.org/abs/1904.02101v3)
+
+---
+
+### WEEK 4: INTRODUCTION TO MACHINE LEARNING
+
+**Core Ideas:**
+- Difference between supervised and unsupervised learning.
+- Understand and run core algorithms: Linear Regression, Logistic Regression, k-NN.
+- Model evaluation: overfitting/underfitting, cross-validation, train/test split.
+
+**Key Resources:**
+- [scikit-learn: User Guide](https://scikit-learn.org/stable/user_guide.html)
+- [Coursera: Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)
+
+**Actions/Projects:**
+- Install scikit-learn; run a pipeline (data load, split, train, test, evaluate) on selected dataset.
+- Visualize results (accuracy, confusion matrix) using matplotlib/seaborn.
+- Try a simple Kaggle competition or kernel for hands-on experience.
+
+**Paper (Enrichment):**
+- [Cross-validation: what does it estimate and how well does it do it?](http://arxiv.org/abs/2104.00673v4)
+
+---
+
+### WEEK 5: DEEP LEARNING FUNDAMENTALS
+
+**Core Ideas:**
+- Foundational neural network concepts: perceptrons, layers, weights.
+- Learn about activation functions (ReLU, sigmoid).
+- Set up TensorFlow or PyTorch; define & train a simple network.
+
+**Key Resources:**
+- [TensorFlow Tutorials](https://www.tensorflow.org/tutorials)
+- [PyTorch Tutorials](https://pytorch.org/tutorials/)
+- [fast.ai Practical Deep Learning for Coders](https://course.fast.ai/)
+
+**Actions/Projects:**
+- Run a complete MNIST or CIFAR-10 classification example using Keras/TensorFlow or PyTorch.
+- Try transfer learning: adapt a pre-trained model for a small dataset.
+
+**Paper (Enrichment):**
+- [Rational neural networks](http://arxiv.org/abs/2004.01902v2)
+
+---
+
+### WEEK 6: END-TO-END PROJECTS AND TRANSFER LEARNING
+
+**Core Ideas:**
+- Choose a problem and dataset, define the scope.
+- Feature engineering and data preprocessing review.
+- Understand and implement transfer learning with pre-trained models.
+
+**Key Resources:**
+- [fast.ai Practical Deep Learning for Coders](https://course.fast.ai/)
+- [TensorFlow Tutorials: Transfer Learning](https://www.tensorflow.org/tutorials/transfer_learning)
+- [Kaggle: Project Datasets and Notebooks](https://www.kaggle.com/datasets)
+
+**Actions/Projects:**
+- Complete a basic Kaggle project with transfer learning or classic ML.
+- Document all steps (problem, cleaning, model choice, evaluation, code & comments, README).
+
+**Paper (Enrichment):**
+- [Deep Transfer-Learning for patient specific model re-calibration: Application to sEMG-Classification](http://arxiv.org/abs/2112.15019v1)
+
+---
+
+### WEEK 7: REVIEW, SOFT SKILLS, AND COMMUNITY INVOLVEMENT
+
+**Core Ideas:**
+- Best practices: clear communication, documentation (README, summaries).
+- Advanced Git: merging, handling conflicts, and pull requests.
+- Engage with community: forums, code review, discussion boards.
+
+**Key Resources:**
+- [Kaggle Discussion Forums](https://www.kaggle.com/discussion)
+- [r/learnmachinelearning (Reddit)](https://www.reddit.com/r/learnmachinelearning/)
+- [AI Stack Exchange](https://ai.stackexchange.com/)
+
+**Actions/Projects:**
+- Build and polish your GitHub portfolio: upload all projects and notebooks.
+- Write clear documentation for each project, share for feedback.
+- Request/offer code review in at least one online forum.
+
+**Career Mapping:**
+- Set personal learning and career goals.
+- Identify AI subfields for possible specialization.
+
+---
+
+### WEEK 8: REFLECTION, ASSESSMENT, AND NEXT STEPS
+
+**Core Ideas:**
+- Maintain a learning diary; reflect on progress, challenges, and lessons.
+- Self-assess via code reviews and project outcomes—note strengths & growth areas.
+- Choose a next skill or subfield for deeper learning.
+
+**Key Resources:**
+- Review previous resources for consolidation.
+- Skim classic intro chapters from ML/AI books (Géron, Goodfellow).
+
+**Actions/Projects:**
+- Write a brief report or essay reflecting on your learning journey.
+- Update your personal learning plan, and select your next learning focus.
+
+---
+
+## General Notes
+
+- Follow each step sequentially and do not skip hands-on coding or documentation projects.
+- Utilize all provided official, up-to-date resources.
+- Adjust pace as needed: spend extra time on weak spots (especially Python and math).
+- Stay active in online communities for support, networking, and feedback.
+- Keep GitHub, learning diary, and project notes updated—they are invaluable for self-reflection as well as future job or education opportunities.
+
+---
+
+**Congratulations on embarking on your AI journey! Dedicate yourself each week, use all resources provided, engage with the community, and your skills will grow rapidly and meaningfully.**
+
+**Ready to go? Your journey is mapped out—just follow the flow!**

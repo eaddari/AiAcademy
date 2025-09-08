@@ -1,0 +1,22 @@
+execution_duration_ms: 2447
+request_preview: '{"query": "best official resources for learning AI fundamentals
+  for beginners"}'
+request_time: '2025-09-07T18:43:34.369Z'
+response_preview: '{"searchParameters": {"q": "best official resources for learning
+  AI fundamentals for beginners", "type": "search", "num": 10, "engine": "google"},
+  "organic": [{"title": "How to Learn AI From Scratch in 2025: A Complete Expert Guide",
+  "link": "https://www.datacamp.com/blog/how-to-learn-ai", "snippet": "Here are some
+  of the best AI-related courses on DataCamp:", "position": 1}, {"title": "Learn AI
+  Fundamentals with Google AI Essential", "link": "https://grow.google/ai-essentials/",
+  "snippet": "Learn the foundations of AI from Google experts and use AI tools to
+  help boost your productivity with Google AI Essentials. No experience required.",
+  "position": 2}, {"title": "What are the best resources to learn about AI for complete
+  beginners?", "link": "https://www.reddit.com/r/ArtificialInteligence/comments/18z4ig3/what_are_the_best_resources_to_learn_about_ai_for/",
+  "snippet": "Under 100 minutes total, and you''ll come out with a strong grasp of
+  AI fundamentals! Here''s the link to the serie...'
+state: OK
+trace_id: tr-90d321b5839d7f33ef6d1cc5cd2711a7
+trace_location:
+  mlflow_experiment:
+    experiment_id: '509180351258045446'
+  type: MLFLOW_EXPERIMENT
