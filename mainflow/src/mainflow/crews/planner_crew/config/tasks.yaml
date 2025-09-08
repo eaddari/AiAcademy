@@ -2,9 +2,9 @@ define_plan:
   description: >
     User input example: 
     {user_info}
-    Extract the role the user wants to become better at and their current knowledge level from the user input.
+    Extract the role the user wants to become better at and their current knowledge level from the user input and learning goals.
     Define the structure and key points of a plan about how to most efficiently study in order to become a better role.
-    The plan should be built around the needs of someone with current_knowledge_level knowledge of the role.
+    The plan should be built around the needs of someone with current_knowledge_level knowledge of the role and learning goals.
     Ensure the plan's structure is layered and complete.
   expected_output: >
     A structured outline of the plan, including key points and sections to be covered.
@@ -12,14 +12,15 @@ define_plan:
     {
       "role": "user_input",
       "current_knowledge_level": "user_input",
+      "learning_goals": "user_input",
       "plan_outline": "A structured outline of the study plan with key points and sections."
     }
   agent: plan_definer
 
 write_plan:
   description: >
-    Fill in the define_plan.output.
-    The plan should be built around the needs of someone with current knowledge level knowledge of the role.
+    Fill in the {define_plan.output}.
+    The plan should be built around the needs of someone with current knowledge level knowledge of the role and the learning goals.
     The plan must also include the following additional sections:
       Web resources
       Paper references

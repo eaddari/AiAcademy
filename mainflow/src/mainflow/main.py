@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+import mlflow
 from crewai.flow import Flow, listen, start, and_
 
 from mainflow.utils.input_validation import is_valid_input
@@ -10,6 +10,13 @@ from mainflow.crews.web_crew.crew_new import WebCrew
 from mainflow.crews.paper_crew.paper_crew import PaperCrew
 from mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 from mainflow.crews.calendar_crew.crew import CalendarCrew
+
+# Enable CrewAI autolog for automatic tracing
+mlflow.crewai.autolog()
+
+mlflow.set_experiment("ey-junior-accelerator")
+
+print("🚀 CrewAI autolog enabled for main flow - automatic tracing active")
 
 class State(BaseModel):
     question : str = ""
@@ -44,6 +51,7 @@ class Flow(Flow[State]):
         print(crew_output.raw)
         
         self.state.user_info = crew_output.raw
+
 
     @listen(sanitize_input)
     def generate_plan(self):

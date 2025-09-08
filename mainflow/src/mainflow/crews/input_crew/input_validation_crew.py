@@ -6,7 +6,7 @@ from langchain_openai import AzureChatOpenAI
 import os
 from dotenv import load_dotenv
 #load_dotenv("C:\\Users\\ZR184CB\\OneDrive - EY\\Documents\\GitHub\\AiAcademy\\mainflow\\src\\mainflow\\crews\\input_crew\\.env")
-load_dotenv("C:\\desktopnoonedrive\\gruppo-finale\\AiAcademy\\mainflow\\.env")
+load_dotenv("mainflow\\.env")
 
 @CrewBase
 class InputValidationCrew:
@@ -47,6 +47,12 @@ class InputValidationCrew:
     def knowledge_identifier(self) -> Agent:
         return Agent(
             config=self.agents_config["knowledge_identifier"],
+            llm=self.model,
+        )
+    @agent
+    def goals_identifier(self) -> Agent:
+        return Agent(
+            config=self.agents_config["goals_identifier"],
             llm=self.model,
         )
     

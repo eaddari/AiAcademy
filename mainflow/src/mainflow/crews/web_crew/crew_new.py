@@ -5,16 +5,15 @@ import os
 from crewai import Agent, Task, Crew, Process
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
-try:
-    from crewai_tools import SerperDevTool
-except ImportError:
-    # Fallback if SerperDevTool is not available
-    SerperDevTool = None
+from crewai_tools import SerperDevTool
+from src.mainflow.tools.custom_tool import SerperSearchTool
 from typing import List
 from dotenv import load_dotenv
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 load_dotenv("C:\\desktopnoonedrive\\gruppo-finale\\AiAcademy\\mainflow\\.env")
-
+search_tool = SerperSearchTool()
 @CrewBase
 class WebCrew:
     """
@@ -63,7 +62,7 @@ class WebCrew:
         """
         return Agent(
             config=self.agents_config["web_researcher"],
-            tools=[SerperDevTool()],
+            tools=[search_tool],
             llm=self.model,
         )
 

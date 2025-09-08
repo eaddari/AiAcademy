@@ -91,6 +91,14 @@ individuate_knowledge:
         A string indicating the user's current knowledge level, like: "Beginner", "Intermediate", "Advanced", "Expert"
     agent: knowledge_identifier
 
+individuate_goals:
+    description: >
+        Based on the validated input Extract the user's specific learning goal.
+        Input to consider: "{input_sanitizer.output}"
+    expected_output: >
+        A string outlining the user's specific learning goal, like: "Learn Python programming", "Understand machine learning concepts", "Improve data analysis skills"
+    agent: goals_identifier
+
 final_validation:
   description: >
       Compile all validation results and provide a final recommendation.
@@ -106,6 +114,7 @@ final_validation:
       {
           "role": "{individuate_role.output}",
           "current_knowledge_level": "{individuate_knowledge.output}",
+          "learning_goals": "{individuate_goals.output}"
       }
 
   agent: final_validator

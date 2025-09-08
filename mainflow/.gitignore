@@ -1,4 +1,6 @@
 .env
 __pycache__/
 lib/
+docs/
+mlruns/
 .DS_Store
