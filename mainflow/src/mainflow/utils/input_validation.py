@@ -4,7 +4,7 @@ def is_valid_input(user_input: str) -> bool:
     if not user_input.strip():
         return False
 
-    escape_sequences = ["\x1b", "\x00", "\n", "\r", "\t", "\x03"]
+    escape_sequences = ["\x1b", "\x00", "\r", "\t", "\x03"]
     for seq in escape_sequences:
         if seq in user_input:
             return False
