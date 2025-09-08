@@ -36,5 +36,5 @@ class SerperSearchTool(BaseTool):
             print(f"Serper response: {response}")
         except Exception as e:
             return f"Search failed: {str(e)}"
-        
+
         return response.json()
