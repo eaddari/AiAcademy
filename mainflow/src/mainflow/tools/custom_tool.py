@@ -5,7 +5,6 @@ import requests
 import mlflow
 from crewai.tools import BaseTool
 from pydantic import BaseModel, Field
-from langchain.schema import Document
 from dotenv import load_dotenv  
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -37,9 +36,5 @@ class SerperSearchTool(BaseTool):
             print(f"Serper response: {response}")
         except Exception as e:
             return f"Search failed: {str(e)}"
-        # return a list[Document] version of response.json() considering that response.json() is a dict with keys 'organic', 'ads', 'related_searches', etc.
-        documents = []
-        for key in ['organic', 'ads', 'related_searches']:
-            for item in response.json().get(key, []):
-                documents.append(Document(**item))
-        return response.json(), documents
+
+        return response.json()
