@@ -12,9 +12,7 @@ from mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 from mainflow.crews.calendar_crew.crew import CalendarCrew
 
 # Enable CrewAI autolog for automatic tracing
-mlflow.crewai.autolog()
 
-mlflow.set_experiment("ey-junior-accelerator")
 
 print("🚀 CrewAI autolog enabled for main flow - automatic tracing active")
 

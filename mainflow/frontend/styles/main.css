@@ -6,11 +6,56 @@ html, body, [class*="css"], .stApp {
     font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
 }
 
-/* Main app background */
+/* Main app background with gradient */
 .stApp {
-    background-color: #1a1a24;
+    background: linear-gradient(135deg, #1a1a24 0%, #2d2d3f 25%, #3a3a5c 50%, #2d2d3f 75%, #1a1a24 100%);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
     color: #f9f9f9;
     font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Gradient animation - slower transition */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Alternative gradient options - comment/uncomment as needed */
+/*
+.stApp {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 25%, #90caf9 50%, #64b5f6 75%, #42a5f5 100%);
+}
+*/
+
+/* EY Brand colors gradient 
+.stApp {
+    background: linear-gradient(135deg, #ffe600 0%, #ffeb3b 25%, #fff59d 50%, #f5f5f5 75%, #ffffff 100%);
+    color: #333333;
+}
+*/
+
+/* Professional subtle gradient 
+.stApp {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #ced4da 75%, #adb5bd 100%);
+    color: #333333;
+}
+*/
+
+/* Content container with transparency for better readability */
+.main > div {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+    margin: 0.5rem 0 !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 /* Remove/style the top white bar */
@@ -454,4 +499,30 @@ button span, button p, button div {
 /* Spinner */
 .stSpinner > div {
     border-top-color: #ffe600 !important;
+}
+
+/* Download button text color */
+.stDownloadButton > button {
+    color: #000000 !important;
+}
+
+.stDownloadButton > button:hover {
+    color: #000000 !important;
+}
+
+.stDownloadButton > button:focus {
+    color: #000000 !important;
+}
+
+.stDownloadButton > button:active {
+    color: #000000 !important;
+}
+
+/* Alternative selector for download buttons */
+[data-testid="stDownloadButton"] button {
+    color: #000000 !important;
+}
+
+[data-testid="stDownloadButton"] button:hover {
+    color: #000000 !important;
 }
