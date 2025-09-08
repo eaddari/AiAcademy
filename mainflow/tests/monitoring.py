@@ -21,16 +21,14 @@ from src.mainflow.crews.input_crew.input_validation_crew import InputValidationC
 from src.mainflow.crews.planner_crew.crew import PlanningCrew
 from src.mainflow.crews.web_crew.crew_new import WebCrew
 from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
+from src.mainflow.crews.calendar_crew.crew import CalendarCrew
 from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 
 # usa sempre lo store del root del progetto
 # TRACKING_DIR = os.path.join(PROJECT_ROOT, "mlruns")
 # mlflow.set_tracking_uri("file:///" + TRACKING_DIR.replace("\\", "/"))
-
-mlflow.crewai.autolog()
 mlflow.set_experiment("EY Junior Accelerator") #imposta l'esperimento
-
-print("Tracking URI ->", mlflow.get_tracking_uri())
+# print("Tracking URI ->", mlflow.get_tracking_uri())
 # per accedere a ui mlflow runnare in secondo terminale
 # server --host localhost --port 5001 --backend-store-uri file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns
 
@@ -42,6 +40,7 @@ class State(BaseModel):
     resources : str = ""
     papers : str = ""
     study_plan : str = ""
+    calendar : str = ""
 
 class MonitoringConfig():
 
@@ -137,7 +136,26 @@ class Flow(Flow[State]):
         print("Papers crew output:", crew_output.raw)
         self.state.papers = crew_output.raw
 
-    @listen(and_(web_search, paper_research))
+    @listen(paper_research)
+    def define_calendar(self):
+        print("Defining calendar")
+        calendar_crew = CalendarCrew()
+        crew_output = calendar_crew.crew().kickoff(
+
+            inputs={
+                "web_resources": self.state.resources,
+                "papers": self.state.papers,
+                "plan": self.state.plan
+            }
+        )
+
+        monitor = MonitoringConfig()
+        monitor.monitoring_crew(self.state, crew_output, calendar_crew, "CalendarCrew")
+
+        print("Calendar defined based on the plan, resources, and papers.")
+        self.state.calendar = crew_output.raw
+
+    @listen(define_calendar)
     def create_study_plan(self):
         print("Creating study plan")
         study_plan_crew = FinalStudyPlanCrew()
@@ -147,7 +165,8 @@ class Flow(Flow[State]):
             inputs={
                 "resources": self.state.resources,
                 "papers": self.state.papers,
-                "plan": self.state.plan
+                "plan": self.state.plan,
+                "calendar": self.state.calendar
             }
         )
         monitor.monitoring_crew(self.state, crew_output, study_plan_crew, "FinalStudyPlanCrew")
@@ -165,9 +184,8 @@ def kickoff():
     CrewAI autolog will automatically capture detailed traces for all crew operations.
     """
     with mlflow.start_run(run_name="EYFlow_with_Autolog") as run:
+        mlflow.crewai.autolog()
         mlflow.log_param("workflow_type", "EY_Junior_Accelerator")
-        mlflow.log_param("autolog_enabled", True)
-        mlflow.log_param("python_version", sys.version)
         try:
             start_time = time.time()
             flow = Flow()
@@ -176,7 +194,7 @@ def kickoff():
             mlflow.log_metric("total_workflow_time", total_time)
             mlflow.log_param("workflow_status", "completed")
             print(f"🎉 Workflow completed successfully in {total_time:.2f} seconds")
-            
+        
             return result
             
         except Exception as e:
