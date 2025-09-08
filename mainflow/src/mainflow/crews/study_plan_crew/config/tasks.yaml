@@ -15,13 +15,35 @@ write_ascii:
     Create an ASCII flowchart that visually represents the most important steps of the study plan.
     You must be careful to create a structure that will be correctly rendered in markdown.
     Use characters like `|`, `-`, `+`, and others to create boxes and arrows.
-    Ensure that the flowchart captures the logical flow and relationships between different sections of the plan.
     The flowchart should be clear, engaging, and easy to understand, highlighting the key stages and transitions in the plan.
-    Encapsulate the flowchart within triple backticks (```) to ensure proper formatting in markdown.
+    Encapsulate the flowchart within triple backticks in a bash terminal (```bash) to ensure proper formatting in markdown.
   expected_output: >
-    Beautifully crafted ASCII flowcharts representing the most important steps of the study plan.
     The ASCII flowcharts must be in a format that can be easily included in markdown documents.
-
+    ```bash
+    +-------------------+
+    | Start Study Plan  |
+    +-------------------+
+              |
+              v
+    +-------------------+
+    |       Phase       |
+    +-------------------+
+              |
+              v
+    +-------------------+
+    |       Phase       |
+    +-------------------+
+              |
+              v
+    +-------------------+
+    |       Phase       |
+    +-------------------+
+              |
+              v
+    +-------------------+
+    |       Phase       |
+    +-------------------+
+    ```
   agent: ascii_writer
   context: 
   - fill_final_plan

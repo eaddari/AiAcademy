@@ -138,6 +138,16 @@ class MonitoringConfig:
             mlflow.log_metric("tokens_prompt", float(len(state.question)))
             mlflow.log_metric("tokens_completion", float(crew_output.token_usage.completion_tokens))
             mlflow.log_param("token_usage_details", str(crew_output.token_usage))
+
+            # Prezzo GPT 4.1 per 1M token
+                # €1.73 input
+                # €6.91 output
+            # Prezzo GPT 4.1 mini per 1M token
+                # €0.35 input
+                # €1.39 output
+            mlflow.log_metric("input_prompt_cost_estimate_eur", round(crew_output.token_usage.total_tokens * 0.00000173, 6))
+            mlflow.log_metric("output_completion_cost_estimate_eur", round(crew_output.token_usage.completion_tokens * 0.00000691, 6))
+            mlflow.log_metric("total_cost_estimate_eur", round(crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691, 6))  
             
             if crew_name == "PlanningCrew":
                 feedback = evaluate_study_plan_quality(state.user_info, crew_output.raw)
@@ -158,6 +168,8 @@ class StreamlitFlow(CrewAIFlow[State]):
         self.status_callback = status_callback
         self.monitor = MonitoringConfig()
         self.workflow_start_time = time.time()
+        self.total_token_count = 0
+        self.total_cost = 0
         
     @start()
     def insert_topic(self):
@@ -183,7 +195,10 @@ class StreamlitFlow(CrewAIFlow[State]):
         )
         
         self.monitor.monitoring_crew(self.state, crew_output, validation_crew.crew(), "InputValidationCrew")
-        
+
+        self.total_token_count += crew_output.token_usage.total_tokens
+        self.total_cost += (crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691)
+
         print(crew_output.raw)
         self.state.user_info = crew_output.raw
 
@@ -201,8 +216,11 @@ class StreamlitFlow(CrewAIFlow[State]):
         )
         
         self.monitor.monitoring_crew(self.state, crew_output, planning_crew.crew(), "PlanningCrew")
+
+        self.total_token_count += crew_output.token_usage.total_tokens
+        self.total_cost += (crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691)
         
-        print("Output:", crew_output.raw)
+        print("Plan output:", crew_output.raw)
         self.state.plan = crew_output.raw
 
     @listen(generate_plan)
@@ -219,6 +237,9 @@ class StreamlitFlow(CrewAIFlow[State]):
         )
         
         self.monitor.monitoring_crew(self.state, crew_output, web_crew.crew(), "WebCrew")
+
+        self.total_token_count += crew_output.token_usage.total_tokens
+        self.total_cost += (crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691)
         
         print("Web crew output:", crew_output.raw)
         self.state.resources = crew_output.raw
@@ -237,6 +258,9 @@ class StreamlitFlow(CrewAIFlow[State]):
         )
         
         self.monitor.monitoring_crew(self.state, crew_output, paper_crew.crew(), "PaperCrew")
+
+        self.total_token_count += crew_output.token_usage.total_tokens
+        self.total_cost += (crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691)
         
         print("Papers crew output:", crew_output.raw)
         self.state.papers = crew_output.raw
@@ -259,6 +283,9 @@ class StreamlitFlow(CrewAIFlow[State]):
         )
         
         self.monitor.monitoring_crew(self.state, crew_output, calendar_crew.crew(), "CalendarCrew")
+
+        self.total_token_count += crew_output.token_usage.total_tokens
+        self.total_cost += (crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691)
         
         print("Calendar defined based on the plan, resources, and papers.")
         self.state.calendar = crew_output.raw
@@ -266,7 +293,7 @@ class StreamlitFlow(CrewAIFlow[State]):
     @listen(define_calendar)
     def create_study_plan(self):
         if self.status_callback:
-            self.status_callback("✨ Finalizing your personalized study plan...")
+            self.status_callback("Finalizing your personalized study plan...")
         if self.progress_callback:
             self.progress_callback(0.95)
             
@@ -286,6 +313,9 @@ class StreamlitFlow(CrewAIFlow[State]):
         evaluation_ethics_data = pd.DataFrame([{"inputs": {"question": self.state.question},
                                                 "outputs": crew_output.raw}])
         mlflow.genai.evaluate(data=evaluation_ethics_data, scorers=[RelevanceToQuery(model="azure:/gpt-4.1")])
+
+        self.total_token_count += crew_output.token_usage.total_tokens
+        self.total_cost += (crew_output.token_usage.total_tokens * 0.00000173 + crew_output.token_usage.completion_tokens * 0.00000691)
         
         print(crew_output.raw)
         self.state.study_plan = crew_output.raw
@@ -334,14 +364,13 @@ def main():
     
     apply_custom_styles()
     
-    col1, col2, col3 = st.columns([2, 1, 2])
-    with col1:
+    # Header layout with logo on the left and title
+    header_col1, header_col2 = st.columns([0.3, 4])
+    with header_col1:
+        st.image("./frontend/pics/image-removebg-preview.png", width=120)
+    with header_col2:
         st.title("EY Junior Accelerator")
         st.markdown("### Your AI-Powered Learning Plan Generator")
-    with col2:
-        st.image("./frontend/pics/jpeg-removebg-preview.png", width=120)
-    with col3:
-        st.write("")
     
     st.markdown("---")
     
@@ -359,7 +388,7 @@ def main():
             submit_button = st.form_submit_button("Generate My Study Plan", use_container_width=True)
         
     if submit_button and user_input:
-        with st.spinner("Initializing AI agents..."):
+        with st.spinner("Generating learning plan..."):
             try:
                 with mlflow.start_run(run_name="Streamlit_EYFlow_with_Autolog") as run:
                     mlflow.crewai.autolog()
@@ -408,7 +437,13 @@ def main():
                     mlflow.log_metric("final_study_plan_length", len(result.get("study_plan", "")))
                     mlflow.log_metric("resources_length", len(result.get("resources", "")))
                     mlflow.log_metric("papers_length", len(result.get("papers", "")))
-                    
+
+                    total_token_count = flow.total_token_count
+                    total_cost = flow.total_cost
+
+                    mlflow.log_metric("total_token_count", total_token_count)
+                    mlflow.log_metric("total_cost", total_cost)
+
                     print(f"🎉 Workflow completed successfully in {total_workflow_time:.2f} seconds")
                 
                 
