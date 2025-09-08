@@ -22,6 +22,7 @@ input validation, planning, web research, paper analysis, and study plan generat
    api/utils
    configuration
    examples
+   documentation
 
 Indices and tables
 ==================
