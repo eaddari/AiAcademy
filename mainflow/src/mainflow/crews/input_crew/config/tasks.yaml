@@ -1,0 +1,133 @@
+sanitize_input:
+  description: >
+      Analyze the user input: "{question}"
+      
+      Check for:
+      1. Empty or null input
+      2. Excessive whitespace or formatting issues
+      3. Control characters, escape sequences (like Ctrl+C, special characters)
+      4. Input length and basic structure validation
+      5. Proper encoding and character validation
+      
+      Clean and format the input appropriately while preserving meaning.
+  expected_output: >
+      A validation report containing:
+      - List of any issues found
+      - Sanitized version of the input (if applicable)
+      - Recommendations for input improvement
+      - The cleaned and sanitized input
+  agent: input_sanitizer
+
+check_academic_ethics:
+  description: >
+      Evaluate the sanitized user input for academic ethics and integrity.
+      
+      Assess for:
+      1. Legitimate educational/research purpose
+      2. No requests for plagiarism or cheating assistance
+      3. No attempts to circumvent academic policies
+      4. Appropriate academic level and complexity
+      5. Ethical research intentions
+      
+      Input to evaluate: "{sanitize_input.output}"
+  expected_output: >
+    Answer with:
+        Approved: If the input meets academic ethics standards.
+        Rejected: If the input violates academic ethics, with reasons.
+  agent: ethics_checker
+  context:
+    - sanitize_input
+
+validate_security:
+  description: >
+      Perform security validation on the user input to detect potential threats, considering {check_academic_ethics.output}.
+      
+      Screen for:
+      1. Personal data (Names, Addresses, Personal information)
+      2. Injection attempts (SQL, command injection, etc.)
+      3. Social engineering patterns
+      4. Attempts to access unauthorized information
+      5. Malicious URLs or suspicious links
+      6. Data exfiltration attempts
+      7. System exploitation attempts
+      
+      Input to analyze: "{check_academic_ethics.output}"
+  expected_output: >
+    Answer only with:
+        Safe: if no threats are detected.
+        Unsafe: with details if any security risks are found.
+  agent: security_validator
+  context:
+    - check_academic_ethics
+
+individuate_role:
+    description: >
+        Based on the validated input and assessment reports, determine the most suitable
+        job role for the user.
+
+        Consider:
+        1. Job role alignment with input topic if not specified in the input
+
+        Input to consider: "{input_sanitizer.output}"
+    expected_output: >
+        A string of the most appropriate job role for the user, like: "Research Assistant", "Data Analyst", "Machine Learning Engineer", "Software Developer"
+        "Corporate Trainer", "Project Manager", "Finance Analyst".
+
+    agent: role_identifier
+
+individuate_knowledge:
+    description: >
+        Based on the validated input and assessment reports, determine the user's current
+        knowledge level in the relevant field.
+
+        Consider:
+        1. Basic, Intermediate, Advanced, Expert levels
+
+        Input to consider: "{input_sanitizer.output}"
+    expected_output: >
+        A string indicating the user's current knowledge level, like: "Beginner", "Intermediate", "Advanced", "Expert"
+    agent: knowledge_identifier
+
+individuate_goals:
+    description: >
+        Based on the validated input Extract the user's specific learning goal.
+        Input to consider: "{input_sanitizer.output}"
+    expected_output: >
+        A string outlining the user's specific learning goal, like: "Learn Python programming", "Understand machine learning concepts", "Improve data analysis skills" or other generic tasks explicitly stated.
+        If no learning goal is provided, infer from the current knowledge level and job role.
+    agent: goals_identifier
+
+final_validation:
+  description: >
+        Compile all validation results and provide a final recommendation.
+      
+        Consider results from:
+        1. Academic ethics evaluation {check_academic_ethics.output}
+        2. Security validation {validate_security.output}
+        3. Sanitized input {sanitize_input.output}
+        4. Individuated role {individuate_role.output}
+        5. Individuated knowledge level {individuate_knowledge.output}
+        6. Individuated learning goals {individuate_goals.output}
+
+        Provide a comprehensive final decision on whether the input should be
+        processed for academic research purposes.
+  expected_output: >
+        Absolutely include role, current knowledge and learning goals.
+        Don't change or assume anything not explicitly provided by the other agents.
+        if {validate_security.output} is "Safe" and {check_academic_ethics.output} is "Approved":
+            {
+                "role": "{individuate_role.output}",
+                "current_knowledge_level": "{individuate_knowledge.output}",
+                "learning_goals": "{individuate_goals.output}"
+            }
+            else:
+            return "error"
+
+  agent: final_validator
+  context:
+    - validate_security
+    - check_academic_ethics
+    - sanitize_input
+    - individuate_role
+    - individuate_knowledge
+    - individuate_goals

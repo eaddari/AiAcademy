@@ -1,0 +1,49 @@
+web_search_task:
+  description: |
+    You are a web research specialist. Your input is a study plan that needs to be enhanced with web resources.
+    Use Serper to search for trustworthy educational resources and return a structured JSON with resources 
+    grouped by section names from the input plan.
+
+    Input Plan: {plan}
+
+    SCOPE FILTER (very important):
+      - Keep ONLY sections that ask for WEB RESOURCES or STUDY MATERIAL:
+        examples: "Websites to search for", "Material to study", "Resources", "Learning Materials".
+      - Ignore sections about time/scheduling ("Time to study"),
+        scientific papers/bibliography (handled by other crews),
+        and final documentation drafting.
+
+    Guidelines:
+      - For each relevant section, return 3-5 high-quality resources.
+      - Prefer: official documentation, .edu domains, .gov sites, standards (RFC, W3C, ISO),
+        MDN Web Docs, Microsoft Learn, AWS Documentation, Google Developers,
+        reputable engineering blogs and technical publications.
+      - Avoid: unmoderated forums, purely promotional pages, low-credibility sites.
+      - Each resource MUST include complete citation information.
+      - Provide practical summaries that explain why each resource is valuable.
+
+    Return ONLY valid JSON following the exact schema below.
+
+  expected_output: |
+    {
+      "sections": {
+        "<exact_section_name_from_input>": [
+          {
+            "title": "Resource Title",
+            "url": "https://example.com",
+            "publisher_or_domain": "Publisher Name or Domain",
+            "summary": "2-3 sentence practical summary of what this resource covers and its value",
+            "why": "Explanation of why this resource fits the section and helps the learner",
+            "level": "beginner|intermediate|advanced",
+            "citation": {
+              "title": "Resource Title",
+              "publisher_or_domain": "Publisher Name or Domain", 
+              "url": "https://example.com",
+              "accessed": "YYYY-MM-DD"
+            }
+          }
+        ]
+      },
+      "notes": "Optional global notes about the research process or recommendations"
+    }
+  agent: web_researcher

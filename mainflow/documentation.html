@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mainflow AI Agent System Documentation &mdash; Mainflow AI Agent System 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Mainflow AI Agent System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#project-structure">Project Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#workflow-components">Workflow Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/main.html">Streamlit Application Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#evaluation-functions">Evaluation Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#evaluate-search-quality">evaluate_search_quality</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#evaluate_search_quality"><code class="docutils literal notranslate"><span class="pre">evaluate_search_quality()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#evaluate-study-plan-quality">evaluate_study_plan_quality</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#evaluate_study_plan_quality"><code class="docutils literal notranslate"><span class="pre">evaluate_study_plan_quality()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#class-methods">Class Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#monitoringconfig-methods">MonitoringConfig Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#MonitoringConfig.__init__"><code class="docutils literal notranslate"><span class="pre">MonitoringConfig.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#MonitoringConfig.monitoring_crew"><code class="docutils literal notranslate"><span class="pre">MonitoringConfig.monitoring_crew()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#streamlitflow-methods">StreamlitFlow Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.__init__"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.insert_topic"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.insert_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.sanitize_input"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.sanitize_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.generate_plan"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.generate_plan()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.web_search"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.web_search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.paper_research"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.paper_research()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.define_calendar"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.define_calendar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#StreamlitFlow.create_study_plan"><code class="docutils literal notranslate"><span class="pre">StreamlitFlow.create_study_plan()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#main-application-function">Main Application Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#main">main</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#id0"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#nested-functions">Nested Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#show-disclaimer">show_disclaimer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#show_disclaimer"><code class="docutils literal notranslate"><span class="pre">show_disclaimer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#update-progress">update_progress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#update_progress"><code class="docutils literal notranslate"><span class="pre">update_progress()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/main.html#update-status">update_status</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/main.html#update_status"><code class="docutils literal notranslate"><span class="pre">update_status()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#workflow-progress-mapping">Workflow Progress Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/crews.html">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#input-validation-crew">Input Validation Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/crews.html#inputvalidationcrew-class">InputValidationCrew Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/crews.html#InputValidationCrew"><code class="docutils literal notranslate"><span class="pre">InputValidationCrew</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#planner-crew">Planner Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/crews.html#planningcrew-class">PlanningCrew Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/crews.html#PlanningCrew"><code class="docutils literal notranslate"><span class="pre">PlanningCrew</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#web-crew">Web Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/crews.html#webcrew-class">WebCrew Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/crews.html#WebCrew"><code class="docutils literal notranslate"><span class="pre">WebCrew</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#paper-crew">Paper Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/crews.html#papercrew-class">PaperCrew Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/crews.html#PaperCrew"><code class="docutils literal notranslate"><span class="pre">PaperCrew</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#study-plan-crew">Study Plan Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/crews.html#finalstudyplancrew-class">FinalStudyPlanCrew Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/crews.html#FinalStudyPlanCrew"><code class="docutils literal notranslate"><span class="pre">FinalStudyPlanCrew</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#calendar-crew">Calendar Crew</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/crews.html#calendarcrew-class">CalendarCrew Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/crews.html#CalendarCrew"><code class="docutils literal notranslate"><span class="pre">CalendarCrew</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#crew-workflow-integration">Crew Workflow Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/tools.html">Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#custom-tool">Custom Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#arxiv-searcher-tool">ArXiv Searcher Tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/tools.html#src.mainflow.tools.custom_tool.arxiv_searcher_tool"><code class="docutils literal notranslate"><span class="pre">arxiv_searcher_tool()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/utils.html">Utils Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#project-configuration">Project Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#crew-configuration">Crew Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#agent-configuration">Agent Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#task-configuration">Task Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-study-plan-generation">Basic Study Plan Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#advanced-usage">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#customizing-crews">Customizing Crews</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#working-with-results">Working with Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#api-examples">API Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#using-individual-crews">Using Individual Crews</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#custom-tools">Custom Tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">EY Junior Accellerator Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#relevant-links">Relevant Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#general-information">General Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#risk-classification">Risk Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#application-functionality">Application Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#models-and-datasets">Models and Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#integration-with-external-systems">Integration with External Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#deployment-plan">Deployment Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#lifecycle-management">Lifecycle Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#metrics-and-kpis">Metrics and KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#risk-management-system">Risk Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#human-oversight">Human Oversight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#incident-management">Incident Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#documentation-authors">Documentation Authors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Mainflow AI Agent System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mainflow AI Agent System Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mainflow-ai-agent-system-documentation">
+<h1>Mainflow AI Agent System Documentation<a class="headerlink" href="#mainflow-ai-agent-system-documentation" title="Link to this heading"></a></h1>
+<p>Welcome to the Mainflow AI Agent System documentation. This system implements a
+comprehensive multi-agent workflow that orchestrates different AI crews to handle
+input validation, planning, web research, paper analysis, and study plan generation.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-steps">Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#project-structure">Project Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#example-flow">Example Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#workflow-components">Workflow Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/main.html">Streamlit Application Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#evaluation-functions">Evaluation Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#class-methods">Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#main-application-function">Main Application Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#nested-functions">Nested Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/main.html#workflow-progress-mapping">Workflow Progress Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/crews.html">Crews Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#input-validation-crew">Input Validation Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#planner-crew">Planner Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#web-crew">Web Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#paper-crew">Paper Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#study-plan-crew">Study Plan Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#calendar-crew">Calendar Crew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/crews.html#crew-workflow-integration">Crew Workflow Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/tools.html">Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#custom-tool">Custom Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/tools.html#arxiv-searcher-tool">ArXiv Searcher Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/utils.html">Utils Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#project-configuration">Project Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#crew-configuration">Crew Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#agent-configuration">Agent Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#task-configuration">Task Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-study-plan-generation">Basic Study Plan Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#api-examples">API Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">EY Junior Accellerator Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#relevant-links">Relevant Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#general-information">General Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#risk-classification">Risk Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#application-functionality">Application Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#models-and-datasets">Models and Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#integration-with-external-systems">Integration with External Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#deployment-plan">Deployment Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#lifecycle-management">Lifecycle Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#metrics-and-kpis">Metrics and KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#risk-management-system">Risk Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#human-oversight">Human Oversight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#incident-management">Incident Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#documentation-authors">Documentation Authors</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+execution_duration_ms: 1598
+request_preview: '{"query": "best official resources for learning Python for beginners"}'
+request_time: '2025-09-07T20:14:13.970Z'
+response_preview: '{"searchParameters": {"q": "best official resources for learning
+  Python for beginners", "type": "search", "num": 10, "engine": "google"}, "organic":
+  [{"title": "Best resources to study Python : r/learnpython", "link": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/",
+  "snippet": "I really like the book Think Python, which is also available online
+  in a free, interactive version at runestone.academy.", "date": "2 years ago", "position":
+  1}, {"title": "9 Best Free Resources to Learn Python in 2025", "link": "https://rivery.io/blog/free-resources-learn-python/",
+  "snippet": "1. Python.Org · You get direct access to the official language documentation.
+  · It provides beginner-friendly tutorials. · It''s a reliable resource ...", "date":
+  "Jan 5, 2025", "position": 2}, {"title": "BeginnersGuide/Programmers", "link": "https://wiki.python.org/moin/BeginnersGuide/Programmers",
+  "snippet": "Interactive Tools and Lessons · Computer Science Circles · HackInScien...'
+state: OK
+trace_id: tr-d85c1cd50614c687b1f2d44b2afbc822
+trace_location:
+  mlflow_experiment:
+    experiment_id: '509180351258045446'
+  type: MLFLOW_EXPERIMENT

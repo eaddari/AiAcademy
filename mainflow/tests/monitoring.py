@@ -1,0 +1,784 @@
+import sys, os
+from pydantic import BaseModel
+import mlflow
+from crewai.flow import Flow, listen, start, and_, router
+import time
+from src.mainflow.utils.input_validation import is_valid_input
+from mlflow.genai.scorers import RetrievalRelevance, RelevanceToQuery
+from mlflow.genai.judges import custom_prompt_judge
+from mlflow.genai.scorers import scorer
+from mlflow.genai import register_prompt
+import pandas as pd
+from src.mainflow.crews.input_crew.input_validation_crew import InputValidationCrew
+from src.mainflow.crews.planner_crew.crew import PlanningCrew
+from src.mainflow.crews.web_crew.crew_new import WebCrew
+from src.mainflow.crews.paper_crew.paper_crew import PaperCrew
+from src.mainflow.crews.calendar_crew.crew import CalendarCrew
+from src.mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
+
+mlflow.set_experiment("EY Junior Accelerator") #imposta l'esperimento
+
+
+class State(BaseModel):
+    """
+    Pydantic model representing the workflow state.
+    
+    This class maintains the state throughout the entire EY Junior Accelerator
+    workflow, storing outputs from each crew as the workflow progresses through
+    different stages of study plan creation.
+    
+    Attributes
+    ----------
+    question : str, default=""
+        The original user question/input describing their role, experience, and goals
+    user_info : str, default=""
+        Sanitized and validated user information from InputValidationCrew
+    plan : str, default=""
+        Study plan structure and framework from PlanningCrew
+    resources : str, default=""
+        Web resources and educational materials from WebCrew
+    papers : str, default=""
+        Academic papers and research materials from PaperCrew
+    study_plan : str, default=""
+        Final comprehensive study plan from FinalStudyPlanCrew
+    calendar : str, default=""
+        Study schedule and timeline from CalendarCrew
+        
+    Examples
+    --------
+    >>> state = State()
+    >>> state.question = "I'm a junior consultant interested in machine learning"
+    >>> state.user_info = "Validated user information..."
+    """
+    question : str = ""
+    user_info : str = ""
+    plan : str = ""
+    resources : str = ""
+    papers : str = ""
+    study_plan : str = ""
+    calendar : str = ""
+
+@scorer
+def evaluate_search_quality(inputs, outputs):
+    """
+    Evaluates the relevance of retrieved documents to the user's query.
+    
+    This scorer uses MLflow's custom prompt judge to assess how well retrieved
+    web resources match the user's study plan requirements. It provides a
+    quantitative score for search result quality.
+    
+    Parameters
+    ----------
+    inputs : dict
+        Dictionary containing the original user query or study plan
+    outputs : dict
+        Dictionary containing the retrieved documents/resources
+    
+    Returns
+    -------
+    mlflow.genai.judges.PromptJudge
+        Numeric score representing relevance:
+        - 10.0: Highly relevant documents
+        - 5.0: Somewhat relevant documents  
+        - 0.0: Not relevant documents
+    
+    Notes
+    -----
+    The evaluation uses a three-tier scoring system with predefined prompts
+    to ensure consistent assessment across different search results. The
+    scorer is designed specifically for educational resource evaluation.
+    
+    Examples
+    --------
+    >>> inputs = {"query": "machine learning fundamentals"}
+    >>> outputs = {"documents": "Python ML tutorials and courses"}
+    >>> score = evaluate_search_quality(inputs, outputs)
+    >>> print(score.value)  # 10.0, 5.0, or 0.0
+    """
+    relevance_prompt = """
+    Assess the relevance of the following documents to the user's query. 
+    Consider how well the documents address the user's intent and provide useful information.
+
+    You must choose one of the following categories:
+
+    [[highly_relevant]]: The documents are directly related to the user's query, providing comprehensive and accurate information that fully addresses the user's needs.
+
+    [[somewhat_relevant]]: The documents are generally related to the user's query but may lack depth or miss some aspects of the user's intent. They provide useful information but could be improved.
+
+    [[not_relevant]]: The documents do not adequately address the user's query. They may be off-topic, too vague, or fail to provide useful information.
+
+    User query: {{input_query}}
+    Retrieved documents: {{output_documents}}
+    """
+    relevance_judge = custom_prompt_judge(
+        name="search_relevance_evaluator",
+        prompt_template=relevance_prompt,
+        model="azure:/gpt-4.1",
+        numeric_values={
+            "highly_relevant": 10.0,
+            "somewhat_relevant": 5.0,
+            "not_relevant": 0.0,
+        },
+    )
+    return relevance_judge(input_query=inputs, output_documents=outputs)
+
+@scorer
+def evaluate_study_plan_quality(inputs, outputs):
+    """
+    Evaluates the quality of a study plan generated by CrewAI agents.
+    
+    This scorer assesses the comprehensive quality of generated study plans,
+    considering factors like structure, realism, personalization, and
+    educational effectiveness.
+    
+    Parameters
+    ----------
+    inputs : dict
+        Dictionary containing student request and context information
+    outputs : dict
+        Dictionary containing the generated study plan
+    
+    Returns
+    -------
+    mlflow.genai.judges.PromptJudge
+        Numeric score representing plan quality:
+        - 10.0: Excellent plan (comprehensive and well-tailored)
+        - 7.5: Good plan (solid but could be enhanced)
+        - 2.5: Poor plan (inadequate or unrealistic)
+    
+    Notes
+    -----
+    The evaluation considers multiple aspects of study plan quality:
+    - Learning objectives clarity and appropriateness
+    - Time allocation and realistic scheduling
+    - Variety of study methods and resources
+    - Assessment and progress tracking mechanisms
+    - Personalization to student's level and constraints
+    
+    Examples
+    --------
+    >>> inputs = {"user_info": "Junior consultant, 6 months available"}
+    >>> outputs = {"plan": "Comprehensive ML study plan with milestones"}
+    >>> score = evaluate_study_plan_quality(inputs, outputs)
+    >>> print(f"Quality score: {score.value}")
+    """
+    study_planning_prompt = """
+    Evaluate the quality and effectiveness of a study plan created by an AI agent. 
+    Assess how well the plan addresses the student's learning objectives, timeline, and educational needs.
+
+    You must choose one of the following categories:
+
+    [[excellent_plan]]: The study plan is comprehensive, well-structured, realistic, and perfectly tailored to the student's needs. It includes:
+    - Clear learning objectives and milestones
+    - Appropriate time allocation and realistic scheduling
+    - Varied study methods and resources
+    - Assessment checkpoints and progress tracking
+    - Consideration of student's current level and constraints
+
+    [[good_plan]]: The study plan is solid and helpful but may lack some detail or optimization. It addresses most requirements but could be enhanced with:
+    - Better time management or pacing
+    - More diverse learning resources
+    - Clearer milestone definitions
+    - Minor adjustments for student's specific needs
+
+    [[poor_plan]]: The study plan is inadequate, unrealistic, or doesn't address the student's requirements:
+    - Vague or missing objectives
+    - Poor time allocation or unrealistic expectations
+    - Lack of structured approach
+    - Ignores student's constraints or level
+    Study plan: {{input_plan}}
+    Generated study plan: {{output_plan}}
+    """
+    study_plan_judge = custom_prompt_judge(
+        name="study_plan_evaluator",
+        prompt_template=study_planning_prompt,
+        model="azure:/gpt-4.1",
+        numeric_values={
+            "excellent_plan": 10.0,
+            "good_plan": 7.5,
+            "poor_plan": 2.5,
+        },
+    )
+    return study_plan_judge(input_plan=inputs, output_plan=outputs)
+
+class MonitoringConfig():
+    """
+    Configuration class for monitoring and logging CrewAI workflow execution.
+    
+    This class provides comprehensive monitoring capabilities for the EY Junior
+    Accelerator workflow, including performance metrics, token usage tracking,
+    and quality assessment scoring. It integrates with MLflow for experiment
+    tracking and uses nested runs for detailed crew-level monitoring.
+    
+    Attributes
+    ----------
+    start_time : float
+        Timestamp when monitoring was initialized, used for execution time calculation
+    
+    Methods
+    -------
+    monitoring_crew(state, crew_output, crew, crew_name)
+        Monitors and logs metrics for individual crew execution
+        
+    Examples
+    --------
+    >>> monitor = MonitoringConfig()
+    >>> crew_output = some_crew.kickoff(inputs=inputs)
+    >>> monitor.monitoring_crew(state, crew_output, some_crew, "SomeCrew")
+    
+    Notes
+    -----
+    The monitoring system works alongside CrewAI's autolog functionality,
+    providing workflow-level metrics while autolog handles detailed
+    agent/task tracing. Uses nested MLflow runs for hierarchical tracking.
+    """
+
+    def __init__(self):
+        """
+        Initialize MonitoringConfig.
+        
+        Records the initialization time for calculating execution durations
+        throughout the workflow.
+        
+        Parameters
+        ----------
+        None
+        
+        Notes
+        -----
+        The start_time is used as a reference point for measuring execution
+        time of individual crews and the overall workflow.
+        """
+        self.start_time = time.time()
+
+    def monitoring_crew(self, state: State, crew_output, crew, crew_name):
+        """
+        Enhanced monitoring that works alongside CrewAI autolog.
+        
+        Provides comprehensive monitoring for individual crew executions,
+        logging performance metrics, token usage, output characteristics,
+        and quality assessments. Creates nested MLflow runs for detailed
+        tracking without interfering with autolog functionality.
+        
+        Parameters
+        ----------
+        state : State
+            Current workflow state containing user input and intermediate results
+        crew_output : CrewOutput
+            Output object from crew execution containing results and metadata
+        crew : CrewBase
+            The crew instance that was executed
+        crew_name : str
+            Name identifier for the crew being monitored
+            
+        Notes
+        -----
+        The method logs the following categories of metrics:
+        
+        **Basic Parameters:**
+        - crew: Name of the executed crew
+        - input_question: Original user question
+        - sanitized_input: Processed crew output
+        - num_agents: Number of agents in the crew
+        
+        **Performance Metrics:**
+        - execution_time_seconds: Time since monitoring initialization
+        - output_length: Character count of crew output
+        - output_type: Type of the crew output object
+        
+        **Token Usage:**
+        - tokens_total: Total tokens consumed
+        - tokens_prompt: Estimated prompt tokens
+        - tokens_completion: Completion tokens used
+        - token_usage_details: Detailed usage breakdown
+        
+        **Quality Assessment:**
+        - For PlanningCrew: Study plan quality score and feedback
+        - For WebCrew: Search relevance score and feedback
+        
+        The method uses nested runs to maintain hierarchical organization
+        while preserving autolog functionality for detailed tracing.
+        
+        Examples
+        --------
+        >>> monitor = MonitoringConfig()
+        >>> planning_crew = PlanningCrew()
+        >>> crew_output = planning_crew.crew().kickoff(inputs={"user_info": "..."})
+        >>> monitor.monitoring_crew(state, crew_output, planning_crew, "PlanningCrew")
+        """
+        with mlflow.start_run(run_name=f"{crew_name} Monitoring", nested=True):              
+                mlflow.log_param("crew", crew_name)
+                mlflow.log_param("input_question", state.question)
+                mlflow.log_param("sanitized_input", crew_output.raw)
+                mlflow.log_param("num_agents", len(crew.agents))
+                execution_time = time.time() - self.start_time
+                mlflow.log_metric("execution_time_seconds", round(execution_time, 2))
+                mlflow.log_param("output_type", type(crew_output).__name__)
+                mlflow.log_metric("output_length", len(str(crew_output.raw)))
+                mlflow.log_metric("tokens_total", float(crew_output.token_usage.total_tokens))
+                mlflow.log_metric("tokens_prompt", float(len(state.question)))
+                mlflow.log_metric("tokens_completion", float(crew_output.token_usage.completion_tokens))
+                mlflow.log_param("token_usage_details", str(crew_output.token_usage))
+                if crew_name == "PlanningCrew":
+                    feedback = evaluate_study_plan_quality(state.user_info, crew_output.raw)
+                    mlflow.log_metric("study_plan_quality_score", feedback.value)
+                    mlflow.log_param("study_plan_quality_feedback", feedback.rationale)
+                if crew_name == "WebCrew":
+                    feedback = evaluate_search_quality(state.plan, crew_output.raw)
+                    mlflow.log_metric("search_relevance_score", feedback.value)
+                    mlflow.log_param("search_relevance_feedback", feedback.rationale)
+
+
+class Flow(Flow[State]):
+    """
+    Main workflow class for the EY Junior Accelerator study plan creation system.
+    
+    This class orchestrates the complete workflow from user input collection
+    through final study plan generation. It manages state transitions, crew
+    coordination, and implements a robust routing system for error handling
+    and workflow control.
+    
+    The workflow consists of the following stages:
+    1. User input collection and validation
+    2. Input sanitization and ethics checking
+    3. Study plan structure generation
+    4. Web resource discovery
+    5. Academic paper research
+    6. Calendar and timeline creation
+    7. Final study plan compilation
+    
+    Attributes
+    ----------
+    state : State
+        Workflow state object containing all intermediate and final results
+    
+    Methods
+    -------
+    insert_topic()
+        Collects initial user input about role, experience, and goals
+    sanitize_input()
+        Validates and sanitizes user input for safety and ethics
+    routing()
+        Routes workflow based on validation results
+    generate_plan()
+        Creates study plan structure and framework
+    web_search()
+        Discovers relevant web resources and materials
+    paper_research()
+        Finds relevant academic papers and research
+    define_calendar()
+        Creates study timeline and scheduling
+    create_study_plan()
+        Compiles final comprehensive study plan
+        
+    Examples
+    --------
+    >>> flow = Flow()
+    >>> result = flow.kickoff()
+    >>> print(result.state.study_plan)
+    
+    Notes
+    -----
+    The workflow uses CrewAI's Flow decorators for orchestration and includes
+    comprehensive error handling and monitoring throughout execution.
+    """
+
+    @start()
+    def insert_topic(self):
+        """
+        Collect initial user input about their learning requirements.
+        
+        This method serves as the entry point for the workflow, prompting
+        users to describe their role, past experience, and learning goals.
+        It includes input validation to ensure safety and quality.
+        
+        Returns
+        -------
+        None
+            Updates self.state.question with user input
+            
+        Notes
+        -----
+        The method includes validation to prevent:
+        - Empty or whitespace-only inputs
+        - Escape sequences that could cause security issues
+        - Other potentially harmful input patterns
+        
+        If invalid input is detected, the user is prompted to re-enter
+        their information with guidance on acceptable formats.
+        
+        Examples
+        --------
+        User input example:
+        "I'm a junior consultant at EY with basic Python knowledge, 
+        looking to learn machine learning for client projects"
+        """
+        print("="*20, " Welcome to the EY Junior Accelerator! ", "="*20)
+        
+        question = input("Describe your role, past experience, learning goals: ")
+        
+        if not is_valid_input(question):
+            print("Invalid input detected. Please avoid using escape sequences or empty inputs.")
+            return self.insert_topic()
+        self.state.question = question
+
+    @listen(insert_topic)
+    def sanitize_input(self):
+        """
+        Sanitize and validate user input for safety and ethics compliance.
+        
+        This method processes the user's input through the InputValidationCrew
+        to ensure it meets safety standards, ethics guidelines, and quality
+        requirements before proceeding with the workflow.
+        
+        Returns
+        -------
+        None
+            Updates self.state.user_info with sanitized input
+            
+        Notes
+        -----
+        The InputValidationCrew performs multiple validation steps:
+        - Content sanitization and cleaning
+        - Academic ethics compliance checking
+        - Security validation
+        - Role and knowledge domain identification
+        - Final validation and approval
+        
+        The method includes comprehensive monitoring of the validation
+        process including execution time, token usage, and output metrics.
+        """
+        print("Sanitizing input")
+        validation_crew = InputValidationCrew()
+        monitor = MonitoringConfig()
+        crew_output = validation_crew.crew().kickoff(
+            inputs={"question": self.state.question}
+        )
+        monitor.monitoring_crew(self.state, crew_output, validation_crew, "InputValidationCrew")
+        
+        self.state.user_info = crew_output.raw
+        print(self.state.user_info)
+        
+    @router
+    def routing(self):
+        """
+        Route workflow execution based on input validation results.
+        
+        This method implements conditional routing to handle validation
+        failures and ensure only properly validated inputs proceed to
+        the study plan generation phase.
+        
+        Returns
+        -------
+        str
+            "insert_topic" if validation failed (restart input collection)
+            "generate_plan" if validation succeeded (continue workflow)
+            
+        Notes
+        -----
+        The routing logic checks for error indicators in the validated
+        user information. If errors are detected, the workflow returns
+        to the input collection phase for the user to provide new input.
+        """
+        if "error" in self.state.user_info.lower():
+           return "insert_topic"
+        else:
+            return "generate_plan"
+
+    @listen("generate_plan")
+    def generate_plan(self):
+        """
+        Generate study plan structure and framework.
+        
+        This method uses the PlanningCrew to create a structured study plan
+        based on the validated user information. The plan includes learning
+        objectives, topics, and overall framework.
+        
+        Returns
+        -------
+        None
+            Updates self.state.plan with generated study plan structure
+            
+        Notes
+        -----
+        The PlanningCrew consists of specialized agents that:
+        - Analyze user requirements and learning objectives
+        - Define study plan structure and framework
+        - Write detailed plan content
+        - Review and refine the plan for quality
+        
+        Includes quality assessment scoring specifically for study plan
+        evaluation using the evaluate_study_plan_quality scorer.
+        """
+        print("Generating plan")
+        planning_crew = PlanningCrew()
+        monitor = MonitoringConfig()
+        crew_output = planning_crew.crew().kickoff(
+            inputs={"user_info": self.state.user_info}
+        )
+        monitor.monitoring_crew(self.state, crew_output, planning_crew, "PlanningCrew")
+        self.state.plan = crew_output.raw
+        print("Output:", crew_output.raw)
+
+    @listen(generate_plan)
+    def web_search(self):
+        """
+        Discover relevant web resources and educational materials.
+        
+        This method uses the WebCrew to search for and curate high-quality
+        web resources that complement the study plan structure created by
+        the PlanningCrew.
+        
+        Returns
+        -------
+        None
+            Updates self.state.resources with curated web resources
+            
+        Notes
+        -----
+        The WebCrew performs:
+        - Intelligent web searches based on study plan topics
+        - Quality evaluation and filtering of search results
+        - Curation of educational resources and materials
+        - Organization of resources by relevance and topic
+        
+        Includes search quality assessment using the evaluate_search_quality
+        scorer to measure how well discovered resources match the study plan.
+        """
+        print("Searching the web for resources")
+        web_crew = WebCrew()
+        monitor = MonitoringConfig()
+        crew_output = web_crew.crew().kickoff(
+            inputs={"plan": self.state.plan}
+        )
+        monitor.monitoring_crew(self.state, crew_output, web_crew, "WebCrew")
+        self.state.resources = crew_output.raw
+
+    @listen(web_search)
+    def paper_research(self):
+        """
+        Find relevant academic papers and research materials.
+        
+        This method uses the PaperCrew to search ArXiv and other academic
+        sources for research papers that support the learning objectives
+        identified in the study plan.
+        
+        Returns
+        -------
+        None
+            Updates self.state.papers with relevant academic papers
+            
+        Notes
+        -----
+        The PaperCrew specializes in:
+        - Scientific topic identification from study plans
+        - Keyword extraction for academic searches
+        - ArXiv search query optimization
+        - Academic paper discovery and curation
+        
+        The crew uses the arxiv_searcher_tool to interact with ArXiv API
+        and retrieve relevant academic papers based on study plan topics.
+        """
+        print("Searching for academic papers")
+        paper_crew = PaperCrew()
+        monitor = MonitoringConfig()
+        crew_output = paper_crew.crew().kickoff(
+            inputs={"plan": self.state.plan}
+        )
+        monitor.monitoring_crew(self.state, crew_output, paper_crew, "PaperCrew")
+        print("Papers crew output:", crew_output.raw)
+        self.state.papers = crew_output.raw
+
+    @listen(paper_research)
+    def define_calendar(self):
+        """
+        Create study timeline and scheduling framework.
+        
+        This method uses the CalendarCrew to create a realistic study
+        schedule that incorporates the study plan, web resources, and
+        academic papers into a coherent timeline.
+        
+        Returns
+        -------
+        None
+            Updates self.state.calendar with study schedule and timeline
+            
+        Notes
+        -----
+        The CalendarCrew considers:
+        - Study plan structure and learning progression
+        - Available web resources and their integration points
+        - Academic papers and research reading schedule
+        - Realistic time allocation and pacing
+        - Learning science principles like spaced repetition
+        
+        The calendar provides a structured timeline that optimizes
+        learning outcomes while maintaining realistic expectations.
+        """
+        print("Defining calendar")
+        calendar_crew = CalendarCrew()
+        crew_output = calendar_crew.crew().kickoff(
+            inputs={
+                "web_resources": self.state.resources,
+                "papers": self.state.papers,
+                "plan": self.state.plan
+            }
+        )
+        monitor = MonitoringConfig()
+        monitor.monitoring_crew(self.state, crew_output, calendar_crew, "CalendarCrew")
+        print("Calendar defined based on the plan, resources, and papers.")
+        self.state.calendar = crew_output.raw
+
+    @listen(define_calendar)
+    def create_study_plan(self):
+        """
+        Compile final comprehensive study plan.
+        
+        This method uses the FinalStudyPlanCrew to integrate all previous
+        outputs into a comprehensive, well-formatted final study plan that
+        includes all resources, timeline, and detailed learning activities.
+        
+        Returns
+        -------
+        None
+            Updates self.state.study_plan with final comprehensive study plan
+            
+        Notes
+        -----
+        The FinalStudyPlanCrew performs:
+        - Integration of all crew outputs into cohesive plan
+        - Detailed content creation with specific activities
+        - ASCII art and visual formatting for presentation
+        - Final quality review and validation
+        
+        The method also includes a final evaluation using MLflow's
+        RelevanceToQuery scorer to assess how well the final study plan
+        addresses the original user question and requirements.
+        
+        The final study plan is saved to "output/final_study_plan.md"
+        for easy access and sharing.
+        """
+        print("Creating study plan")
+        study_plan_crew = FinalStudyPlanCrew()
+        monitor = MonitoringConfig()
+        crew_output = study_plan_crew.crew().kickoff(
+            inputs={
+                "resources": self.state.resources,
+                "papers": self.state.papers,
+                "plan": self.state.plan,
+                "calendar": self.state.calendar
+            }
+        )
+        monitor.monitoring_crew(self.state, crew_output, study_plan_crew, "FinalStudyPlanCrew")
+        
+        evaluation_ethics_data = pd.DataFrame([{"inputs": {"question": self.state.question},
+                                                "outputs": crew_output.raw}])
+        mlflow.genai.evaluate(data=evaluation_ethics_data,scorers=[RelevanceToQuery(model = "azure:/gpt-4.1")])
+        print(crew_output.raw)
+        self.state.study_plan = crew_output.raw
+
+
+def kickoff():
+    """
+    Main workflow execution with enhanced MLflow tracking.
+    
+    This function orchestrates the complete EY Junior Accelerator workflow
+    with comprehensive monitoring, error handling, and experiment tracking.
+    It enables CrewAI autolog for detailed tracing while providing workflow-level
+    metrics and status tracking.
+    
+    Returns
+    -------
+    Flow
+        The completed workflow instance with final state
+        
+    Raises
+    ------
+    Exception
+        Any exception that occurs during workflow execution is logged
+        and re-raised with proper error tracking
+        
+    Notes
+    -----
+    The function provides multiple levels of tracking:
+    
+    **Workflow-level tracking:**
+    - Total execution time
+    - Workflow status (completed/failed)
+    - Error messages and stack traces
+    - Workflow type identification
+    
+    **CrewAI autolog integration:**
+    - Automatic agent and task tracing
+    - Detailed execution logs
+    - Token usage tracking
+    - Model interaction logging
+    
+    **Error handling:**
+    - Comprehensive exception capture
+    - Error message logging
+    - Workflow status tracking
+    - Graceful failure handling
+    
+    The main MLflow run serves as a container for all nested crew runs,
+    providing a hierarchical view of the entire workflow execution.
+    
+    Examples
+    --------
+    >>> result = kickoff()
+    >>> print(f"Final study plan: {result.state.study_plan}")
+    >>> # Check MLflow UI for detailed execution tracking
+    """
+    with mlflow.start_run(run_name="EYFlow_with_Autolog") as run:
+        mlflow.crewai.autolog()
+        mlflow.log_param("workflow_type", "EY_Junior_Accelerator")
+        try:
+            flow = Flow()
+            start_time = time.time()
+            result = flow.kickoff()
+            total_time = time.time() - start_time
+            mlflow.log_metric("total_workflow_time", total_time)
+            mlflow.log_param("workflow_status", "completed")
+            print(f"Workflow completed successfully in {total_time:.2f} seconds")
+            return result
+            
+        except Exception as e:
+            mlflow.log_param("workflow_status", "failed")
+            mlflow.log_param("error_message", str(e))
+            print(f"Workflow failed: {e}")
+            raise
+    
+def plot():
+    """
+    Generate workflow visualization diagram.
+    
+    This function creates a visual representation of the workflow structure,
+    showing the relationships between different stages and the flow of data
+    through the system.
+    
+    Returns
+    -------
+    None
+        Displays the workflow plot
+        
+    Notes
+    -----
+    The plot shows:
+    - Workflow stages and their connections
+    - Data flow between crews
+    - Routing logic and decision points
+    - Overall system architecture
+    
+    Useful for understanding the workflow structure and debugging
+    complex routing scenarios.
+    
+    Examples
+    --------
+    >>> plot()
+    # Displays interactive workflow diagram
+    """
+    flow = Flow()
+    flow.plot()
+
+if __name__ == "__main__":
+    kickoff()

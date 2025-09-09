@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medical-rag-evaluation"
+version = "0.1.0"
+description = "Medical RAG system evaluation using CrewAI and DeepEval"
+requires-python = ">=3.10"
+
+dependencies = [
+    "crewai",
+    "langchain",
+    "langchain-openai",
+    "langchain-community",
+    "qdrant-client",
+    "pydantic",
+    "python-dotenv",
+    "deepeval",
+    "ragas",
+    "openai",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "black",
+    "flake8",
+]

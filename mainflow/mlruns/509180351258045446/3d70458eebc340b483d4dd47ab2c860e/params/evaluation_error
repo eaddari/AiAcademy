@@ -1,0 +1,55 @@
+Metric 'answer_relevance': Error:
+Unknown model uri prefix 'azure'
+Traceback (most recent call last):
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\models\evaluation\default_evaluator.py", line 713, in _test_first_row
+    metric_value = metric.evaluate(eval_fn_args)
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\models\evaluation\utils\metric.py", line 64, in evaluate
+    metric: MetricValue = self.function(*eval_fn_args)
+                          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\metrics\genai\genai_metric.py", line 639, in eval_fn
+    score, justification = future.result()
+                           ~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\metrics\genai\genai_metric.py", line 110, in _score_model_on_one_payload
+    raw_result = model_utils.score_model_on_payload(
+        eval_model, payload, parameters, extra_headers, proxy_url, endpoint_type
+    )
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\metrics\genai\model_utils.py", line 74, in score_model_on_payload
+    raise MlflowException(
+    ...<2 lines>...
+    )
+mlflow.exceptions.MlflowException: Unknown model uri prefix 'azure'
+
+Metric 'faithfulness': Error:
+Unknown model uri prefix 'azure'
+Traceback (most recent call last):
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\models\evaluation\default_evaluator.py", line 713, in _test_first_row
+    metric_value = metric.evaluate(eval_fn_args)
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\models\evaluation\utils\metric.py", line 64, in evaluate
+    metric: MetricValue = self.function(*eval_fn_args)
+                          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\metrics\genai\genai_metric.py", line 639, in eval_fn
+    score, justification = future.result()
+                           ~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\metrics\genai\genai_metric.py", line 110, in _score_model_on_one_payload
+    raw_result = model_utils.score_model_on_payload(
+        eval_model, payload, parameters, extra_headers, proxy_url, endpoint_type
+    )
+  File "C:\desktopnoonedrive\gruppo-finale\AiAcademy\mainflow\.venv\Lib\site-packages\mlflow\metrics\genai\model_utils.py", line 74, in score_model_on_payload
+    raise MlflowException(
+    ...<2 lines>...
+    )
+mlflow.exceptions.MlflowException: Unknown model uri prefix 'azure'

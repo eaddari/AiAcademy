@@ -1,0 +1,19 @@
+execution_duration_ms: 1224
+request_preview: '{"query": "Khan Academy Linear Algebra Calculus official site"}'
+request_time: '2025-09-07T18:21:23.523Z'
+response_preview: '{"searchParameters": {"q": "Khan Academy Linear Algebra Calculus
+  official site", "type": "search", "num": 10, "engine": "google"}, "organic": [{"title":
+  "Linear Algebra - Khan Academy", "link": "https://www.khanacademy.org/math/linear-algebra",
+  "snippet": "Learn linear algebra—vectors, matrices, transformations, and more.",
+  "sitelinks": [{"title": "Unit 1: Vectors and spaces", "link": "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces"},
+  {"title": "Vector intro", "link": "https://www.khanacademy.org/v/vector-introduction-linear-algebra"},
+  {"title": "The Web", "link": "https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-html/v/making-webpages-intro"},
+  {"title": "Unit 2: Matrix transformations", "link": "https://www.khanacademy.org/math/linear-algebra/matrix-transformations"}],
+  "position": 1}, {"title": "Calculus 1 | Math - Khan Academy", "link": "https://www.khanacademy.org/math/calculus-1",
+  "snippet": "Calculus 1 · Unit 1: Limits and continu...'
+state: OK
+trace_id: tr-aa768ccb5a44d9f241183a90f1d009b7
+trace_location:
+  mlflow_experiment:
+    experiment_id: '293189534794950362'
+  type: MLFLOW_EXPERIMENT

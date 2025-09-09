@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/desktopnoonedrive/gruppo-finale/AiAcademy/mainflow/mlruns/509180351258045446/db0b6beba19245399f32368ab1d25155/artifacts
+end_time: 1757276160870
+entry_point_name: ''
+experiment_id: '509180351258045446'
+lifecycle_stage: active
+run_id: db0b6beba19245399f32368ab1d25155
+run_name: PaperCrew Monitoring
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757276160706
+status: 3
+tags: []
+user_id: FJ138WZ

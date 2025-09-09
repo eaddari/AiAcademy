@@ -1,0 +1,574 @@
+/* Import Noto Sans font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Global font setting */
+html, body, [class*="css"], .stApp {
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Main app background with gradient */
+.stApp {
+    background: linear-gradient(135deg, #1a1a24 0%, #2d2d3f 25%, #3a3a5c 50%, #2d2d3f 75%, #1a1a24 100%);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    color: #f9f9f9;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Gradient animation - slower transition */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Alternative gradient options - comment/uncomment as needed */
+/*
+.stApp {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 25%, #90caf9 50%, #64b5f6 75%, #42a5f5 100%);
+}
+*/
+
+/* EY Brand colors gradient 
+.stApp {
+    background: linear-gradient(135deg, #ffe600 0%, #ffeb3b 25%, #fff59d 50%, #f5f5f5 75%, #ffffff 100%);
+    color: #333333;
+}
+*/
+
+/* Professional subtle gradient 
+.stApp {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #ced4da 75%, #adb5bd 100%);
+    color: #333333;
+}
+*/
+
+/* Content container with transparency for better readability */
+.main > div {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+    margin: 0.5rem 0 !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Remove/style the top white bar */
+.stApp > header {
+    background-color: transparent !important;
+}
+
+.stApp > header[data-testid="stHeader"] {
+    background-color: #1a1a24 !important;
+    height: 0px !important;
+}
+
+/* Hide Streamlit toolbar completely */
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+/* Alternative method - hide specific toolbar elements */
+.stToolbar {
+    display: none !important;
+}
+
+/* Hide the entire top toolbar area */
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+/* Hide deploy button specifically */
+[data-testid="stHeaderActionElements"] {
+    display: none !important;
+}
+
+/* Hide main menu button */
+#MainMenu {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+.stDeployButton {
+    display: none !important;
+}
+
+/* Hide settings menu */
+[data-testid="manage-app-button"] {
+    display: none !important;
+}
+
+/* Hide keyboard arrow text elements - Updated approach */
+[data-testid="stExpanderToggleIcon"] {
+    font-size: 0 !important;
+    line-height: 0 !important;
+}
+
+[data-testid="stExpanderToggleIcon"]::after {
+    content: "▶" !important;
+    font-size: 14px !important;
+    color: #ffe600 !important;
+    line-height: normal !important;
+    display: inline-block !important;
+}
+
+/* For open expanders */
+details[open] [data-testid="stExpanderToggleIcon"]::after {
+    content: "▼" !important;
+}
+
+/* Hide all text content in expander toggle icons */
+[data-testid="stExpanderToggleIcon"] * {
+    display: none !important;
+}
+
+/* Restore our custom arrow */
+[data-testid="stExpanderToggleIcon"]::after {
+    display: inline-block !important;
+}
+
+/* Alternative selectors for different Streamlit versions */
+.streamlit-expander summary::marker {
+    display: none !important;
+}
+
+.stExpander summary {
+    list-style: none !important;
+}
+
+.stExpander summary::-webkit-details-marker {
+    display: none !important;
+}
+
+/* Hide any span containing arrow text */
+span[class*="arrow"] {
+    display: none !important;
+}
+
+/* Hide Material Icons text content */
+.material-icons, .material-icons-outlined, .material-icons-extended {
+    text-indent: -9999px !important;
+    font-size: 0 !important;
+}
+
+/* Nuclear approach - hide any element containing keyboard arrow text */
+*[innerHTML*="keyboard_arrow"] {
+    display: none !important;
+}
+
+/* Hide specific text content globally */
+*:not(script):not(style) {
+    text-shadow: none !important;
+}
+
+/* Hide any element that might contain arrow text */
+span, div, i {
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Force hide arrow text with visibility */
+*[class*="arrow"]:not(.custom-arrow) {
+    visibility: hidden !important;
+    font-size: 0 !important;
+}
+
+/* Hide icon fonts that might show as text */
+[class*="icon"]:not(.custom-icon) {
+    font-size: 0 !important;
+}
+
+/* Additional broad selectors to catch remaining arrow text */
+body * {
+    text-rendering: optimizeLegibility !important;
+}
+
+/* Very specific targeting for any remaining keyboard arrow text */
+*::before, *::after {
+    font-family: 'Noto Sans', sans-serif !important;
+}
+
+/* Hide any text that looks like material icons */
+*[data-icon], *[icon], [class*="material"] {
+    font-size: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+}
+
+/* Target common locations for the arrow text */
+header *, .stApp > div:first-child *, [class*="toolbar"] * {
+    font-family: 'Noto Sans', sans-serif !important;
+}
+
+/* Final fallback - hide small text elements that might be arrows */
+*[style*="font-family: Material Icons"], 
+*[style*="font-family: 'Material Icons'"],
+*[style*="font-family:Material Icons"] {
+    display: none !important;
+}
+
+/* Emergency override - hide ALL Material Icons font content */
+@font-face {
+    font-family: 'Material Icons';
+    src: url('data:application/font-woff2;charset=utf-8;base64,') format('woff2');
+}
+
+/* Hide any text nodes that contain keyboard_arrow */
+.stApp *::before,
+.stApp *::after {
+    content: none !important;
+}
+
+/* Override any inline styles showing arrows */
+* {
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+footer {
+    visibility: hidden;
+}
+
+/* Main content area */
+.main > div {
+    padding-top: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #1a1a24;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Title styling */
+.stTitle {
+    text-align: center;
+    color: #ffe600 !important;
+    margin-bottom: 2rem;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Headers and subheaders */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffe600 !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Text elements */
+.stMarkdown, .stText, p, span, div, label, input, textarea, button {
+    color: #f9f9f9 !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Form elements */
+.stTextArea > label, .stTextArea textarea {
+    color: #f9f9f9 !important;
+    background-color: #1a1a24 !important;
+    border-color: #ffe600 !important;
+}
+
+.stTextArea textarea {
+    background-color: #2a2a34 !important;
+}
+
+/* Placeholder text styling */
+.stTextArea textarea::placeholder {
+    color: #f9f9f9 !important;
+    opacity: 0.7 !important;
+}
+
+.stTextArea textarea::-webkit-input-placeholder {
+    color: #f9f9f9 !important;
+    opacity: 0.7 !important;
+}
+
+.stTextArea textarea::-moz-placeholder {
+    color: #f9f9f9 !important;
+    opacity: 0.7 !important;
+}
+
+.stTextArea textarea:-ms-input-placeholder {
+    color: #f9f9f9 !important;
+    opacity: 0.7 !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: #ffe600 !important;
+    color: #1a1a24 !important;
+    border: none !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.stButton > button:hover {
+    background-color: #f9f9f9 !important;
+    color: #1a1a24 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Form submit buttons specifically */
+.stForm button[kind="primary"] {
+    background-color: #ffe600 !important;
+    color: #1a1a24 !important;
+    border: none !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.stForm button[kind="primary"]:hover {
+    background-color: #f9f9f9 !important;
+    color: #1a1a24 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* More specific button text selectors */
+.stButton > button span,
+.stButton > button p,
+.stForm button span,
+.stForm button p {
+    color: #1a1a24 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Form submit button container */
+.stForm .stButton > button {
+    background-color: #ffe600 !important;
+    color: #1a1a24 !important;
+    border: none !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Download buttons - Specific styling to ensure black text */
+.stDownloadButton > button {
+    background-color: #ffe600 !important;
+    color: #000000 !important;
+    border: none !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.stDownloadButton > button:hover {
+    background-color: #f9f9f9 !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* All button text elements */
+button span, button p, button div {
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Progress bars */
+.stProgress > div > div {
+    background-color: #ffe600 !important;
+}
+
+/* Containers and expanders */
+.step-container, .progress-container {
+    border: 1px solid #ffe600;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #2a2a34;
+}
+
+.step-title {
+    font-weight: bold;
+    color: #ffe600;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Expander styling - Updated selectors */
+.streamlit-expanderHeader, [data-testid="stExpanderToggleIcon"], .stExpander > details > summary {
+    background-color: #2a2a34 !important;
+    color: #ffe600 !important;
+    border-color: #ffe600 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.streamlit-expanderContent, .stExpander > details > div {
+    background-color: #2a2a34 !important;
+    color: #f9f9f9 !important;
+    border-color: #ffe600 !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Modern Streamlit expander selectors */
+.stExpander {
+    background-color: #2a2a34 !important;
+    border: 1px solid #ffe600 !important;
+    border-radius: 10px !important;
+}
+
+.stExpander > details > summary {
+    background-color: #2a2a34 !important;
+    color: #ffe600 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+    padding: 15px !important;
+}
+
+.stExpander > details > div[data-testid="stExpanderDetails"] {
+    background-color: #2a2a34 !important;
+    color: #f9f9f9 !important;
+    padding: 15px !important;
+}
+
+/* Expander content text */
+.stExpander .stMarkdown p, .stExpander .stMarkdown li, .stExpander .stMarkdown strong {
+    color: #f9f9f9 !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    background-color: #2a2a34;
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: #f9f9f9 !important;
+    background-color: #2a2a34;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: #ffe600 !important;
+    color: #1a1a24 !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Success/Error messages */
+.stSuccess {
+    background-color: #2a2a34 !important;
+    color: #f9f9f9 !important;
+    border-color: #ffe600 !important;
+}
+
+.stError {
+    background-color: #2a2a34 !important;
+    color: #f9f9f9 !important;
+}
+
+.stWarning {
+    background-color: #2a2a34 !important;
+    color: #f9f9f9 !important;
+}
+
+.stInfo {
+    background-color: #2a2a34 !important;
+    color: #f9f9f9 !important;
+}
+
+/* Sidebar (if needed) */
+.css-1d391kg {
+    background-color: #1a1a24 !important;
+}
+
+/* Code blocks */
+.stCode {
+    background-color: #f9f9f9 !important;
+    color: #1a1a24 !important;
+    border: 1px solid #ffe600 !important;
+    border-radius: 5px !important;
+    font-family: 'Noto Sans', monospace !important;
+}
+
+.stCode pre {
+    color: #1a1a24 !important;
+    background-color: #f9f9f9 !important;
+}
+
+.stCode code {
+    color: #1a1a24 !important;
+    background-color: #f9f9f9 !important;
+}
+
+/* Spinner */
+.stSpinner > div {
+    border-top-color: #ffe600 !important;
+}
+
+/* Download button text color - Enhanced with higher specificity */
+.stDownloadButton > button,
+.stDownloadButton > button span,
+.stDownloadButton > button p,
+.stDownloadButton > button div {
+    color: #000000 !important;
+    background-color: #ffe600 !important;
+    border: none !important;
+    font-weight: bold !important;
+    font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.stDownloadButton > button:hover,
+.stDownloadButton > button:hover span,
+.stDownloadButton > button:hover p,
+.stDownloadButton > button:hover div {
+    color: #000000 !important;
+    background-color: #f9f9f9 !important;
+    font-weight: bold !important;
+}
+
+.stDownloadButton > button:focus,
+.stDownloadButton > button:focus span,
+.stDownloadButton > button:focus p,
+.stDownloadButton > button:focus div {
+    color: #000000 !important;
+    background-color: #ffe600 !important;
+}
+
+.stDownloadButton > button:active,
+.stDownloadButton > button:active span,
+.stDownloadButton > button:active p,
+.stDownloadButton > button:active div {
+    color: #000000 !important;
+    background-color: #ffe600 !important;
+}
+
+/* Alternative selector for download buttons with higher specificity */
+[data-testid="stDownloadButton"] button,
+[data-testid="stDownloadButton"] button span,
+[data-testid="stDownloadButton"] button p,
+[data-testid="stDownloadButton"] button div {
+    color: #000000 !important;
+    background-color: #ffe600 !important;
+}
+
+[data-testid="stDownloadButton"] button:hover,
+[data-testid="stDownloadButton"] button:hover span,
+[data-testid="stDownloadButton"] button:hover p,
+[data-testid="stDownloadButton"] button:hover div {
+    color: #000000 !important;
+    background-color: #f9f9f9 !important;
+}
+
+/* Override any conflicting styles specifically for download buttons */
+div[data-testid="column"] .stDownloadButton > button * {
+    color: #000000 !important;
+}
+
+/* Ensure download button text remains black in all states */
+.stDownloadButton button[kind="primary"],
+.stDownloadButton button[kind="secondary"],
+.stDownloadButton button[kind="tertiary"] {
+    color: #000000 !important;
+}
+
+.stDownloadButton button[kind="primary"] *,
+.stDownloadButton button[kind="secondary"] *,
+.stDownloadButton button[kind="tertiary"] * {
+    color: #000000 !important;
+}

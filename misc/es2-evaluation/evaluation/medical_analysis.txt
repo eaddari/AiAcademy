@@ -1,0 +1,59 @@
+Query: What are the symptoms and treatment options for hypertension?
+
+Analysis Result:
+Hypertension (high blood pressure) is a common chronic medical condition that poses significant long-term health risks if left untreated. Understanding its symptoms, treatment options, and the importance of early detection is crucial for effective management.
+
+**Symptoms of Hypertension:**
+
+- In most cases, hypertension is asymptomatic, meaning it does not produce noticeable symptoms. As a result, many individuals are unaware they have high blood pressure until it is detected during routine health evaluations or after complications occur.
+- When symptoms are present, or are related to hypertension or its therapy, they may include:
+  - Headache
+  - Dizziness
+  - Tinnitus (ringing in the ears)
+  - Visual disturbances
+  - Fainting
+  - Numbness or tingling in the limbs
+  - Mood changes, anxiety, or depression
+  - Sleep disturbances
+  - Tremor
+  - Altered sense of taste
+  - Low blood pressure, particularly if overtreatment occurs
+  - Runny or sneezing nose due to nasal inflammation (mainly as a side effect of some antihypertensive medications)
+  - Cough, dry mouth, and vomiting (these are commonly associated with side effects from certain medications such as ACE inhibitors)
+
+  Importantly, most people with hypertension do not experience symptoms until significant organ damage—such as cardiovascular, renal, or neurologic complications—has developed.
+
+**Treatment Options for Hypertension:**
+
+1. **Lifestyle Modifications:**
+   - Lifestyle changes are considered first-line interventions and also serve as adjuncts to medical therapy. Recommendations include:
+     - Losing weight if overweight or obese
+     - Adopting a healthy, balanced diet, particularly with reduced salt (sodium) intake
+     - Quitting smoking
+     - Reducing alcohol consumption
+     - Engaging in regular physical activity (such as walking, swimming, or other forms of aerobic exercise)
+     - Managing stress through relaxation techniques and adequate rest
+
+2. **Pharmacological (Medication) Treatment:**
+   - When lifestyle interventions are insufficient or if blood pressure is significantly elevated, antihypertensive medications are prescribed. Common drug classes include:
+     - Calcium channel blockers (for example, amlodipine, available in drugs such as Norvasc and Plaunac)
+     - Angiotensin-converting enzyme inhibitors (ACE inhibitors)
+     - Angiotensin II receptor blockers (ARBs)
+     - Diuretics
+     - Beta-blockers
+   - The choice and dosage of medication are individualized based on patient factors, including other existing health conditions.
+   - If a patient’s blood pressure remains above the target with a single medication, the dose may be increased or additional medications may be added to the regimen.
+
+3. **Monitoring and Follow-up:**
+   - Ongoing monitoring of blood pressure is essential to ensure adequate control.
+   - Patients should report any side effects of medication—such as cough, changes in taste, fainting, severe diarrhea, or significant weight loss—to their healthcare provider, as medication adjustments may be necessary.
+
+**Medical Context and Key Takeaways:**
+
+- Because hypertension is often silent, regular screening is critical for early detection and to prevent complications.
+- Effective blood pressure control relies on both lifestyle changes and adherence to prescribed medications.
+- Close medical follow-up and prompt reporting of any medication side effects are vital for the effective and safe management of hypertension.
+
+**Source Citations:**
+- [medical_doc_1.txt]
+- [medical_doc_5.txt]

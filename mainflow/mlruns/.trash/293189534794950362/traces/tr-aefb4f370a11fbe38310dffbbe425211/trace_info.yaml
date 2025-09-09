@@ -1,0 +1,22 @@
+execution_duration_ms: 1272
+request_preview: '{"query": "best online resources math for AI beginners official
+  documentation site:edu"}'
+request_time: '2025-09-07T18:21:21.091Z'
+response_preview: '{"searchParameters": {"q": "best online resources math for AI beginners
+  official documentation site:edu", "type": "search", "num": 10, "engine": "google"},
+  "organic": [{"title": "40 Free Resources to Help You Learn Machine Learning on Your
+  Own", "link": "https://customcareer.miami.edu/blog/2019/06/05/40-free-resources-to-help-you-learn-machine-learning-on-your-own/",
+  "snippet": "Gengo.AI. The resources here may not be anywhere near as vast as Kaggle,
+  but Gengo.AI has some good links to offer for specialist interests.", "date": "Jun
+  5, 2019", "position": 1}, {"title": "11 Online AI Courses That Can Help You Stay
+  Ahead", "link": "https://careerhub.sunyempire.edu/blog/2025/03/18/11-online-ai-courses-that-can-help-you-stay-ahead/",
+  "snippet": "AI for Everyone is an online course offered on Coursera that breaks
+  down AI concepts in a way that even non-technical learners can understand.", "date":
+  "Mar 18, 2025", "position": 2}, {"title": "[PDF] Mathematics for Machine Learning",
+  "link": "h...'
+state: OK
+trace_id: tr-aefb4f370a11fbe38310dffbbe425211
+trace_location:
+  mlflow_experiment:
+    experiment_id: '293189534794950362'
+  type: MLFLOW_EXPERIMENT

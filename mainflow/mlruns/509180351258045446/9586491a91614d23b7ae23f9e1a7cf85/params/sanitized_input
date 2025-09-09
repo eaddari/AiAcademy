@@ -1,0 +1,112 @@
+{
+  "sections": {
+    "1. Foundations of AI and Programming > a. Basic Programming with Python": [
+      {
+        "title": "The Python Tutorial",
+        "url": "https://docs.python.org/3/tutorial/",
+        "publisher_or_domain": "Python Software Foundation",
+        "summary": "This is Python’s official and comprehensive beginner’s tutorial, covering everything from basic syntax to modules and error handling. It is well-organized, clearly written, and updated for the latest Python versions.",
+        "why": "It’s the canonical starting place for Python novices; trusted, accurate, and complete, serving as both a course and a reference.",
+        "level": "beginner",
+        "citation": {
+          "title": "The Python Tutorial",
+          "publisher_or_domain": "Python Software Foundation",
+          "url": "https://docs.python.org/3/tutorial/",
+          "accessed": "2024-06-10"
+        }
+      },
+      {
+        "title": "Python for Beginners (Official)",
+        "url": "https://www.python.org/about/gettingstarted/",
+        "publisher_or_domain": "Python Software Foundation",
+        "summary": "Beginner-friendly landing page with links to curated resources and tutorials, including interactive guides and further reading for absolute newcomers.",
+        "why": "Condenses official entry points into Python education and ensures learners do not miss foundational material.",
+        "level": "beginner",
+        "citation": {
+          "title": "Python for Beginners",
+          "publisher_or_domain": "Python Software Foundation",
+          "url": "https://www.python.org/about/gettingstarted/",
+          "accessed": "2024-06-10"
+        }
+      },
+      {
+        "title": "Learn Python – Free Interactive Python Tutorial",
+        "url": "https://www.learnpython.org/",
+        "publisher_or_domain": "DataCamp (Educational Partner)",
+        "summary": "Interactive Python tutorials and exercises that run in-browser, progressing from basics to intermediate topics with instant feedback.",
+        "why": "Allows hands-on practice for every concept, which aligns with the plan’s emphasis on exercises and scripting.",
+        "level": "beginner",
+        "citation": {
+          "title": "Learn Python – Free Interactive Python Tutorial",
+          "publisher_or_domain": "DataCamp",
+          "url": "https://www.learnpython.org/",
+          "accessed": "2024-06-10"
+        }
+      },
+      {
+        "title": "BeginnersGuide/Programmers – Python Wiki",
+        "url": "https://wiki.python.org/moin/BeginnersGuide/Programmers",
+        "publisher_or_domain": "Python Software Foundation",
+        "summary": "A curated aggregation of beginner resources: online courses, tutorials, books, and interactive tools. Provides multiple learning modalities.",
+        "why": "Covers diverse materials and helps you choose based on learning style or preferred format.",
+        "level": "beginner",
+        "citation": {
+          "title": "BeginnersGuide/Programmers",
+          "publisher_or_domain": "Python Software Foundation",
+          "url": "https://wiki.python.org/moin/BeginnersGuide/Programmers",
+          "accessed": "2024-06-10"
+        }
+      }
+    ],
+    "1. Foundations of AI and Programming > b. Introduction to Computer Science Concepts": [
+      {
+        "title": "CS50’s Introduction to Computer Science",
+        "url": "https://cs50.harvard.edu/",
+        "publisher_or_domain": "Harvard University",
+        "summary": "A renowned, free online course delivering foundational concepts in algorithms, data structures, and computer science thinking, with engaging lectures and assignments.",
+        "why": "Designed for beginners, balances theory and coding, and is highly recommended across the tech community as a launchpad.",
+        "level": "beginner",
+        "citation": {
+          "title": "CS50’s Introduction to Computer Science",
+          "publisher_or_domain": "Harvard University",
+          "url": "https://cs50.harvard.edu/",
+          "accessed": "2024-06-10"
+        }
+      },
+      {
+        "title": "VisuAlgo",
+        "url": "https://visualgo.net/",
+        "publisher_or_domain": "National University of Singapore",
+        "summary": "Interactive animations of fundamental data structures and algorithms, including sorting and searching, showing internal behavior and step-by-step execution.",
+        "why": "Ideal for visual learners and those looking for deeper understanding of algorithms beyond code.",
+        "level": "beginner",
+        "citation": {
+          "title": "VisuAlgo",
+          "publisher_or_domain": "National University of Singapore",
+          "url": "https://visualgo.net/",
+          "accessed": "2024-06-10"
+        }
+      },
+      {
+        "title": "Khan Academy: Algorithms",
+        "url": "https://www.khanacademy.org/computing/computer-science/algorithms",
+        "publisher_or_domain": "Khan Academy",
+        "summary": "In-depth lessons and interactive visualizations covering core algorithms and data structures, suitable for beginners.",
+        "why": "Offers hands-on exercises, videos, and explanations that reinforce key concepts required for entry-level AI work.",
+        "level": "beginner",
+        "citation": {
+          "title": "Khan Academy: Algorithms",
+          "publisher_or_domain": "Khan Academy",
+          "url": "https://www.khanacademy.org/computing/computer-science/algorithms",
+          "accessed": "2024-06-10"
+        }
+      }
+    ],
+    "1. Foundations of AI and Programming > c. Mathematics for AI": [
+      {
+        "title": "Khan Academy Mathematics",
+        "url": "https://www.khanacademy.org/math",
+        "publisher_or_domain": "Khan Academy",
+        "summary": "Extensive suite of online math modules—linear algebra, probability, statistics, and introductory calculus—each with interactive practice.",
+        "why": "Widely trusted educational resource for building quantitative reasoning, foundational to AI and ML competencies.",
+        "le
