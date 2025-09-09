@@ -1,410 +1,435 @@
 ```bash
-+-----------------------------+
-|   START STUDY PLAN          |
-+-----------------------------+
-              |
-              v
-+----------------------------------------------+
-| 1. BASELINE ASSESSMENT & LITERATURE MASTERY  |
-+----------------------------------------------+
-| • Performance Benchmarking                   |
-| • Biomechanical Video Analysis               |
-| • Structured Literature Review & Library     |
-+----------------------------------------------+
-              |
-              v
-+----------------------------------------------+
-| 2. PHYSIOLOGY & BIOMECHANICS FOCUS           |
-+----------------------------------------------+
-| • Energy Systems (Aerobic/Anaerobic)         |
-| • Muscle Fiber Recruitment                   |
-| • Gait Mechanics & Biomechanical Modeling    |
-| • Risk Factor Analysis                       |
-+----------------------------------------------+
-              |
-              v
-+----------------------------------------------+
-| 3. INTERVENTION EVALUATION & DESIGN          |
-+----------------------------------------------+
-| • Evaluate Training Methodologies (HIIT,     |
-|   Plyometrics, Resistance, Periodization)    |
-| • Pilot Protocol Design                      |
-| • Tech Integration (Sensors/AI Wearables)    |
-| • Nutrition & Recovery Research              |
-+----------------------------------------------+
-              |
-              v
-+----------------------------------------------+
-| 4. EXPERIMENTAL & APPLIED RESEARCH           |
-+----------------------------------------------+
-| • Rigorous Protocol Construction             |
-| • IRB/Ethics Practice                       |
-| • Data Analysis (Stats/ML/Visualization)     |
-+----------------------------------------------+
-              |
-              v
-+----------------------------------------------+
-| 5. TRANSLATIONAL APPLICATION                 |
-+----------------------------------------------+
-| • Evidence-to-Practice Frameworks            |
-| • Infographics/Workshops                     |
-| • Coaching Communication                     |
-| • Multidisciplinary Team Formation           |
-| • Conferences & Networking                   |
-+----------------------------------------------+
-              |
-              v
-+----------------------------------------------+
-| 6. CONTINUOUS IMPROVEMENT & REFLECTION       |
-+----------------------------------------------+
-| • Feedback Loops & Quarterly Reviews         |
-| • Peer Review & Adaptation                   |
-| • Journal Alerts & Course Subscriptions      |
-+----------------------------------------------+
-              |
-              v
-+-------------------------+
-|       FINISH            |
-+-------------------------+
++----------------------------+
+|    Start Study Plan         |
++----------------------------+
+             |
+             v
++----------------------------+
+|  I. Introduction &         |
+|      Foundation            |
+|  - AI engineer role        |
+|  - Neural networks history |
+|  - Essential math & Python |
++----------------------------+
+             |
+             v
++----------------------------+
+| II. Python Refresh & Setup |
+|  - Python basics           |
+|  - LeetCode/HackerRank     |
+|  - Dev environment:        |
+|    Jupyter, Git, GitHub    |
++----------------------------+
+             |
+             v
++----------------------------+
+| III. Math for NN           |
+|  - Linear algebra          |
+|  - Calculus & gradients    |
+|  - Probability & stats     |
+|  - NumPy operations        |
++----------------------------+
+             |
+             v
++----------------------------+
+| IV. Core NN Concepts       |
+|  - Neurons, activations    |
+|  - Feedforward             |
+|  - Loss functions          |
+|  - Gradient descent        |
++----------------------------+
+             |
+             v
++----------------------------+
+| V. Build NN from Scratch   |
+|  - Code perceptron & MLP   |
+|  - Backpropagation         |
+|  - Training loop           |
+|  - Debug, plot loss        |
++----------------------------+
+             |
+             v
++----------------------------+
+| VI. Apps & Mini-Projects   |
+|  - Classification (MNIST)  |
+|  - Toy datasets (Iris)     |
+|  - Experimentation         |
+|  - Documentation/blog      |
++----------------------------+
+             |
+             v
++----------------------------+
+| VII. Next Steps & Deepening|
+|  - Use PyTorch/TensorFlow  |
+|  - Intro to CNNs/RNNs      |
+|  - Join AI communities     |
+|  - Build portfolio         |
++----------------------------+
+             |
+             v
++----------------------------+
+|VIII. Review & Assessment   |
+|  - Quizzes & flashcards    |
+|  - Peer review             |
+|  - Plan next milestones    |
++----------------------------+
+             |
+             v
++----------------------------+
+|      End: Ready for Entry- |
+|      Level AI Engineering! |
++----------------------------+
 ```
 
-# A Detailed and Layered Study Plan for Advanced Research Scientists in Human Performance: Optimizing Strategies to Learn How to Run Faster
+# A Detailed and Layered Study Plan to Become an Entry-Level AI Engineer by Building a Neural Network from Scratch
 
 ---
 
-## 1. Baseline Assessment and Literature Mastery
+## I. Introduction & Foundation
 
-### a. Performance Benchmarking
-- **Design and implement comprehensive running assessments**, including:
-    - VO2 max testing
-    - Lactate threshold measurement
-    - Sprint timing across multiple distances
-    - Biomechanical video analysis (slow-motion capture, joint angle estimation)
-- **Use standardized protocols** to ensure results are comparable and reproducible.
-- **Analyze biomechanical inefficiencies** with coaching software or kinematic analysis tools.
+### A. Overview of AI Engineering and Neural Networks
 
-**Calendar Activities:**
-- Schedule laboratory or field tests (VO2 max, lactate threshold, sprint timing) early in Week 1 and document individual baselines.
-- Arrange slow-motion video sessions using mobile or dedicated cameras—analyze joint angles and gait for preliminary feedback.
+1. **Review the role and daily tasks of an AI engineer**  
+   - Data preprocessing, model building, evaluation, deployment.
+2. **Examine real-world applications**  
+   - Healthcare, finance, natural language processing, image recognition.
+3. **Study the historical context and advancements in neural networks**  
+   - Understand the development of neural networks from early perceptrons to deep learning.
 
----
+### B. Essential Prerequisites
 
-### b. Literature Deep Dive
-- **Perform a structured literature search** on:
-    - Meta-analyses on interventions for running speed.
-    - Recent original research on training, biomechanics, and physiological determinants.
-- **Build a reference library** using citation-management tools (e.g., Zotero, Mendeley).
-- **Set up alerts for key journals:**  
-    - Journal of Applied Physiology
-    - Medicine & Science in Sports & Exercise
-    - International Journal of Sports Physiology and Performance
-
-**Web Resources:**
-- [PubMed](https://pubmed.ncbi.nlm.nih.gov) – Index for biomedical, sports science, and exercise physiology research; essential for structured literature reviews and building a reference library.
-- [ResearchGate](https://www.researchgate.net) – Access to full texts, author collaboration, peer networking.
-- [Google Scholar](https://scholar.google.com) – Cross-journal research retrieval.
-- [Science for Sport](https://www.scienceforsport.com) – Summaries and infographics of cutting-edge research.
-- [American College of Sports Medicine (ACSM)](https://www.acsm.org) – Consensus statements, position stands, key journals, and conferences.
-
-**Calendar Activities:**
-- Create or update research database accounts in Week 1.
-- Complete tutorials on advanced searching for each database.
-- Install and configure citation managers; begin organizing foundational articles by key topics.
+1. **Basic Python programming skills:**  
+   - Syntax, data structures, control flow.
+2. **Fundamental mathematics:**  
+   - **Linear algebra:** Vectors, matrices, basic operations.  
+   - **Probability and statistics:** Random variables, mean, variance, normalization.  
+   - **Calculus:** Derivatives, gradients.
+3. **Recommended Introductory Resources:**
+   - [The Python Tutorial (python.org)](https://docs.python.org/3/tutorial/index.html)  
+     *Beginner-friendly official Python documentation; essential for syntax, control flow, data structures, and functions.*
+   - [Python For Beginners – Getting Started (python.org)](https://www.python.org/about/gettingstarted/)  
+     *Curated guides and installation help from Python.org for absolute beginners.*
+   - [Khan Academy – Math Courses](https://www.khanacademy.org/math)  
+     *Structured free video lessons in linear algebra and calculus for crucial AI math skills.*
+   - [Calculus Online Textbook (MIT OCW)](https://ocw.mit.edu/courses/res-18-001-calculus-fall-2023/pages/textbook/)  
+     *Comprehensive, rigorous university-level calculus text.*
 
 ---
 
-## 2. Physiology and Biomechanics Focus
+## II. Python Programming Refresh & Setup
 
-### a. Advanced Energy Systems Analysis
-- **In-depth summaries**:
-    - Aerobic/anaerobic system roles across distances (100m, 800m, 5k, marathon).
-    - Adaptations in muscle fiber recruitment and metabolic pathways from various training stimuli.
-- **Evaluate limitations and trainability** of each energy system using research and case studies.
+### A. Python Fundamentals
 
-**Key Resource:**
-- ["Understanding energy systems training" (Human Kinetics)](https://us.humankinetics.com/blogs/excerpt/understanding-energy-systems-training): Clarifies aerobic/anaerobic relationships and practical implications.
+1. Core data types: Numbers, strings, lists, dictionaries.
+2. Control structures: Loops, if/else, function definitions.
+3. Basic object-oriented programming concepts.
+4. Practice: Complete beginner-level coding challenges ([LeetCode Easy](https://leetcode.com/problemset/all/?difficulty=EASY), [HackerRank Python](https://www.hackerrank.com/domains/tutorials/10-days-of-python)).
 
-**Relevant Paper:**
-- "Layer dependent role of collagen recruitment during loading of the rat bladder wall" (Cheng et al., 2017)  
-  [Read the paper](http://arxiv.org/abs/1705.03329v1)
+### B. Setting up the Development Environment
 
-**Calendar Activities:**
-- In Week 2, read and summarize the Human Kinetics resource and relate paper abstracts to running performance.
-
----
-
-### b. Biomechanics and Kinetics
-- **Develop expertise in:**
-    - Ground reaction force modeling.
-    - Stride length/frequency trade-off; calculation of running economy.
-    - Gait analysis, interpreting pressure mapping, and 3D motion capture output.
-- **Examine risk factors and preventive strategies** for overuse injuries, drawing from epidemiological and interventional studies.
-
-**Key Resources:**
-- [How Sports Biomechanics Help Athletes (Mass General Brigham)](https://www.massgeneralbrigham.org/en/about/newsroom/articles/biomechanics-in-sports): Applied insights into performance and injury.
-- [Human Performance and Sports Sciences: Home - LibGuides (Tennessee State University)](https://tnstate.libguides.com/sportsscience): Curated databases and e-journals.
-- [Cutting-Edge Research in Sports Biomechanics (NIH)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10295155/): Latest methodologies and findings.
-
-**Relevant Paper:**
-- "Machine Learning Applications in Spine Biomechanics" (Ghezelbash et al., 2024)  
-  [Read the paper](http://arxiv.org/abs/2401.06174v1)
-
-**Calendar Activities:**
-- In Weeks 2–4, engage with both foundational and advanced biomechanics resources, participate in journal clubs, and practice article summarization and critical reading.
-- Utilize tools like OpenSim for modeling and analysis.
-
----
-
-## 3. Intervention Evaluation and Design
-
-### a. Training Methodologies
-- **Compare and critique experimental studies** on:
-    - High-intensity interval training (HIIT), plyometrics, resistance training.
-    - Periodization models (block, undulating, traditional).
-- **Implement pilot protocols:** Collect longitudinal adaptation data.
-
-**Relevant Paper:**
-- "Ongoing Vaccine and Monoclonal Antibody HIV Prevention Efficacy Trials..." (Gilbert, 2019) – Methodological considerations for RCT design  
-  [Read the paper](http://arxiv.org/abs/1906.08409v1)
-
-**Calendar Activities:**
-- In Week 5, review intervention RCTs/meta-analyses, make comparison charts, and draft a pilot experimental protocol.
-
----
-
-### b. Technology Integration
-- **Evaluate emerging tools:** 
-    - Wearable sensors (GPS, inertial, HR monitors).
-    - AI-driven gait/force analysis platforms.
-    - Force plates, EMG, pressure insoles.
-- **Design small-scale experiments** to validate tech accuracy and research utility.
-
-**Key Resources:**
-- [Advanced biomechanical analytics: Wearable technologies and sports (NIH)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11151756/)
-- [Wearables for Running Gait Analysis: A Systematic Review (NIH)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9807497/)
-- [Wearable Technology in Sports (Catapult Sports)](https://www.catapult.com/blog/wearable-technology-in-sports)
-
-**Relevant Paper:**
-- "Recent Advances in Wearable Sensors with Application in Rehabilitation Motion Analysis" (Shokri et al., 2020)  
-  [Read the paper](http://arxiv.org/abs/2009.06062v2)
-
-**Calendar Activities:**
-- In Week 6, read and digest the above systematic reviews; collect pilot sensor data, and analyze device reliability and outputs.
-
----
-
-### c. Nutrition and Recovery
-- **Summarize research on:**
-    - Macronutrient periodization, ergogenic aids, hydration timing.
-    - Evidence-based supplements for sprint and endurance performance.
-- **Assess effectiveness** of recovery modalities: HRV monitoring, sleep, cold/heat therapy, compression, manual therapy.
-
----
-
-## 4. Experimental and Applied Research
-
-### a. Protocol Design
-- **Construct rigorous experimental designs:**
-    - RCTs, crossover, single-subject methodologies.
-    - Apply blinding, placebo, and multi-arm interventions as appropriate.
-- **IRB/Ethics:** Seek approval and pilot for implementation challenges.
-
-**Calendar Activities:**
-- In Week 9, draft and circulate a detailed research protocol; complete an online ethics or IRB simulation, and document bias-control strategies.
-
----
-
-### b. Data Analysis Mastery
-- **Statistical Skillset**:
-    - Linear/mixed-effects modeling for repeated measures.
-    - Machine learning for predicting intervention response.
-- **Data Visualization:** Communicate findings clearly.
-
-**Relevant Paper:**
-- "Gaussian Function On Response Surface Estimation" (Toutiaee & Miller, 2021)  
-  [Read the paper](http://arxiv.org/abs/2101.00772v1)
+1. Install Python (3.8+), Jupyter Notebook for interactive coding.
+2. Install key libraries: [NumPy](https://numpy.org/doc/) (math), [Matplotlib](https://matplotlib.org/stable/tutorials/) (plotting), pandas (optional for data).
+3. Version control: Set up Git, create a GitHub repository for your projects.
+4. Practice: Run sample notebooks, make your first commit to GitHub.
 
 **Resources:**
-- Stack Overflow, Cross Validated – Community Q&A for stats and data analysis support.
-
-**Calendar Activities:**
-- Weeks 7 and 10: Complete predictive modeling tutorials, apply ML to sample datasets, and generate publication-quality visualizations.
+- [NumPy: the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)  
+  *Official step-by-step introduction for beginners to NumPy for vectors/matrices.*
+- [Tutorials — Matplotlib documentation](https://matplotlib.org/stable/tutorials/index.html)  
+  *Official Matplotlib tutorials for plotting and visualization.*
+- [Git and GitHub learning resources](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources)  
+  *Official GitHub documentation on version control, branching, and workflows.*
 
 ---
 
-## 5. Translational Application
+## III. Math for Neural Networks
 
-### a. Coaching and Communication
-- **Design evidence-to-practice frameworks:** 
-    - Infographics, summary tables, checklists.
-    - Host workshops/webinars for applied lessons.
-- **Practice scientific storytelling** for diverse audiences, emphasizing actionable recommendations.
+### A. Vectors, Matrices, and Operations
+
+1. Learn representation and manipulation of tensors using NumPy.
+2. Practice with dot products and matrix multiplication via small examples.
+
+### B. Calculus Essentials
+
+1. Understand gradients and their role in optimization.
+2. Manually compute derivatives for basic functions, apply the chain rule.
+3. Visualize slopes and gradients using graphs.
+
+### C. Probability & Statistics Basics
+
+1. Review probability distributions relevant to neural networks.
+2. Apply concepts such as normalization and standardization on toy datasets.
+
+**Papers & Further Reading:**
+- [Laurent Younes, "Introduction to Machine Learning" (2024)](http://arxiv.org/abs/2409.02668v2)  
+  *Covers the mathematical foundations: calculus, linear algebra, probability, optimization for ML algorithms and neural networks.*
+
+---
+
+## IV. Core Concepts of Neural Networks
+
+### A. What is a Neural Network?
+
+1. Learn about neurons, weights, biases, activation functions.
+2. Understand the feedforward mechanism.
+3. Study diagrams of single and multi-layer networks.
+
+### B. Activation Functions
+
+1. Study the mathematical form and graph of sigmoid, ReLU, Tanh.
+2. Implement these functions in Python and plot their output.
+
+### C. Learning Process
+
+1. Explore loss functions: MSE (regression), cross-entropy (classification).
+2. Understand the principle of minimizing loss to train a model.
+3. Learn the basics of gradient descent: concept, intuition, and simple code illustration.
 
 **Resources:**
-- [Science for Sport](https://www.scienceforsport.com): For position statements and best practices.
-- [American College of Sports Medicine (ACSM)](https://www.acsm.org): Consensus guidelines and practitioner communication.
+- [Neural Networks and Deep Learning (Michael Nielsen)](http://neuralnetworksanddeeplearning.com/)  
+  *Interactive, free book from basics to backprop with mathematical intuition and code.*
+- [Neural Networks from Scratch in Python — YouTube (Sentdex)](https://www.youtube.com/playlist?list=PLZyvi_9gamL-EE3zQJbU5N6gG8qOYV4dF)  
+  *Step-by-step coding from perceptron to multilayer NN, in raw Python.*
+- [fast.ai Practical Deep Learning for Coders](https://course.fast.ai/)  
+  *Hands-on course for quickly applying neural network ideas by coding.*
 
-**Calendar Activities:**
-- Week 8: Develop practical guides, visualizations, and conduct a knowledge translation workshop.
-
----
-
-### b. Collaboration and Networking
-- **Form multi-disciplinary teams:** Biomechanist, physiologist, nutritionist, tech developer.
-- **Attend/present at conferences:** ACSM, ECSS, BASES.
-- **Participate in online professional forums and networks.**
-
-**Resources:**
-- [International Society of Biomechanics](https://isbweb.org)
-- Twitter/X and LinkedIn for professional networking
-
-**Calendar Activities:**
-- Weeks 11–12: Attend virtual conferences/webinars, participate in online discussions, debrief, and document future learning goals.
+**Paper References:**
+- [McCulloch & Pitts, "A Logical Calculus of the Ideas Immanent in Nervous Activity" (1943)]  
+  *Historical perspective: the foundation of the concept of an artificial neuron.*
+- [Rumelhart, Hinton, Williams, "Learning representations by back-propagating errors" (1986)]  
+  *Pioneering work on backpropagation.*
 
 ---
 
-## 6. Continuous Improvement and Reflection
+## V. Building a Neural Network from Scratch
 
-### a. Feedback Loops
-- **Establish quarterly review sessions** for research/application effectiveness.
-- **Foster peer review** (internal or external) of protocols, analysis, and outcomes.
-- **Adapt ongoing study/practice** based on feedback and outcome measures.
+### A. Implementing Perceptron (Single-Layer Neural Network)
 
-**Calendar Activities:**
-- Program review and citation library updating in Weeks 11–12.
+1. Write Python code for a single neuron that can learn basic logical operations (AND/OR).
+2. Visualize input, weights, and output evolution during training.
 
----
+### B. Extending to Multi-Layer Perceptron (MLP)
 
-### b. Stay at the Forefront
-- **Curate subscriptions to:**
-    - Journal alerts (PubMed, ResearchGate, direct from publishers)
-    - Newsletters, podcasts, webinars by leading experts.
-- **Pursue advanced coursework, workshops, certifications** in biomechanics, statistics, or AI/data science as relevant.
+1. Manually code forward propagation through several layers (no deep learning libraries).
+2. Implement backpropagation by hand: update weights based on calculated gradients.
+3. Construct a training loop: prepare data, initialize weights, update weights, track convergence.
 
----
+### C. Monitoring and Debugging
 
-## Web Resources (Supplemental)
-- [OpenSim](https://opensim.stanford.edu): Biomechanics modeling toolkit.
-- [Stack Overflow](https://stackoverflow.com), [Cross Validated](https://stats.stackexchange.com): Statistical and coding support.
-- [Science for Sport](https://www.scienceforsport.com): Coaching knowledge translation.
+1. Plot the loss curve to visualize learning progress (Matplotlib).
+2. Experiment with hyperparameters, e.g., learning rate, number of hidden neurons.
+3. Diagnose issues if the model fails to learn—tweak and retry.
 
----
-
-## Paper References (Sample to Structure Library)
-- Jones, A. M., & Carter, H. (2000). The effect of endurance training on parameters of aerobic fitness. Sports Medicine, 29(6), 373-386.
-- Barnes, K. R., & Kilding, A. E. (2015). Strategies to improve running economy. Sports Medicine, 45(1), 37-56.
-- Laursen, P. B., & Jenkins, D. G. (2002). The scientific basis for high-intensity interval training. Sports Medicine, 32(1), 53-73.
-- Saunders, P. U., et al. (2004). Factors affecting running economy in trained distance runners. Sports Medicine, 34(7), 465-485.
-- Haugen, T., & Buchheit, M. (2016). Sprint running performance monitoring: Methodological and practical considerations. Sports Medicine, 46(5), 641-656.
-- Regular journals: Medicine & Science in Sports & Exercise, International Journal of Sports Physiology and Performance, Journal of Strength and Conditioning Research.
+**Paper Reference:**
+- [Rumelhart, Hinton, Williams, "Learning representations by back-propagating errors" (1986)]  
+- [Benign Overfitting for Two-layer ReLU Convolutional Neural Networks, Kou et al. (2023)](http://arxiv.org/abs/2303.04145v2)  
+  *For deeper understanding of overfitting and generalization in neural nets.*
 
 ---
 
-## Sample Relevant Scientific Papers (with direct relevance)
+## VI. Practical Applications and Mini-Projects
 
-### Energy System Contributions and Muscle Fiber Recruitment
-- **Cheng, F. et al. (2017).**  
-  [Layer dependent role of collagen recruitment during loading of the rat bladder wall](http://arxiv.org/abs/1705.03329v1)
+### A. Simple Classification and Regression Tasks
 
-### Biomechanical Modeling and 3D Gait Analysis
-- **Ghezelbash, F. et al. (2024).**  
-  [Machine Learning Applications in Spine Biomechanics](http://arxiv.org/abs/2401.06174v1)
+1. Develop and train a simple network to classify points or identify handwritten digit images (MNIST subset).
+2. Undertake a binary classification problem, such as Iris or a toy dataset.
 
-### Intervention Efficacy and RCT Design
-- **Gilbert, P.B. (2019).**  
-  [Ongoing Vaccine and Monoclonal Antibody HIV Prevention Efficacy Trials and Considerations for Sequel Efficacy Trial Designs](http://arxiv.org/abs/1906.08409v1)
+### B. Experimentation
 
-### Validation of Wearable Sensors and Tech
-- **Shokri, S. et al. (2020).**  
-  [Recent Advances in Wearable Sensors with Application in Rehabilitation Motion Analysis](http://arxiv.org/abs/2009.06062v2)
+1. Systematically modify activation functions, network structure, and hyperparameters.
+2. Document each experiment's setup, observations, and takeaways in a notebook or blog.
 
-### Predictive Modeling and Machine Learning
-- **Toutiaee, M. & Miller, J. (2021).**  
-  [Gaussian Function On Response Surface Estimation](http://arxiv.org/abs/2101.00772v1)
+**Paper Reference:**
+- [Tune As You Scale: Hyperparameter Optimization For Compute Efficient Training, Fetterman et al. (2023)](http://arxiv.org/abs/2306.08055v1)  
+  *On reproducibility and hyperparameter tuning best practices.*
 
 ---
 
-## Detailed Calendar (12 Weeks)
+## VII. Deepening Knowledge & Next Steps
 
-```
-WEEK 1: BASELINE ASSESSMENT & STUDY ORIENTATION
-- Performance Benchmarking: Schedule laboratory or field tests (VO2 max, lactate threshold, sprint timing) early in the week; document individual baselines.
-- Biomechanical Video Analysis: Arrange slow-motion video sessions using mobile or dedicated cameras—analyze joint angles and gait for preliminary feedback.
-- Resource Familiarization: Create or update accounts for PubMed, ResearchGate, and Google Scholar; download their mobile apps if available.
-- Literature Search Foundations: Complete at least two tutorials on advanced searching (Boolean logic, filters, citations) for each database; practice searches in running science and human performance.
-- Build Reference Library: Install and configure citation managers (Zotero, Mendeley). Begin collecting baseline/foundational articles and organize them into key topic folders.
+### A. Overview of Deep Learning Libraries
 
-WEEK 2: FOUNDATIONAL PHYSIOLOGY & BIOMECHANICS
-- Energy Systems Overview: Read 'Understanding energy systems training' and summarize aerobic vs. anaerobic contributions to distance running.
-- Muscle Fiber Recruitment: Read abstracts and key sections of relevant paper; relate to energy system functioning.
-- Basic Biomechanics: Consume entry-level content on biomechanics, focusing on stride mechanics and injury avoidance.
-- Journal Club: Initiate small group or virtual discussions, centering on the above readings and their coaching or training implications. Use Science for Sport and ACSM for key position statements and relevant infographics.
+1. Watch or read introductory tutorials on TensorFlow and PyTorch.
+2. Install a library and rerun a simple network using provided high-level APIs.
 
-WEEK 3: ADVANCED LITERATURE REVIEW & REFERENCE MANAGEMENT
-- Systematic Review: Craft and execute structured search strings in PubMed and Google Scholar targeting meta-analyses and systematic reviews in running performance and biomechanics.
-- Curate Collected Literature: Categorize discovered articles within your reference manager. Assign tags/notes: training, biomechanics, interventions, technology, reviews.
-- Alerts: Set up journal alerts for Medicine & Science in Sports & Exercise and International Journal of Sports Physiology and Performance.
-- Biomechanics Deep Read: Work through 'Cutting-Edge Research in Sports Biomechanics' and develop a 1-page summary of the most relevant innovations and their potential impact.
-- Activity: Develop 3-5 standardized article summary templates and fill them in across database topics.
+### B. Brief Introduction to Advanced Architectures
 
-WEEK 4: INTERMEDIATE TO ADVANCED BIOMECHANICS
-- Gait Mechanics: Allocate intensive reading/viewing time for gait cycle basics, phase timing, and their assessment via lab and field methods.
-- 3D Motion & Pressure Mapping: Review lecture/tutorial material or interactive resources for interpreting motion capture and foot pressure data.
-- Biomechanical Modeling: Read through 'Machine Learning Applications in Spine Biomechanics' to understand principles of modeling and relate findings to running economy and injury prevention.
-- Practical: Download OpenSim or use browser-based biomechanics tools to simulate simple running models. Record findings in study journal.
+1. Get high-level exposure to Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs): concepts, applications.
 
-WEEK 5: INTERVENTION & TRAINING METHODOLOGY EVALUATION
-- Review Evidence: Read summaries/RCTs on HIIT, plyometrics, resistance training, and periodization from your reference library and recent meta-analyses.
-- Compare Efficacy: Make a comparison chart summarizing outcomes and statistical significance for each intervention type.
-- Pilot Design: Draft a simple experimental protocol (pre/post, RCT, or crossover) for a pilot training study; justify intervention choice based on literature.
-- Debate: Organize a journal club or online meeting to debate efficacy and limitations of studied interventions, using the RCT review.
-- Application: Design a 4–6 week training block integrating evidence-based interventions for a target athlete profile.
+### C. Community & Continued Learning
 
-WEEK 6: TECHNOLOGY INTEGRATION IN RUNNING RESEARCH
-- Wearable Technologies Overview: Read core reviews for hardware/software basics in athlete monitoring.
-- Validation Techniques: Digest systematic review on gait analysis tech—list out strengths/weaknesses of accelerometers, IMUs, insoles, etc.
-- Hands-On: Borrow or use available wearable sensors; collect simple gait or speed data. Analyze for reliability and key performance indicators.
-- Recent Advances: Skim recent advances in wearable sensor tech for rehab/motion analysis.
-- Pilot Data Collection: Begin collecting pilot field/lab data that will be used for later analysis.
+1. Join and participate in forums/communities: [AI Stack Exchange](https://ai.stackexchange.com/), [Reddit r/MachineLearning](https://www.reddit.com/r/MachineLearning/), [Kaggle](https://www.kaggle.com/).
+2. Seek mentorship, feedback, and collaboration on open projects.
+3. Track new trends by subscribing to relevant newsletters (The Batch, Import AI).
 
-WEEK 7: PREDICTIVE MODELING & MACHINE LEARNING APPLICATIONS
-- Introductory Tutorials: Follow an online tutorial on basics of predictive analytics (target: regression, clustering) in sports science data.
-- ML Methods Deep Dive: Read 'Gaussian Function On Response Surface Estimation', summarize application potential in running performance individualization.
-- Hands-On Practice: Use a small running dataset (real or simulated) to build a basic regression/prediction model in Python, R, or Excel.
-- Study Peer Exchange: Share models/findings with peers via code repositories or online forums.
+### D. Building a Portfolio
 
-WEEK 8: TRANSLATIONAL APPLICATION & EFFECTIVE COMMUNICATION
-- Knowledge Translation: Draft short, actionable guides/checklists for coaches and athletes—base these on reviewed literature and consensus recommendations.
-- Visualization: Design infographics and summary tables using software like Canva or Google Slides.
-- Communication Workshop: Run a presentation/workshop aimed at translating technical findings for practical use. Solicit feedback.
-- Consensus Mapping: Collate and summarize best practice statements from ACSM, Science for Sport, and key review articles.
+1. Publish code and project summaries on GitHub with clear READMEs.
+2. Start documenting your journey in a blog, Twitter thread, or digital journal.
+3. Aim for 2–3 demonstrable projects by this stage.
 
-WEEK 9: EXPERIMENTAL PROTOCOL DESIGN & RESEARCH ETHICS
-- Protocol Drafting: Write a detailed RCT or crossover study protocol including objectives, blinding, controls, and endpoints.
-- Peer Review: Circulate protocol draft to advisors or peers; collect critique/feedback.
-- IRB Simulation: Prepare an IRB application or complete an online ethics module; focus on bias identification, informed consent, and data security.
-- Bias Identification: Develop a table contrasting common sources of bias across methodologies and strategies to address them.
-
-WEEK 10: DATA ANALYSIS MASTERY & VISUALIZATION
-- Statistical Deepening: Study applications of mixed-effects models and machine learning workflows within sports science.
-- Visualization: Create publishable-quality graphs/figures from either your collected or provided datasets (use R, Python matplotlib/seaborn, or Excel).
-- Data Clinic: Organize or join a real-time data analysis session with colleagues; present visualizations for critique and improvement.
-- Peer Feedback: Share analyses on trusted platforms for code review and troubleshooting.
-
-WEEKS 11–12: NETWORKING, REFLECTION, AND CONTINUOUS IMPROVEMENT
-- Virtual Conferences: Attend a live or recorded session from ACSM, ISB, or a Science for Sport webinar; take detailed learning notes and network with presenters via chat or follow-up email.
-- Forums and Panels: Participate in online expert panels or pose questions on topical sports science forums.
-- Program Review: Conduct or contribute to a group debrief—highlight successes, challenges, and unresolved questions or learning needs.
-- Reference Library & Plan Update: Refresh and organize your citation library; document ongoing learning priorities and skills gaps for the next quarter.
-```
+**Paper Reference:**
+- [Tensor Programs I: Wide Feedforward or Recurrent Neural Networks of Any Architecture are Gaussian Processes, Greg Yang (2019)](http://arxiv.org/abs/1910.12478v3)  
+  *On the theoretical links between modern neural network architectures and Gaussian processes.*
 
 ---
 
-### Notes
-- All resources are peer-reviewed, or from official repositories (.edu, .gov, .org) and trusted scientific portals.
-- The plan is modular; each week or section can be adapted based on ongoing discoveries and needs.
-- For troubleshooting data analysis or experimental design issues, leverage online communities like Stack Overflow and Cross Validated.
-- Revisit journal and database alerts regularly to stay updated on the latest research.
+## VIII. Review & Assessment
+
+### A. Self-Assessment
+
+1. Take quizzes and answer flashcards on neural network concepts:
+   - [Coursera – Neural Networks and Deep Learning Quizzes](https://www.coursera.org/learn/neural-networks-deep-learning)
+   - [Quizlet – Neural Networks Flashcards](https://quizlet.com/subject/neural-networks/)
+2. Request a peer review of your code: use GitHub’s pull request and discussion features.
+
+### B. Setting Future Learning Goals
+
+1. Identify gaps or concepts needing reinforcement.
+2. Plan your transition to using frameworks; pick a next project (image recognition, natural language processing, etc.).
+3. Prepare a roadmap for more advanced architectures and larger datasets.
+
+---
+
+## Web Resources
+
+- **Python Tutorials:**  
+  [The Python Tutorial](https://docs.python.org/3/tutorial/)  
+  [Python For Beginners](https://www.python.org/about/gettingstarted/)  
+  [Learn Python (Interactive)](https://www.learnpython.org/)
+- **Math:**  
+  [Khan Academy (Math)](https://www.khanacademy.org/)  
+  [MIT Calculus](https://ocw.mit.edu/courses/res-18-001-calculus-fall-2023/pages/textbook/)
+- **Libraries:**  
+  [NumPy Documentation](https://numpy.org/doc/)  
+  [Matplotlib Tutorials](https://matplotlib.org/stable/tutorials/)
+- **Coding Challenge:**  
+  [LeetCode Easy](https://leetcode.com/problemset/all/?difficulty=EASY)  
+  [HackerRank Python](https://www.hackerrank.com/domains/tutorials/10-days-of-python)
+- **Courses & Deep Learning:**  
+  [Coursera: Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning)  
+  [Neural Networks from Scratch in Python (YouTube)](https://www.youtube.com/playlist?list=PLZyvi_9gamL-EE3zQJbU5N6gG8qOYV4dF)  
+  [fast.ai Practical DL for Coders](https://course.fast.ai/)
+- **Version Control:**  
+  [GitHub Guides](https://guides.github.com/activities/hello-world/)  
+  [Git and GitHub learning resources](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources)
+- **Community:**  
+  [AI Stack Exchange](https://ai.stackexchange.com/)  
+  [Reddit r/MachineLearning](https://www.reddit.com/r/MachineLearning/)  
+  [Kaggle](https://www.kaggle.com/)
+
+---
+
+## Paper References
+
+- McCulloch & Pitts, *A Logical Calculus of the Ideas Immanent in Nervous Activity* (1943)
+- Rumelhart, Hinton, Williams, *Learning representations by back-propagating errors* (1986)
+- LeCun, Bengio, Hinton, *Deep learning* (Nature, 2015)
+- [Neural Networks and Deep Learning, Michael Nielsen (Free Book)](http://neuralnetworksanddeeplearning.com/)
+- Pattern Recognition and Machine Learning, Christopher Bishop
+- [Laurent Younes, *Introduction to Machine Learning* (2024)](http://arxiv.org/abs/2409.02668v2)
+- [Fangyu Zou et al., *A Sufficient Condition for Convergences of Adam and RMSProp* (2018)](http://arxiv.org/abs/1811.09358v3)
+- [Greg Yang, *Tensor Programs I: Wide Feedforward or Recurrent Neural Networks...* (2019)](http://arxiv.org/abs/1910.12478v3)
+- [Yiwen Kou et al., *Benign Overfitting for Two-layer ReLU Convolutional Neural Networks* (2023)](http://arxiv.org/abs/2303.04145v2)
+- [Abraham J. Fetterman et al., *Tune As You Scale: Hyperparameter Optimization For Compute Efficient Training* (2023)](http://arxiv.org/abs/2306.08055v1)
+
+---
+
+## Calendar: 12-Week Detailed Schedule
+
+### WEEK 1: Introduction to AI Engineering & Python Basics
+
+- Understand the AI Engineering role, daily tasks, neural network applications, and history.
+- Set up Python, Jupyter, Git, GitHub, NumPy, Matplotlib.
+- Read through The Python Tutorial (basics: syntax, variables, control flow).
+- Practice: 'Hello World', if/else, for-loops, lists/dictionaries; commit to GitHub.
+
+### WEEK 2: Math Foundations for Neural Networks – Linear Algebra & Calculus
+
+- Master vectors, matrices, derivatives, gradients, chain rule.
+- Visualize operations with NumPy/Matplotlib.
+- Complete Khan Academy modules and MIT Calculus examples.
+- Code dot products, matrix multiplication, plot derivatives.
+
+### WEEK 3: Python Deep Dive & GitHub Practice
+
+- Strengthen Python with functions, OOP, file I/O.
+- Practice beginner Python problems (LeetCode/HackerRank).
+- Hands-on with Git branch, commit, pull requests.
+- Document everything in your repo.
+
+### WEEK 4: Probability & Statistics for Neural Networks; Data Handling
+
+- Khan Academy Probability/Statistics: mean, median, variance.
+- Generate random numbers, build histograms, normalize data with NumPy/Python.
+- Download and clean a toy dataset.
+
+### WEEK 5: Core Neural Network Concepts – Building Blocks
+
+- Learn neuron, weights, biases, activation functions (sigmoid, tanh, ReLU).
+- Read Nielsen's NN intro, watch Sentdex playlist.
+- Implement single neuron and feedforward.
+- Document understanding with plots, code.
+
+### WEEK 6: Training Neural Networks
+
+- Learn about loss functions (MSE, cross-entropy).
+- Hand-code gradient descent, visualize loss over epochs.
+- Reference: Coursera NN course, Nielsen book, Younes.
+
+### WEEK 7: Build a Neural Network from Scratch
+
+- Implement a single-layer perceptron; extend to MLP.
+- Study and hand-code backpropagation.
+- Test on toy data; plot results; document.
+
+### WEEK 8: Experimentation, Debugging & Monitoring
+
+- Plot loss curves, experiment with learning rates, hidden sizes, activations.
+- Document hyperparameter experiments; write a notebook lab report.
+
+### WEEK 9: Simple Applications & Mini-Projects
+
+- Build and apply NN to Iris/MNIST (or similar).
+- Document complete end-to-end workflow, publish code and summary.
+
+### WEEK 10: Modern Frameworks & Advanced Architectures
+
+- Try PyTorch/TensorFlow; run MNIST/CIFAR sample.
+- Intro to CNN/RNN; read paper: Tensor Programs I (Greg Yang).
+- Write comparative note: raw code vs. framework.
+
+### WEEK 11: Community & Portfolio
+
+- Join AI/ML forums; polish and publish 2–3 GitHub projects.
+- Start a blog or GitHub Page; post your journey and projects.
+
+### WEEK 12: Review, Assessment & Next Steps
+
+- Take Coursera quizzes and Quizlet flashcards.
+- Get code review/peer feedback; read papers on generalization/optimization/architecture.
+- Outline your next learning milestones.
+
+---
+
+## Pro Tips
+
+- Use GitHub issues to track progress.
+- Frequently revisit/refactor your code and notes.
+- Engage with open-source code and notebooks.
+- Reflect in a digital journal or blog.
+- Ask for help in online forums if stuck; always try to explain what you’ve tried.
+
+---
+
+By following this plan and calendar, you will—within three months—achieve a solid programming, mathematical, and practical grounding well suited to entry-level neural network/AI engineering, with a visible project portfolio and connections to the AI community.
+
+---
+
+**Notes:**  
+- Always start with official documentation and respected online courses for foundational topics.  
+- Interactive media (YouTube, fast.ai) should be actively coded and experimented with, not passively watched.  
+- Use paper references for deep dives or conceptual challenges, and refer to the abstracts as needed for context or further reading.
 
 ---
 
