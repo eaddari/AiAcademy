@@ -377,7 +377,7 @@ def main():
     with header_col1:
         st.image("./frontend/pics/image-removebg-preview.png", width=120)
     with header_col2:
-        st.title("EY Junior Accelerator")
+        st.title("Junior Accelerator")
         st.markdown("### Your AI-Powered Learning Plan Generator")
     
     st.markdown("---")
@@ -404,7 +404,6 @@ def main():
                     mlflow.log_param("interface", "streamlit")
                     mlflow.log_param("user_input", user_input[:200] + "..." if len(user_input) > 200 else user_input)
                     
-                    st.markdown("###  Generation Progress")
                     progress_bar = st.progress(0)
                     status_text = st.empty()
                     
@@ -428,7 +427,7 @@ def main():
                     flow.kickoff()
                     
                     update_progress(1.0)
-                    update_status("Study plan generated successfully!")
+                    update_status("")
                     
                     total_workflow_time = time.time() - workflow_start_time
                     mlflow.log_metric("total_workflow_time", total_workflow_time)
@@ -452,43 +451,13 @@ def main():
                     mlflow.log_metric("total_token_count", total_token_count)
                     mlflow.log_metric("total_cost", total_cost)
 
-                    print(f"🎉 Workflow completed successfully in {total_workflow_time:.2f} seconds")
+                    print(f"Workflow completed successfully in {total_workflow_time:.2f} seconds")
                 
                 
                 # Display final result
                 if result and result.get("study_plan"):
                     st.success(" Your personalized study plan is ready!")
-                    
-                    # Display the final study plan
-                    st.markdown("Your Complete Study Plan")
-                        
-                    # Display additional sections in tabs
-                    tab1, tab2, tab3, tab4 = st.tabs([" Web Resources", " Academic Papers", " Learning Plan", " Calendar"])
-
-                    with tab1:
-                        if result.get("resources"):
-                            st.markdown(result["resources"])
-                        else:
-                            st.info("No web resources found.")
-                            
-                    with tab2:
-                        if result.get("papers"):
-                            st.markdown(result["papers"])
-                        else:
-                            st.info("No academic papers found.")
-                            
-                    with tab3:
-                        if result.get("plan"):
-                            st.markdown(result["plan"])
-                        else:
-                            st.info("No detailed plan available.")
-                            
-                    with tab4:
-                        if result.get("calendar"):
-                            st.markdown(result["calendar"])
-                        else:
-                            st.info("No calendar available.")
-                            
+                       
                     st.markdown("---")
                     col1, col2, col3, col4 = st.columns(4)
                     
