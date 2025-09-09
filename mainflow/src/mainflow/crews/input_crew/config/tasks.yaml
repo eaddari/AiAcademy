@@ -43,12 +43,13 @@ validate_security:
       Perform security validation on the user input to detect potential threats, considering {check_academic_ethics.output}.
       
       Screen for:
-      1. Injection attempts (SQL, command injection, etc.)
-      2. Social engineering patterns
-      3. Attempts to access unauthorized information
-      4. Malicious URLs or suspicious links
-      5. Data exfiltration attempts
-      6. System exploitation attempts
+      1. Personal data (Names, Addresses, Personal information)
+      2. Injection attempts (SQL, command injection, etc.)
+      3. Social engineering patterns
+      4. Attempts to access unauthorized information
+      5. Malicious URLs or suspicious links
+      6. Data exfiltration attempts
+      7. System exploitation attempts
       
       Input to analyze: "{check_academic_ethics.output}"
   expected_output: >
@@ -92,31 +93,35 @@ individuate_goals:
         Based on the validated input Extract the user's specific learning goal.
         Input to consider: "{input_sanitizer.output}"
     expected_output: >
-        A string outlining the user's specific learning goal, like: "Learn Python programming", "Understand machine learning concepts", "Improve data analysis skills"
+        A string outlining the user's specific learning goal, like: "Learn Python programming", "Understand machine learning concepts", "Improve data analysis skills" or other generic tasks explicitly stated.
+        If no learning goal is provided, infer from the current knowledge level and job role.
     agent: goals_identifier
 
 final_validation:
   description: >
-      Compile all validation results and provide a final recommendation.
+        Compile all validation results and provide a final recommendation.
       
-      Consider results from:
-      1. Academic ethics evaluation {check_academic_ethics.output}
-      2. Security validation {validate_security.output}
+        Consider results from:
+        1. Academic ethics evaluation {check_academic_ethics.output}
+        2. Security validation {validate_security.output}
         3. Sanitized input {sanitize_input.output}
         4. Individuated role {individuate_role.output}
         5. Individuated knowledge level {individuate_knowledge.output}
+        6. Individuated learning goals {individuate_goals.output}
 
-      Provide a comprehensive final decision on whether the input should be
-      processed for academic research purposes.
+        Provide a comprehensive final decision on whether the input should be
+        processed for academic research purposes.
   expected_output: >
-      if {validate_security.output} is "Safe" and {check_academic_ethics.output} is "Approved":
-        {
-            "role": "{individuate_role.output}",
-            "current_knowledge_level": "{individuate_knowledge.output}",
-            "learning_goals": "{individuate_goals.output}"
-        }
-        else:
-        return "error"
+        Absolutely include role, current knowledge and learning goals.
+        Don't change or assume anything not explicitly provided by the other agents.
+        if {validate_security.output} is "Safe" and {check_academic_ethics.output} is "Approved":
+            {
+                "role": "{individuate_role.output}",
+                "current_knowledge_level": "{individuate_knowledge.output}",
+                "learning_goals": "{individuate_goals.output}"
+            }
+            else:
+            return "error"
 
   agent: final_validator
   context:
@@ -125,3 +130,4 @@ final_validation:
     - sanitize_input
     - individuate_role
     - individuate_knowledge
+    - individuate_goals

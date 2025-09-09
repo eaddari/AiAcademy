@@ -247,6 +247,20 @@ class InputValidationCrew:
         )
     
     @task
+    def individuate_goals(self) -> Task:
+        """
+        Create a goals identification task.
+
+        Returns
+        -------
+        Task
+            A task configured to identify user goals
+        """
+        return Task(
+            config=self.tasks_config["individuate_goals"],
+        )
+    
+    @task
     def final_validation(self) -> Task:
         """
         Create a final validation task.

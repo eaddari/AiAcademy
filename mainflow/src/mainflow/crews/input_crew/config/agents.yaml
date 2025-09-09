@@ -60,7 +60,7 @@ security_validator:
   goal: >
     Assess user input for potential security risks, malicious content,
     or attempts to exploit the system. Detect and flag any suspicious
-    patterns or potentially harmful requests.
+    patterns or potentially harmful requests. Detect also any private information such as names, addresses, phone numbers, emails, etc.
   backstory: >
     You're a cybersecurity expert with extensive experience in threat detection
     and system protection. You specialize in identifying potential attack vectors,

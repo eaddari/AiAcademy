@@ -22,7 +22,7 @@ from mainflow.crews.web_crew.crew_new import WebCrew
 from mainflow.crews.paper_crew.paper_crew import PaperCrew
 from mainflow.crews.study_plan_crew.crew import FinalStudyPlanCrew
 from mainflow.crews.calendar_crew.crew import CalendarCrew
-from crewai.flow import Flow as CrewAIFlow, listen, start
+from crewai.flow import Flow as CrewAIFlow, listen, start, router
 
 @scorer
 def evaluate_search_quality(inputs, outputs):
@@ -202,7 +202,15 @@ class StreamlitFlow(CrewAIFlow[State]):
         print(crew_output.raw)
         self.state.user_info = crew_output.raw
 
-    @listen(sanitize_input)
+    @router(sanitize_input)
+    def routing(self):
+        if "error" in self.state.user_info.lower():
+            #return "insert_topic"
+            return "insert_topic"
+        else:
+            return "plan_generate"
+
+    @listen("plan_generate")
     def generate_plan(self):
         if self.status_callback:
             self.status_callback("Generating study plan outline...")
@@ -325,8 +333,8 @@ def main():
     
     # Page configuration
     st.set_page_config(
-        page_title="EY Junior Accelerator",
-        page_icon=" ",
+        page_title="Junior Accelerator",
+        page_icon="",
         layout="wide",
         initial_sidebar_state="collapsed"
     )
@@ -452,8 +460,7 @@ def main():
                     st.success(" Your personalized study plan is ready!")
                     
                     # Display the final study plan
-                    st.markdown("###Your Complete Study Plan")
-                    st.markdown(result["study_plan"])
+                    st.markdown("Your Complete Study Plan")
                         
                     # Display additional sections in tabs
                     tab1, tab2, tab3, tab4 = st.tabs([" Web Resources", " Academic Papers", " Learning Plan", " Calendar"])
